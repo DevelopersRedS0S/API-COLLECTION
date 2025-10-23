@@ -4527,18 +4527,6 @@
 					],
 					"id": "49502594-6b3d3b91-649b-48ac-9fa1-d9486468d742",
 					"description": "Seccion central y estrategica dentro del portal de productores diseñado para la gestion y el registro de la comercializacion de asistencias."
-				},
-				{
-					"name": "New Request",
-					"id": "49502594-e0a83dfc-e64d-4202-b7ea-f6c5f03216cd",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
 				}
 			],
 			"id": "49502594-12bf20be-bcce-4da2-a4f9-86f4cebcb47e",
