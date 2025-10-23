@@ -1,0 +1,3767 @@
+{
+	"info": {
+		"_postman_id": "49502594-2ae2041d-82a3-4b4f-a2e3-63c9038f0d15",
+		"name": "RETAIL",
+		"description": "Sistema que cuenta con dos APIs:\n\n- Api Gestion: Api dedicada a alimentar de datos al portal de Retail.\n    \n- Api Integración: Api mas limitada, dedicada a brindar servicios a las integraciones externas de Retail.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API Gestión",
+			"item": [
+				{
+					"name": "Alícuotas",
+					"item": [
+						{
+							"name": "/alicuotas/lista",
+							"id": "49502594-858ade55-2ce9-4845-89c0-bc852534296d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/alicuotas/lista",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"alicuotas",
+										"lista"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/alicuotas/lista' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-d6ed544d-1197-4523-b79d-03fa9af68fda"
+				},
+				{
+					"name": "Archivos",
+					"item": [
+						{
+							"name": "/archivos?applicationNumber=",
+							"id": "49502594-3e90c0ba-b283-4f77-8877-3b280056baed",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "files",
+											"contentType": "text/plain",
+											"description": "Se pueden agregar tantos archivos como requiera",
+											"type": "file",
+											"value": null
+										},
+										{
+											"key": "files",
+											"contentType": "text/plain",
+											"type": "file",
+											"value": null
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/archivos?applicationNumber=",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"archivos"
+									],
+									"query": [
+										{
+											"key": "applicationNumber",
+											"value": "",
+											"description": "Identificador de aplicación"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/archivos?applicationNumber=1' \\\r\n  -H 'accept: text/plain' \\\r\n  -H 'Content-Type: multipart/form-data' \\\r\n  -F 'files=@10 contratos - copia (2) - copia.txt;type=text/plain' \\\r\n  -F 'files=@10 contratos - copia (2).txt;type=text/plain'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-0612f367-2f63-4241-a7fc-1bc7d7fe4315"
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "/Auth",
+							"id": "49502594-794c4c14-435a-4c09-b145-c48d9c584ec6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Username\": \"string\",\r\n  \"Password\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/Auth",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"Auth"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/Auth' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"Username\": \"string\",\r\n  \"Password\": \"string\"\r\n}'"
+							},
+							"response": [
+								{
+									"id": "49502594-40c3274d-f8c5-44a9-b507-018c8c955e2c",
+									"name": "ADMINCOMERCIAL",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"Username\": \"ADMINCOMERCIAL\",\r\n  \"Password\": \"Admincome123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlRetailGestion}}/Auth",
+											"host": [
+												"{{BaseUrlRetailGestion}}"
+											],
+											"path": [
+												"Auth"
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "49502594-6718b051-19ac-4e8b-820a-93d456a4cb60",
+									"name": "VENDEDORSOS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"Username\": \"VENDEDORSOS\",\r\n  \"Password\": \"VendSos123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlRetailGestion}}/Auth",
+											"host": [
+												"{{BaseUrlRetailGestion}}"
+											],
+											"path": [
+												"Auth"
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "49502594-6c22bf39-22b2-4bba-bff0-a5d27c96afc1",
+									"name": "ADMINIT",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"Username\": \"ADMINIT\",\r\n  \"Password\": \"Adminit123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlRetailGestion}}/Auth",
+											"host": [
+												"{{BaseUrlRetailGestion}}"
+											],
+											"path": [
+												"Auth"
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/Auth",
+							"id": "49502594-77d1895f-340f-43ef-8b30-1a281baf146f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "2147483647",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/Auth",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"Auth"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'PATCH' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/Auth' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '2147483647'"
+							},
+							"response": []
+						},
+						{
+							"name": "/Auth",
+							"id": "49502594-5613df62-0b1b-45a1-8807-5781402c8659",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ActualPassword\": \"string\",\r\n  \"NewPassword\": \"string\",\r\n  \"ConfirmNewPassword\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://retailgestion-api-qa.redsos.com.ar/Auth",
+									"protocol": "https",
+									"host": [
+										"retailgestion-api-qa",
+										"redsos",
+										"com",
+										"ar"
+									],
+									"path": [
+										"Auth"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'PUT' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/Auth' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"ActualPassword\": \"string\",\r\n  \"NewPassword\": \"string\",\r\n  \"ConfirmNewPassword\": \"string\"\r\n}'"
+							},
+							"response": []
+						},
+						{
+							"name": "/Auth/me",
+							"id": "49502594-566ae2e1-eb10-48fd-9229-60292d21d311",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/Auth/me",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"Auth",
+										"me"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/Auth/me' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-20c165ec-c8bd-44a1-888b-4811d0a5c734"
+				},
+				{
+					"name": "Canal de Ventas",
+					"item": [
+						{
+							"name": "/canal-ventas/companias/lista?companiaId=1&pagina=1&cantidadPorPagina=21",
+							"id": "49502594-2e6c1ceb-9ef1-47b1-a72e-2ac0fd1e5353",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/canal-ventas/companias/lista?companiaId=&pagina=1&cantidadPorPagina=21",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"canal-ventas",
+										"companias",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "companiaId",
+											"value": "",
+											"description": "Identificado de compañía"
+										},
+										{
+											"key": "pagina",
+											"value": "1",
+											"description": "Número de página"
+										},
+										{
+											"key": "cantidadPorPagina",
+											"value": "21",
+											"description": "Cantidad de registros por página"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/canal-ventas/companias/lista?companiaId=1&pagina=1&cantidadPorPagina=21' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						},
+						{
+							"name": "/canal-ventas/:idCanalDeVenta",
+							"id": "49502594-7878ac1d-856d-46cf-97f0-cb83380cbc9a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/canal-ventas/:idCanalDeVenta",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"canal-ventas",
+										":idCanalDeVenta"
+									],
+									"variable": [
+										{
+											"id": "bbf2251e-9041-4bdf-b021-21094e7519ff",
+											"key": "idCanalDeVenta",
+											"value": "",
+											"description": "Identificador de canal de venta"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'DELETE' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/canal-ventas/1' \\\r\n  -H 'accept: */*'"
+							},
+							"response": []
+						},
+						{
+							"name": "/canal-ventas/:idCanalVenta/companias/:IdCompania",
+							"id": "49502594-08ab2315-71b3-4379-af00-3ad01dee2155",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"canalVentaExternoId\": 0,\r\n  \"codigoCanalVentaSap\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/canal-ventas/:idCanalVenta/companias/:IdCompania",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"canal-ventas",
+										":idCanalVenta",
+										"companias",
+										":IdCompania"
+									],
+									"variable": [
+										{
+											"id": "99e0396f-c996-4aa9-a4d2-24be1e9e2bc0",
+											"key": "idCanalVenta",
+											"value": "",
+											"description": "Identificador de canal de venta"
+										},
+										{
+											"id": "17093f5f-d8b6-4c81-921b-3d990af5e7be",
+											"key": "IdCompania",
+											"value": "",
+											"description": "Identificador de compañía"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/canal-ventas/1/companias/1' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"canalVentaExternoId\": 0,\r\n  \"codigoCanalVentaSap\": \"string\"\r\n}'"
+							},
+							"response": []
+						},
+						{
+							"name": "/canal-ventas/companias/1/lista?salesChannelAssigned=0",
+							"id": "49502594-0db31761-6435-45fd-a388-25f9704df675",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/canal-ventas/companias/:idCompania/lista?salesChannelAssigned=",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"canal-ventas",
+										"companias",
+										":idCompania",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "salesChannelAssigned",
+											"value": ""
+										}
+									],
+									"variable": [
+										{
+											"id": "40f27239-cb33-4a8e-bc81-c8e4fae0b063",
+											"key": "idCompania",
+											"value": "",
+											"description": "Identificador de compañía"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/canal-ventas/companias/1/lista?salesChannelAssigned=0' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						},
+						{
+							"name": "/canal-ventas/:idCanalDeVenta",
+							"id": "49502594-de172ccc-cb4e-4476-be3b-42cb1ecf6199",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/canal-ventas/:idCanalDeVenta",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"canal-ventas",
+										":idCanalDeVenta"
+									],
+									"variable": [
+										{
+											"id": "141dce1a-2de6-4c21-a90b-e5f35a316fe5",
+											"key": "idCanalDeVenta",
+											"value": "",
+											"description": "Identificador de canal de venta"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/canal-ventas/1' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						},
+						{
+							"name": "/canal-ventas/:idCanalDeVenta/update",
+							"id": "49502594-54474b9e-9dd9-4cc0-b295-2091f9fcdd9f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"canalVentaExternoId\": 0,\r\n  \"codigoCanalVentaSap\": \"string\",\r\n  \"companiaId\": 0,\r\n  \"canalDeVentaId\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/canal-ventas/:idCanalDeVenta/update",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"canal-ventas",
+										":idCanalDeVenta",
+										"update"
+									],
+									"variable": [
+										{
+											"id": "1644585e-3a1a-49b3-8ccd-f9c1511ee968",
+											"key": "idCanalDeVenta",
+											"value": "",
+											"description": "Identificador de canal de venta"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'PUT' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/canal-ventas/1/update' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"canalVentaExternoId\": 0,\r\n  \"codigoCanalVentaSap\": \"string\",\r\n  \"companiaId\": 0,\r\n  \"canalDeVentaId\": 0\r\n}'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-e7a0c028-c9bd-42b4-8ea6-83f13931aa24"
+				},
+				{
+					"name": "Contratos",
+					"item": [
+						{
+							"name": "/contratos/productos/:idProducto",
+							"id": "49502594-826c8fa5-952c-49a6-bb46-15d53a7aad9e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"cliente\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"apellido\": \"string\",\r\n    \"razonSocial\": \"string\",\r\n    \"esEmpresa\": 0,\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-24T13:57:47.044Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647\r\n  },\r\n  \"factura\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"razonSocial\": \"string\",\r\n    \"apellido\": \"string\",\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-24T13:57:47.044Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647,\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"situacionFiscal\": 2147483647,\r\n    \"esEmpresa\": 0\r\n  },\r\n  \"metodoDePago\": {\r\n    \"medioPagoId\": 2147483647,\r\n    \"numeroTarjeta\": \"string\",\r\n    \"cbu\": \"string\"\r\n  },\r\n  \"canalDeVentaId\": 0,\r\n  \"canalDeVentaExternoId\": 0,\r\n  \"categoriaId\": 0,\r\n  \"ventaId\": 0,\r\n  \"primeraCuotaPaga\": true,\r\n  \"fechaVenta\": \"2025-09-24T13:57:47.044Z\",\r\n  \"reactivada\": true,\r\n  \"montoFacturado\": 0,\r\n  \"enviarMailConfirmacion\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/contratos/productos/:idProducto",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"contratos",
+										"productos",
+										":idProducto"
+									],
+									"variable": [
+										{
+											"id": "3f516ee4-5aa1-4280-85c1-9681ceac694c",
+											"key": "idProducto",
+											"value": "",
+											"description": "Identificador de producto"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/contratos/productos/1' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"cliente\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"apellido\": \"string\",\r\n    \"razonSocial\": \"string\",\r\n    \"esEmpresa\": 0,\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-24T13:57:47.044Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647\r\n  },\r\n  \"factura\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"razonSocial\": \"string\",\r\n    \"apellido\": \"string\",\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-24T13:57:47.044Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647,\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"situacionFiscal\": 2147483647,\r\n    \"esEmpresa\": 0\r\n  },\r\n  \"metodoDePago\": {\r\n    \"medioPagoId\": 2147483647,\r\n    \"numeroTarjeta\": \"string\",\r\n    \"cbu\": \"string\"\r\n  },\r\n  \"canalDeVentaId\": 0,\r\n  \"canalDeVentaExternoId\": 0,\r\n  \"categoriaId\": 0,\r\n  \"ventaId\": 0,\r\n  \"primeraCuotaPaga\": true,\r\n  \"fechaVenta\": \"2025-09-24T13:57:47.044Z\",\r\n  \"reactivada\": true,\r\n  \"montoFacturado\": 0,\r\n  \"enviarMailConfirmacion\": true\r\n}'"
+							},
+							"response": [
+								{
+									"id": "49502594-9108fe8c-5629-4672-942b-bdeb30142de4",
+									"name": "Banco Santander Rio SA",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"cliente\": {\r\n        \"tipoDocumentoId\": 96,\r\n        \"numeroDocumento\": 50785369,\r\n        \"apellido\": \"Perez\",\r\n        \"nombre\": \"Juan\",\r\n        \"razonSocial\": null,\r\n        \"esEmpresa\": 0,\r\n        \"fechaNacimiento\": \"1997-06-10\",\r\n        \"localidadId\": 17713,\r\n        \"direccion\": \"LETICIA 1090\",\r\n        \"numeroDireccion\": 1,\r\n        \"telefonoMovil\": 111526361934,\r\n        \"telefonoAlternativo\": null,\r\n        \"email\": \"n0tiene@notiene.com\",\r\n        \"departamento\": \"1\"\r\n    },\r\n    \"metodoDePago\": {\r\n        \"medioPagoId\": 35\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlRetailGestion}}/contratos/productos/:idProducto",
+											"host": [
+												"{{BaseUrlRetailGestion}}"
+											],
+											"path": [
+												"contratos",
+												"productos",
+												":idProducto"
+											],
+											"variable": [
+												{
+													"key": "idProducto",
+													"value": "484",
+													"description": "Identificador de producto"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/contratos/cotizaciones/:idCotizacion/productos/:idProducto",
+							"id": "49502594-102fc518-29a0-4651-b923-15f60bc9c276",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"cliente\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"apellido\": \"string\",\r\n    \"razonSocial\": \"string\",\r\n    \"esEmpresa\": 0,\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-24T14:08:10.576Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647\r\n  },\r\n  \"factura\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"razonSocial\": \"string\",\r\n    \"apellido\": \"string\",\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-24T14:08:10.576Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647,\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"situacionFiscal\": 2147483647,\r\n    \"esEmpresa\": 0\r\n  },\r\n  \"metodoDePago\": {\r\n    \"medioPagoId\": 2147483647,\r\n    \"numeroTarjeta\": \"string\",\r\n    \"cbu\": \"string\"\r\n  },\r\n  \"canalDeVentaId\": 0,\r\n  \"canalDeVentaExternoId\": 0,\r\n  \"categoriaId\": 0,\r\n  \"ventaId\": 0,\r\n  \"primeraCuotaPaga\": true,\r\n  \"fechaVenta\": \"2025-09-24T14:08:10.576Z\",\r\n  \"reactivada\": true,\r\n  \"montoFacturado\": 0,\r\n  \"enviarMailConfirmacion\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/contratos/cotizaciones/:idCotizacion/productos/:idProducto",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"contratos",
+										"cotizaciones",
+										":idCotizacion",
+										"productos",
+										":idProducto"
+									],
+									"variable": [
+										{
+											"id": "e3429ebb-7d37-40f5-9e9b-58a3ad32b93e",
+											"key": "idCotizacion",
+											"value": "",
+											"description": "Identificado de cotizacion"
+										},
+										{
+											"id": "86450765-25d1-4530-adcc-ba15c774f672",
+											"key": "idProducto",
+											"value": "",
+											"description": "Identificador de producto"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/contratos/cotizaciones/1/productos/1' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"cliente\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"apellido\": \"string\",\r\n    \"razonSocial\": \"string\",\r\n    \"esEmpresa\": 0,\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-24T14:08:10.576Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647\r\n  },\r\n  \"factura\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"razonSocial\": \"string\",\r\n    \"apellido\": \"string\",\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-24T14:08:10.576Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647,\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"situacionFiscal\": 2147483647,\r\n    \"esEmpresa\": 0\r\n  },\r\n  \"metodoDePago\": {\r\n    \"medioPagoId\": 2147483647,\r\n    \"numeroTarjeta\": \"string\",\r\n    \"cbu\": \"string\"\r\n  },\r\n  \"canalDeVentaId\": 0,\r\n  \"canalDeVentaExternoId\": 0,\r\n  \"categoriaId\": 0,\r\n  \"ventaId\": 0,\r\n  \"primeraCuotaPaga\": true,\r\n  \"fechaVenta\": \"2025-09-24T14:08:10.576Z\",\r\n  \"reactivada\": true,\r\n  \"montoFacturado\": 0,\r\n  \"enviarMailConfirmacion\": true\r\n}'"
+							},
+							"response": []
+						},
+						{
+							"name": "/contratos/listado?pathArchivo=",
+							"id": "49502594-77128c85-5c2a-43ff-9ec0-0d6ac699c3cd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  {\r\n    \"productoId\": 0,\r\n    \"nombreProducto\": \"string\",\r\n    \"cliente\": {\r\n      \"tipoDocumentoId\": 0,\r\n      \"nombreTipoDocumento\": \"string\",\r\n      \"numeroDocumento\": 0,\r\n      \"apellido\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"fechaNacimiento\": \"2025-09-24T14:12:32.202Z\",\r\n      \"provinciaId\": 0,\r\n      \"nombreProvincia\": \"string\",\r\n      \"codigoPostal\": \"string\",\r\n      \"codigoPostalOriginal\": \"string\",\r\n      \"localidadId\": 0,\r\n      \"nombreLocalidad\": \"string\",\r\n      \"nombreLocalidadOriginal\": \"string\",\r\n      \"barrioOriginal\": \"string\",\r\n      \"direccion\": \"string\",\r\n      \"numeroDireccion\": 0,\r\n      \"telefonoMovil\": \"string\",\r\n      \"telefonoAlternativo\": 0,\r\n      \"email\": \"string\",\r\n      \"departamento\": \"string\",\r\n      \"departamentoPiso\": 0\r\n    },\r\n    \"metodoDePago\": {\r\n      \"medioPagoId\": 0,\r\n      \"nombreMedioPago\": \"string\",\r\n      \"numeroTarjeta\": \"string\",\r\n      \"cbu\": \"string\"\r\n    },\r\n    \"estado\": 0,\r\n    \"detalle\": \"string\",\r\n    \"canalDeVentaId\": 0,\r\n    \"nombreProductoCategoria\": \"string\",\r\n    \"productoCategoriaId\": 0,\r\n    \"canalDeVentaExternoId\": 0,\r\n    \"fechaContratoOriginal\": \"2025-09-24T14:12:32.202Z\"\r\n  }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/contratos/listado?pathArchivo=",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"contratos",
+										"listado"
+									],
+									"query": [
+										{
+											"key": "pathArchivo",
+											"value": ""
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/contratos/listado?pathArchivo=re' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '[\r\n  {\r\n    \"productoId\": 0,\r\n    \"nombreProducto\": \"string\",\r\n    \"cliente\": {\r\n      \"tipoDocumentoId\": 0,\r\n      \"nombreTipoDocumento\": \"string\",\r\n      \"numeroDocumento\": 0,\r\n      \"apellido\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"fechaNacimiento\": \"2025-09-24T14:12:32.202Z\",\r\n      \"provinciaId\": 0,\r\n      \"nombreProvincia\": \"string\",\r\n      \"codigoPostal\": \"string\",\r\n      \"codigoPostalOriginal\": \"string\",\r\n      \"localidadId\": 0,\r\n      \"nombreLocalidad\": \"string\",\r\n      \"nombreLocalidadOriginal\": \"string\",\r\n      \"barrioOriginal\": \"string\",\r\n      \"direccion\": \"string\",\r\n      \"numeroDireccion\": 0,\r\n      \"telefonoMovil\": \"string\",\r\n      \"telefonoAlternativo\": 0,\r\n      \"email\": \"string\",\r\n      \"departamento\": \"string\",\r\n      \"departamentoPiso\": 0\r\n    },\r\n    \"metodoDePago\": {\r\n      \"medioPagoId\": 0,\r\n      \"nombreMedioPago\": \"string\",\r\n      \"numeroTarjeta\": \"string\",\r\n      \"cbu\": \"string\"\r\n    },\r\n    \"estado\": 0,\r\n    \"detalle\": \"string\",\r\n    \"canalDeVentaId\": 0,\r\n    \"nombreProductoCategoria\": \"string\",\r\n    \"productoCategoriaId\": 0,\r\n    \"canalDeVentaExternoId\": 0,\r\n    \"fechaContratoOriginal\": \"2025-09-24T14:12:32.202Z\"\r\n  }\r\n]'"
+							},
+							"response": [
+								{
+									"id": "49502594-5f13a189-5888-4691-9e81-b953cf062a24",
+									"name": "/contratos/listado?pathArchivo=",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n    {\r\n        \"productoId\": 3341,\r\n        \"nombreProducto\": \"ASIHOGPLAN B\",\r\n        \"permitirRecompraProducto\": true,\r\n        \"productoCategoriaId\": 79,\r\n        \"nombreProductoCategoria\": \"PLAN B\",\r\n        \"canalDeVentaId\": 4,\r\n        \"nombreCanalDeVenta\": \"Canal Callcenter Externo\",\r\n        \"canalDeVentaExternoId\": 181,\r\n        \"cliente\": {\r\n            \"tipoDocumentoId\": 96,\r\n            \"nombreTipoDocumento\": \"DNI\",\r\n            \"numeroDocumento\": 29350380,\r\n            \"apellido\": \"CARDENAS\",\r\n            \"nombre\": \"ARIELA MARCIA\",\r\n            \"fechaNacimiento\": \"1973-05-24T00:00:00\",\r\n            \"provinciaId\": 21,\r\n            \"nombreProvincia\": \"SANTIAGO DEL ESTERO\",\r\n            \"codigoPostal\": \"4200\",\r\n            \"codigoPostalOriginal\": null,\r\n            \"localidadId\": 6429,\r\n            \"nombreLocalidad\": \"CONTRERAS (ESTABLECIMIENTO)\",\r\n            \"nombreLocalidadOriginal\": null,\r\n            \"barrioOriginal\": \"\",\r\n            \"direccion\": \"MANZANA 29 LOTE 6\",\r\n            \"numeroDireccion\": 0,\r\n            \"telefonoMovil\": \"000115555555555\",\r\n            \"telefonoAlternativo\": null,\r\n            \"email\": \"n0tiene@notiene.com\",\r\n            \"departamento\": null,\r\n            \"departamentoPiso\": null\r\n        },\r\n        \"metodoDePago\": {\r\n            \"medioPagoId\": 1,\r\n            \"nombreMedioPago\": \"Visa Crédito\",\r\n            \"numeroTarjeta\": \"5591988536770407\",\r\n            \"cbu\": null\r\n        },\r\n        \"estado\": 1,\r\n        \"detalle\": null,\r\n        \"fechaContratoOriginal\": \"2023-07-01T00:00:00\"\r\n    },\r\n    {\r\n        \"productoId\": 3338,\r\n        \"nombreProducto\": \"ASALGB\",\r\n        \"permitirRecompraProducto\": true,\r\n        \"productoCategoriaId\": 79,\r\n        \"nombreProductoCategoria\": \"PLAN B\",\r\n        \"canalDeVentaId\": 4,\r\n        \"nombreCanalDeVenta\": \"Canal Callcenter Externo\",\r\n        \"canalDeVentaExternoId\": 181,\r\n        \"cliente\": {\r\n            \"tipoDocumentoId\": 96,\r\n            \"nombreTipoDocumento\": \"DNI\",\r\n            \"numeroDocumento\": 10364388,\r\n            \"apellido\": \"GATICA\",\r\n            \"nombre\": \"ARISTARCO EDUARDO\",\r\n            \"fechaNacimiento\": \"1955-01-12T00:00:00\",\r\n            \"provinciaId\": 18,\r\n            \"nombreProvincia\": \"SAN LUIS\",\r\n            \"codigoPostal\": \"5700\",\r\n            \"codigoPostalOriginal\": null,\r\n            \"localidadId\": 3492,\r\n            \"nombreLocalidad\": \"ALTO BLANCO\",\r\n            \"nombreLocalidadOriginal\": null,\r\n            \"barrioOriginal\": \"\",\r\n            \"direccion\": \"MZA 21 13\",\r\n            \"numeroDireccion\": 0,\r\n            \"telefonoMovil\": \"000115555555555\",\r\n            \"telefonoAlternativo\": null,\r\n            \"email\": \"n0tiene@notiene.com\",\r\n            \"departamento\": null,\r\n            \"departamentoPiso\": null\r\n        },\r\n        \"metodoDePago\": {\r\n            \"medioPagoId\": 5,\r\n            \"nombreMedioPago\": \"AmericanExpress Crédito\",\r\n            \"numeroTarjeta\": \"5591989480525557\",\r\n            \"cbu\": null\r\n        },\r\n        \"estado\": 1,\r\n        \"detalle\": null,\r\n        \"fechaContratoOriginal\": \"2023-07-01T00:00:00\"\r\n    }\r\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlRetailGestion}}/contratos/listado?pathArchivo=https://mailer-qa.redsos.com.ar/files/20259/150/20259_150-124e37d4-29e9-4e7e-96de-456bc8b5fd06.txt",
+											"host": [
+												"{{BaseUrlRetailGestion}}"
+											],
+											"path": [
+												"contratos",
+												"listado"
+											],
+											"query": [
+												{
+													"key": "pathArchivo",
+													"value": "https://mailer-qa.redsos.com.ar/files/20259/150/20259_150-124e37d4-29e9-4e7e-96de-456bc8b5fd06.txt"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/contratos/:idContrato",
+							"id": "49502594-7cfba044-c917-4177-9a84-d3019ad879b5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"codigo\": 999999\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/contratos/:idContrato",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"contratos",
+										":idContrato"
+									],
+									"variable": [
+										{
+											"id": "07864cdc-8604-4b4c-8476-4836df2a09d9",
+											"key": "idContrato",
+											"value": ""
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'PATCH' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/contratos/1' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"codigo\": 999999\r\n}'"
+							},
+							"response": [
+								{
+									"id": "49502594-2a9afa9c-6765-4b06-8d85-5b2091d47f77",
+									"name": "Banco Santander Rio SA",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"hash\": \"ec4a98596d8ffd189c7d95035cb10976a50167bb9c9166c6897a6da56038f7712a9c4a5654ddec80ed4755af975ed167\",\r\n    \"codigo\": 731248\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlRetailIntegracion}}/contratos/:idContrato",
+											"host": [
+												"{{BaseUrlRetailIntegracion}}"
+											],
+											"path": [
+												"contratos",
+												":idContrato"
+											],
+											"variable": [
+												{
+													"key": "idContrato",
+													"value": "14805"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "49502594-714ee0c0-58b8-45c6-ba19-587315b92153"
+				},
+				{
+					"name": "Contratos Externos",
+					"item": [
+						{
+							"name": "/contratos-externos/:idContratoExterno/productos/:idProducto",
+							"id": "49502594-d9c61a90-31e6-4583-95cf-d9e14d829f47",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"cliente\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"apellido\": \"string\",\r\n    \"razonSocial\": \"string\",\r\n    \"esEmpresa\": 0,\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-25T12:50:44.051Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647\r\n  },\r\n  \"factura\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"razonSocial\": \"string\",\r\n    \"apellido\": \"string\",\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-25T12:50:44.051Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647,\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"situacionFiscal\": 2147483647,\r\n    \"esEmpresa\": 0\r\n  },\r\n  \"metodoDePago\": {\r\n    \"medioPagoId\": 2147483647,\r\n    \"numeroTarjeta\": \"string\",\r\n    \"cbu\": \"string\"\r\n  },\r\n  \"canalDeVentaId\": 0,\r\n  \"canalDeVentaExternoId\": 0,\r\n  \"categoriaId\": 0,\r\n  \"ventaId\": 0,\r\n  \"primeraCuotaPaga\": true,\r\n  \"fechaVenta\": \"2025-09-25T12:50:44.051Z\",\r\n  \"reactivada\": true,\r\n  \"montoFacturado\": 0,\r\n  \"enviarMailConfirmacion\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/contratos-externos/:idContratoExterno/productos/:idProducto",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"contratos-externos",
+										":idContratoExterno",
+										"productos",
+										":idProducto"
+									],
+									"variable": [
+										{
+											"id": "11f78821-eba9-4a2c-9e0e-01317fe142fc",
+											"key": "idContratoExterno",
+											"value": "",
+											"description": "Identificador del contrato externo"
+										},
+										{
+											"id": "57a97410-4726-4b7a-a588-61c37596ece4",
+											"key": "idProducto",
+											"value": "",
+											"description": "Identificador del producto"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/contratos-externos/1/productos/1' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"cliente\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"apellido\": \"string\",\r\n    \"razonSocial\": \"string\",\r\n    \"esEmpresa\": 0,\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-25T12:50:44.051Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647\r\n  },\r\n  \"factura\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"razonSocial\": \"string\",\r\n    \"apellido\": \"string\",\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-25T12:50:44.051Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647,\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"situacionFiscal\": 2147483647,\r\n    \"esEmpresa\": 0\r\n  },\r\n  \"metodoDePago\": {\r\n    \"medioPagoId\": 2147483647,\r\n    \"numeroTarjeta\": \"string\",\r\n    \"cbu\": \"string\"\r\n  },\r\n  \"canalDeVentaId\": 0,\r\n  \"canalDeVentaExternoId\": 0,\r\n  \"categoriaId\": 0,\r\n  \"ventaId\": 0,\r\n  \"primeraCuotaPaga\": true,\r\n  \"fechaVenta\": \"2025-09-25T12:50:44.051Z\",\r\n  \"reactivada\": true,\r\n  \"montoFacturado\": 0,\r\n  \"enviarMailConfirmacion\": true\r\n}'"
+							},
+							"response": [
+								{
+									"id": "49502594-da819e91-3dad-4004-ae3e-77d68a5eb657",
+									"name": "/contratos-externos/:idContratoExterno/productos/:idProducto",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"cliente\": {\r\n        \"tipoDocumentoId\": 96,\r\n        \"numeroDocumento\": 13945941,\r\n        \"apellido\": \"BRIZUELA\",\r\n        \"nombre\": \"ARMANDO\",\r\n        \"razonSocial\": null,\r\n        \"esEmpresa\": 0,\r\n        \"fechaNacimiento\": \"1954-12-08\",\r\n        \"localidadId\": 1016,\r\n        \"direccion\": \"CALLE 11 1352\",\r\n        \"numeroDireccion\": 0,\r\n        \"telefonoMovil\": 115555555555,\r\n        \"email\": \"n0tiene@notiene.com\"\r\n    },\r\n    \"canalDeVentaId\": 181,\r\n    \"categoriaId\": 75,\r\n    \"metodoDePago\": {\r\n        \"medioPagoId\": 5,\r\n        \"numeroTarjeta\": \"5591983539553298\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlRetailGestion}}/contratos-externos/:idContratoExterno/productos/:idProducto",
+											"host": [
+												"{{BaseUrlRetailGestion}}"
+											],
+											"path": [
+												"contratos-externos",
+												":idContratoExterno",
+												"productos",
+												":idProducto"
+											],
+											"variable": [
+												{
+													"key": "idContratoExterno",
+													"value": "3731",
+													"description": "Identificador del contrato externo"
+												},
+												{
+													"key": "idProducto",
+													"value": "3341",
+													"description": "Identificador del producto"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "49502594-80e1032c-14aa-491e-ad60-83b8f641818f"
+				},
+				{
+					"name": "Cotizaciones",
+					"item": [
+						{
+							"name": "/cotizaciones",
+							"id": "49502594-7cb88594-8170-4c37-bfce-f984da897347",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"productos\": [\r\n    0\r\n  ],\r\n  \"dni\": 99999999999\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/cotizaciones",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"cotizaciones"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/cotizaciones' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"productos\": [\r\n    0\r\n  ],\r\n  \"dni\": 99999999999\r\n}'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-eab4758b-8261-495d-9380-038fdad15557"
+				},
+				{
+					"name": "Motivos de Baja",
+					"item": [
+						{
+							"name": "/motivos-baja/lista",
+							"id": "49502594-92f3e101-3461-4e17-bcad-6d264da826ac",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/motivos-baja/lista",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"motivos-baja",
+										"lista"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/motivos-baja/lista' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-f2e18da6-4d19-456e-ba4b-d70609d7aed1"
+				},
+				{
+					"name": "Paises",
+					"item": [
+						{
+							"name": "paises/lista",
+							"id": "49502594-aaff8b23-0f23-495f-9734-ee4930d100c7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/paises/lista",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"paises",
+										"lista"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/paises/lista' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						},
+						{
+							"name": "paises/:idPais/provincias/lista",
+							"id": "49502594-8c296e9e-8c75-4fae-bb48-20b08e7cb043",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/paises/:idPais/provincias/lista",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"paises",
+										":idPais",
+										"provincias",
+										"lista"
+									],
+									"variable": [
+										{
+											"id": "054a20a0-58cf-479c-96a7-efb6ac8e701a",
+											"key": "idPais",
+											"value": "",
+											"description": "Identificador de pais"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/paises/1/provincias/lista' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": [
+								{
+									"id": "49502594-ff9d180d-686c-4c69-86cd-6606a80fcba0",
+									"name": "Argentina",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{BaseUrlRetailIntegracion}}/paises/:idPais/provincias/lista",
+											"host": [
+												"{{BaseUrlRetailIntegracion}}"
+											],
+											"path": [
+												"paises",
+												":idPais",
+												"provincias",
+												"lista"
+											],
+											"variable": [
+												{
+													"key": "idPais",
+													"value": "1",
+													"description": "Identificados de pais"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "paises/:IdPais/provincias/:IdProvincia/localidades/lista",
+							"id": "49502594-12a37605-2776-4b3e-af27-0bb8e2791a99",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/paises/:IdPais/provincias/:IdProvincia/localidades/lista",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"paises",
+										":IdPais",
+										"provincias",
+										":IdProvincia",
+										"localidades",
+										"lista"
+									],
+									"variable": [
+										{
+											"id": "9149e0f7-10b4-4c74-9a40-73e6a26c2689",
+											"key": "IdPais",
+											"value": "",
+											"description": "Identificador Pais"
+										},
+										{
+											"id": "aca0d433-1ae0-4d3e-a3a3-95994fc94944",
+											"key": "IdProvincia",
+											"value": "",
+											"description": "Identificador Provincia"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/paises/1/provincias/1/localidades/lista' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-aa6055c9-b065-4a2c-b43d-54eb3368eb4b"
+				},
+				{
+					"name": "SAP",
+					"item": [
+						{
+							"name": "/contratos/articulos/lista",
+							"id": "49502594-727e2b63-0a1e-4054-b79f-8f30bea1e1af",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/contratos/articulos/lista",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"contratos",
+										"articulos",
+										"lista"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/contratos/articulos/lista' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						},
+						{
+							"name": "/contratos/articulos/:IdArticuloSap",
+							"id": "49502594-ca1b1ba2-f1d8-46d5-8cf9-2931425d1d20",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/contratos/articulos/:IdArticuloSap",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"contratos",
+										"articulos",
+										":IdArticuloSap"
+									],
+									"variable": [
+										{
+											"id": "9ffce010-3cf1-44e4-9b8a-73761e74cdc1",
+											"key": "IdArticuloSap",
+											"value": "",
+											"description": "Identificador articulo SAP"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/contratos/articulos/1' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-9d8be403-248a-478d-a45d-92b97c3b9204"
+				},
+				{
+					"name": "Servicios",
+					"item": [
+						{
+							"name": "/servicios/lista",
+							"id": "49502594-e1f80a36-2d60-483b-a017-7a735d9eae80",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/servicios/lista",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"servicios",
+										"lista"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/servicios/lista' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-6d8f1ce4-6bad-411c-a6d0-7bff91680ee3"
+				},
+				{
+					"name": "Tipos Asistencia",
+					"item": [
+						{
+							"name": "/tipos-asistencias?tipoAsistenciaId=&nombreTipoAsistencia=&productoId=&estado=",
+							"id": "49502594-731e1e5a-aadd-48c5-9dc7-ccc26956e581",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/tipos-asistencias?tipoAsistenciaId=&nombreTipoAsistencia=&productoId=&estado=",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"tipos-asistencias"
+									],
+									"query": [
+										{
+											"key": "tipoAsistenciaId",
+											"value": "",
+											"description": "Identificador tipo de asistencia"
+										},
+										{
+											"key": "nombreTipoAsistencia",
+											"value": "",
+											"description": "Nombre tipo de asistencia"
+										},
+										{
+											"key": "productoId",
+											"value": "",
+											"description": "Identificador de producto"
+										},
+										{
+											"key": "estado",
+											"value": "",
+											"description": "Id estado"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/tipos-asistencias?tipoAsistenciaId=1&nombreTipoAsistencia=sadfs&productoId=1&estado=12' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						},
+						{
+							"name": "/tipos-asistencias",
+							"id": "49502594-8f3f52d5-c4aa-4567-aa2e-3ca05dd3f5fa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/tipos-asistencias",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"tipos-asistencias"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/tipos-asistencias' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"nombre\": \"string\"\r\n}'"
+							},
+							"response": []
+						},
+						{
+							"name": "/tipos-asistencias/:idTipoAsistencia",
+							"id": "49502594-d3af31cc-9176-4b4c-957a-7ff5824e0702",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/tipos-asistencias/:idTipoAsistencia",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"tipos-asistencias",
+										":idTipoAsistencia"
+									],
+									"variable": [
+										{
+											"id": "6e196d92-946b-44f3-a1b6-ba9d1a5f9ccc",
+											"key": "idTipoAsistencia",
+											"value": "",
+											"description": "Identificador tipo de asistencia"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/tipos-asistencias/1' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-b8b7cf89-2cc7-44e2-a997-462dc62322f0"
+				},
+				{
+					"name": "Tipos de Documentos",
+					"item": [
+						{
+							"name": "/tipo-documentos/lista",
+							"id": "49502594-938b23a6-9be7-4a12-ac0c-059033267188",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/tipo-documentos/lista",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"tipo-documentos",
+										"lista"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/tipo-documentos/lista' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-376c4a52-b880-4663-acb6-2d4b41e919d1"
+				},
+				{
+					"name": "Tipos de Facturación",
+					"item": [
+						{
+							"name": "/tipos-facturacion/lista",
+							"id": "49502594-6c76a7db-7523-4da2-827b-6e33f3e49945",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/tipos-facturacion/lista",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"tipos-facturacion",
+										"lista"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/tipos-facturacion/lista' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-9295a30d-f01d-4039-b874-a104afadc7e5"
+				},
+				{
+					"name": "Tipos de Solicitudes",
+					"item": [
+						{
+							"name": "/tipos-solicitudes/lista",
+							"id": "49502594-a7f355dd-ad22-43ae-ab0a-065f8d7474ce",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/tipos-solicitudes/list",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"tipos-solicitudes",
+										"list"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/tipos-solicitudes/lista' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-5887b96a-bcee-4681-adac-faaf476b44e1"
+				},
+				{
+					"name": "Usuarios",
+					"item": [
+						{
+							"name": "/usuarios",
+							"id": "49502594-0a40dbe6-c36d-4a1e-aff2-16071c25b489",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"tipo\": \"string\",\r\n  \"personaId\": 0,\r\n  \"companiaId\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/usuarios",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/usuarios' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"tipo\": \"string\",\r\n  \"personaId\": 0,\r\n  \"companiaId\": 0\r\n}'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-958b948b-10d1-4a48-99c1-80506ab1f6fe"
+				},
+				{
+					"name": "Vehículos",
+					"item": [
+						{
+							"name": "/vehiculos/tipos-vehiculo/lista",
+							"id": "49502594-09b74519-0fe3-45f7-9d17-444e615b9775",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/vehiculos/tipos-vehiculo/lista",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"vehiculos",
+										"tipos-vehiculo",
+										"lista"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/vehiculos/tipos-vehiculo/lista' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-1afc4670-2f9c-40ba-94b9-58ac35e5aca3"
+				},
+				{
+					"name": "Ventas",
+					"item": [
+						{
+							"name": "/ventas/productores/lista?texto= Copy",
+							"id": "49502594-61497580-a5aa-497f-8e11-5c752eba7ed3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/ventas/productores/lista?texto=",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"ventas",
+										"productores",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "texto",
+											"value": "",
+											"description": "Nombre del vendedor"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/ventas/productores/lista?texto=321' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/listado/contratos",
+							"id": "49502594-11574df1-b7d5-452b-9bc1-7615a8e1a9f3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  {\r\n    \"id\": 2147483647,\r\n    \"fechaVenta\": \"2025-09-24T14:26:51.910Z\",\r\n    \"productorId\": 2147483647,\r\n    \"usuarioId\": 2147483647,\r\n    \"productoId\": 2147483647,\r\n    \"canalDeVentaId\": 2147483647,\r\n    \"canalDeVentaExternoId\": 2147483647,\r\n    \"productorNivel1Id\": 2147483647,\r\n    \"productorNivel2Id\": 2147483647,\r\n    \"productorNivel3Id\": 2147483647,\r\n    \"productorNivel4Id\": 2147483647,\r\n    \"patente\": \"string\",\r\n    \"marcaId\": 2147483647,\r\n    \"modeloId\": 2147483647,\r\n    \"anioFabricacion\": 0,\r\n    \"colorId\": 2147483647,\r\n    \"kilometraje\": 0,\r\n    \"cliente\": {\r\n      \"apellido\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"tipoDocumentoId\": 2147483647,\r\n      \"numeroDocumento\": 99999999999,\r\n      \"fechaNacimiento\": \"2025-09-24T14:26:51.910Z\",\r\n      \"localidadId\": 2147483647,\r\n      \"codigoPostal\": \"string\",\r\n      \"direccion\": \"string\",\r\n      \"numeroDireccion\": \"string\",\r\n      \"departamento\": \"string\",\r\n      \"departamentoPiso\": 2147483647,\r\n      \"telefonoMovil\": 0,\r\n      \"telefonoAlternativo\": 0,\r\n      \"email\": \"user@example.com\"\r\n    },\r\n    \"facturacion\": {\r\n      \"apellido\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"tipoDocumentoId\": 2147483647,\r\n      \"numeroDocumento\": 99999999999,\r\n      \"fechaNacimiento\": \"2025-09-24T14:26:51.910Z\",\r\n      \"localidadId\": 2147483647,\r\n      \"codigoPostal\": \"string\",\r\n      \"direccion\": \"string\",\r\n      \"numeroDireccion\": \"string\",\r\n      \"departamento\": \"string\",\r\n      \"departamentoPiso\": 2147483647,\r\n      \"telefonoMovil\": 0,\r\n      \"email\": \"user@example.com\"\r\n    },\r\n    \"medioDePago\": 0,\r\n    \"numeroTarjeta\": \"string\",\r\n    \"numeroCBU\": \"string\",\r\n    \"companiaId\": 2147483647\r\n  }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/ventas/listado/contratos",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"ventas",
+										"listado",
+										"contratos"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/ventas/listado/contratos' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '[\r\n  {\r\n    \"id\": 2147483647,\r\n    \"fechaVenta\": \"2025-09-24T14:26:51.910Z\",\r\n    \"productorId\": 2147483647,\r\n    \"usuarioId\": 2147483647,\r\n    \"productoId\": 2147483647,\r\n    \"canalDeVentaId\": 2147483647,\r\n    \"canalDeVentaExternoId\": 2147483647,\r\n    \"productorNivel1Id\": 2147483647,\r\n    \"productorNivel2Id\": 2147483647,\r\n    \"productorNivel3Id\": 2147483647,\r\n    \"productorNivel4Id\": 2147483647,\r\n    \"patente\": \"string\",\r\n    \"marcaId\": 2147483647,\r\n    \"modeloId\": 2147483647,\r\n    \"anioFabricacion\": 0,\r\n    \"colorId\": 2147483647,\r\n    \"kilometraje\": 0,\r\n    \"cliente\": {\r\n      \"apellido\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"tipoDocumentoId\": 2147483647,\r\n      \"numeroDocumento\": 99999999999,\r\n      \"fechaNacimiento\": \"2025-09-24T14:26:51.910Z\",\r\n      \"localidadId\": 2147483647,\r\n      \"codigoPostal\": \"string\",\r\n      \"direccion\": \"string\",\r\n      \"numeroDireccion\": \"string\",\r\n      \"departamento\": \"string\",\r\n      \"departamentoPiso\": 2147483647,\r\n      \"telefonoMovil\": 0,\r\n      \"telefonoAlternativo\": 0,\r\n      \"email\": \"user@example.com\"\r\n    },\r\n    \"facturacion\": {\r\n      \"apellido\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"tipoDocumentoId\": 2147483647,\r\n      \"numeroDocumento\": 99999999999,\r\n      \"fechaNacimiento\": \"2025-09-24T14:26:51.910Z\",\r\n      \"localidadId\": 2147483647,\r\n      \"codigoPostal\": \"string\",\r\n      \"direccion\": \"string\",\r\n      \"numeroDireccion\": \"string\",\r\n      \"departamento\": \"string\",\r\n      \"departamentoPiso\": 2147483647,\r\n      \"telefonoMovil\": 0,\r\n      \"email\": \"user@example.com\"\r\n    },\r\n    \"medioDePago\": 0,\r\n    \"numeroTarjeta\": \"string\",\r\n    \"numeroCBU\": \"string\",\r\n    \"companiaId\": 2147483647\r\n  }\r\n]'"
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/lista?",
+							"id": "49502594-1b555a93-ec4e-4acb-9389-7f440bfcfbee",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailGestion}}/ventas/lista?tamanioPagina=10&pagina=1&productorId=&fechaDesde=2025-01-01&fechaHasta=2025-02-01&estado=",
+									"host": [
+										"{{BaseUrlRetailGestion}}"
+									],
+									"path": [
+										"ventas",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "tamanioPagina",
+											"value": "10",
+											"description": "Cantidad de registros por pagina"
+										},
+										{
+											"key": "pagina",
+											"value": "1",
+											"description": "Numero de pagina"
+										},
+										{
+											"key": "productorId",
+											"value": "",
+											"description": "Identificador de productor"
+										},
+										{
+											"key": "fechaDesde",
+											"value": "2025-01-01",
+											"description": "Fecha desde"
+										},
+										{
+											"key": "fechaHasta",
+											"value": "2025-02-01",
+											"description": "Fechhasta"
+										},
+										{
+											"key": "estado",
+											"value": "",
+											"description": "Estado de registro"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retailgestion-api-qa.redsos.com.ar/ventas/lista?tamanioPagina=10&pagina=1&productorId=3&fechaDesde=2025-01-01&fechaHasta=2025-02-01&estado=5' \\\r\n  -H 'accept: application/json'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-9835edef-57fb-46c0-9bad-e1876460f753"
+				}
+			],
+			"id": "49502594-7ea1e080-d6b6-4e31-8457-c5534f4961c9",
+			"description": "Api\n\nURL QA: [https://retailgestion-api-qa.redsos.com.ar](https://retailgestion-api-qa.redsos.com.ar)\n\nURL PRE: [https://retailgestion-api-pre.redsos.com.ar](https://retailgestion-api-qa.redsos.com.ar)\n\nInstrucciones:\n\n- Utilizar el metódo Auth con el usuario deseado.\n    \n- Copiar el token obtenido.\n    \n- Pegarlo en el campo token, en la pestaña Authorization de esta carpeta.\n    \n- Va a poder utilizar los metodos de toda la carpeta con el usuario que se logueo.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwidHlwIjoiSldUIiwiY3R5IjoiSldUIn0.CLMLg5FqrimH73bMbAJwx8VnFmTFj2onAaR8rU2XKjT-Muo9QCzBxA.SJdA8zeuT6JgILHV6iAIeg.GMCj5pjL6fCXHN-kTGgOHJt6lW--vQMkaLGPxGyAhbRtdP0slB8AI3Gc-t0nXp4epk_WYPQnUssCt39zuZoRT3f6Qn3aSpeP1bYM43B4rHkS2HF2EPq96QlIzpa3MAHOZsLIYv_F9P4yvG4Msg3YyrBhxuXslKjIDN4SqTYMyYwVdwvZ26I3W1TKAO91AzbQvb9r6Gcx-rj9_vc6OOJAEg55R5a22jkZza1f0qFWH0uYb66BXwLk-m8b2Mw_jwoamJH_5iIaKogYyhHSbi3hIiEYwLiGFPBoqiGYRmkZah9DErPFY0OXpgFxJVVFwNf40xe0Mi-A8ZBjqSW9cLf0H35UusjbSQYY6xqjX2Xf3cE6qfCd4cBeF4MdowViMksfcm3CKWa245y7n8Zd2tIdbqt_6VKl4wlNYqAy_KmXb9wT1JSO7GXvE3QhYfQq_-yh5Ulc0kIDsPuPQsuwxcyaojPmkuWzSInXAQpNS35PFIWGLyqyOCvlmTEcXKnLI4rNxeatO3RKbgRIsj88c0GwEvOAu7bFqlG2P7iuo4Dy_CbKzzQPrHXgP7XAoXaHgagKoJrr3eq_NwCx50bib8gc5QD4UaIOub790z2Sv3Nui5MDIax7AMDdrvyRMrPjjHVq_nr8iJQiUEPDgC8yZgPCt7wbTKEO3IpUtkCAO2DisNUAyA8vudzix_DjBlKjiWskx726LsNkNc8-gV4XdmCxndp3Zn6zdYlwIHvGBK7KhIp22pwLevGYUnpIDRfyMMQh.CXm4HHM-AJJq6NSyYsB-jw",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						],
+						"id": "5ea29403-8f54-4dce-bf0a-2645976b7c72"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						],
+						"id": "cfba3074-354f-48c4-b9c2-bc30c77d1ed4"
+					}
+				}
+			]
+		},
+		{
+			"name": "API Consumer",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "/Auth",
+							"id": "49502594-eda7f81c-b979-41a7-acb5-b19584dd8bab",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"INTCONSUMER\",\r\n    \"password\": \"!SRi0C2021\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/Auth",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"Auth"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retail-qa.redsos.com.ar/Auth' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"username\": \"string\",\r\n  \"password\": \"string\"\r\n}'"
+							},
+							"response": [
+								{
+									"id": "49502594-c9b30b16-ec08-47e6-909f-099a1a026fca",
+									"name": "Santander Consumer",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "accept",
+												"value": "*/*"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"username\": \"INTCONSUMER\",\r\n  \"password\": \"!SRi0C2021\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlRetailIntegracion}}/Auth",
+											"host": [
+												"{{BaseUrlRetailIntegracion}}"
+											],
+											"path": [
+												"Auth"
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "49502594-650a4032-e374-4eba-87b0-4485914785b3",
+									"name": "Red SOS B2B2C",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "accept",
+												"value": "*/*"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"username\": \"INTCOMER\",\r\n  \"password\": \"IntProd123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlRetailIntegracion}}/Auth",
+											"host": [
+												"{{BaseUrlRetailIntegracion}}"
+											],
+											"path": [
+												"Auth"
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/Auth",
+							"id": "49502594-6a8c99dd-3032-4c77-9809-6d51c0f94bf3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"actualPassword\": \"string\",\r\n  \"newPassword\": \"string\",\r\n  \"confirmNewPassword\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/Auth",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"Auth"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'PUT' \\\r\n  'https://retail-qa.redsos.com.ar/Auth' \\\r\n  -H 'accept: text/plain' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"actualPassword\": \"string\",\r\n  \"newPassword\": \"string\",\r\n  \"confirmNewPassword\": \"string\"\r\n}'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-1c07da80-345e-4754-9f00-93d1520366d6",
+					"description": "Sección de autentificación a la aplicación"
+				},
+				{
+					"name": "Certificados",
+					"item": [
+						{
+							"name": "certificados/cliente?documentTypeId=0&documentNumber=0&email=f Copy",
+							"id": "49502594-6e30742f-45b2-45d6-905d-12ddf9e833e7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/certificados/cliente?documentTypeId=&documentNumber=&email=",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"certificados",
+										"cliente"
+									],
+									"query": [
+										{
+											"key": "documentTypeId",
+											"value": "",
+											"description": "Id Tipo de documento"
+										},
+										{
+											"key": "documentNumber",
+											"value": "",
+											"description": "Numero de documento"
+										},
+										{
+											"key": "email",
+											"value": "",
+											"description": "Email"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/certificados/cliente?documentTypeId=23&documentNumber=213&email=fdsd' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-bcdefc6b-4380-4de7-81d8-87ec426de92f"
+				},
+				{
+					"name": "Clientes",
+					"item": [
+						{
+							"name": "?tipoDocumento=1&numeroDocumento=1",
+							"id": "49502594-993ca2bf-eb26-430e-8c0f-e9b86f468c0b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/clientes?tipoDocumento=1&numeroDocumento=1",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"clientes"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "1",
+											"description": "Identificador tipo de documento"
+										},
+										{
+											"key": "numeroDocumento",
+											"value": "1",
+											"description": "Numero de documento"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/clientes?tipoDocumento=1&numeroDocumento=1' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						},
+						{
+							"name": "/:idCliente/contratos",
+							"id": "49502594-1b48887c-6333-4ac9-8c6b-eafbcac35b9c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/clientes/:idCliente/contratos",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"clientes",
+										":idCliente",
+										"contratos"
+									],
+									"variable": [
+										{
+											"id": "2038016a-6d9a-4df7-b2a5-04276a41b56a",
+											"key": "idCliente",
+											"value": ""
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/clientes/1/contratos' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						},
+						{
+							"name": "/:IdCliente/contratos/:IdContrato",
+							"id": "49502594-4dcfa41d-0159-4b39-b52a-d6afc22c3c97",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/clientes/:IdCliente/contratos/:IdContrato",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"clientes",
+										":IdCliente",
+										"contratos",
+										":IdContrato"
+									],
+									"variable": [
+										{
+											"id": "1a20d7cf-dfc2-4fe1-a057-d22d2310dbed",
+											"key": "IdCliente",
+											"value": "",
+											"description": "Identificador de cliente"
+										},
+										{
+											"id": "c823596d-e324-4f29-9446-7ca657b24839",
+											"key": "IdContrato",
+											"value": "",
+											"description": "Identificador de contrato"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/clientes/1/contratos/1' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						},
+						{
+							"name": ":idClientes/motivoBaja/:idMotivoBaja",
+							"id": "49502594-5972cd95-b358-48a3-8a9d-35d45bbc0726",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}s/clientes/:idClientes/motivoBaja/:idMotivoBaja",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}s"
+									],
+									"path": [
+										"clientes",
+										":idClientes",
+										"motivoBaja",
+										":idMotivoBaja"
+									],
+									"variable": [
+										{
+											"id": "ff48dc3d-89f2-4e80-b044-b490d26a40e3",
+											"key": "idClientes",
+											"value": "",
+											"description": "Id de Cliente"
+										},
+										{
+											"id": "3e7f7409-6679-4c3d-b1bd-e64140e71794",
+											"key": "idMotivoBaja",
+											"value": "",
+											"description": "Id de motivo de baja"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'DELETE' \\\r\n  'https://retail-qa.redsos.com.ar/clientes/0/motivoBaja/0' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						},
+						{
+							"name": "clientes/:idClientes/contratos/:idContratos/motivoBaja/:idMotivoBaja",
+							"id": "49502594-20243c2d-4350-4901-8a87-010a1aadeb63",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/clientes/:idClientes/contratos/:idContratos/motivoBaja/:idMotivoBaja",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"clientes",
+										":idClientes",
+										"contratos",
+										":idContratos",
+										"motivoBaja",
+										":idMotivoBaja"
+									],
+									"variable": [
+										{
+											"id": "d768ea0d-de61-4d75-bc1b-dbb822d5df9e",
+											"key": "idClientes",
+											"value": ""
+										},
+										{
+											"id": "85e9abd6-1b0e-4cb3-b6a8-fe9044bf872f",
+											"key": "idContratos",
+											"value": "",
+											"description": "Identificador Contrato"
+										},
+										{
+											"id": "6df2ed6c-c632-412b-b4fb-0a39f48d5b8d",
+											"key": "idMotivoBaja",
+											"value": "",
+											"description": "Id motivo baja"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'DELETE' \\\r\n  'https://retail-qa.redsos.com.ar/clientes/1/contratos/1/motivoBaja/1' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						},
+						{
+							"name": "clientes/:IdCliente/contratos/motivoBaja/:idMotivoBaja",
+							"id": "49502594-a750ddbd-281b-4e5c-8a7e-9e516c109b45",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/clientes/:IdCliente/contratos/motivoBaja/:idMotivoBaja",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"clientes",
+										":IdCliente",
+										"contratos",
+										"motivoBaja",
+										":idMotivoBaja"
+									],
+									"variable": [
+										{
+											"id": "d91e69d5-0a4f-4723-bbd0-d1a8a911426e",
+											"key": "IdCliente",
+											"value": "",
+											"description": "Identificador de cliente"
+										},
+										{
+											"id": "e4bdb262-4bbf-419c-a7af-df01278a645f",
+											"key": "idMotivoBaja",
+											"value": "",
+											"description": "Identificador motivo baja"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'DELETE' \\\r\n  'https://retail-qa.redsos.com.ar/clientes/1/contratos/motivoBaja/1' \\\r\n  -H 'accept: */*'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-c531343d-1be7-4813-a56a-47bab68b7a85"
+				},
+				{
+					"name": "Compañías",
+					"item": [
+						{
+							"name": "/companias/lista",
+							"id": "49502594-1c40b54b-60cc-4776-b480-5b67cee6563d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/companias/lista",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"companias",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "companiaId",
+											"value": "",
+											"description": "Opcional. Identificador de compañía",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/companias/lista?companiaId=87' \\\r\n  -H 'accept: text/plain' \\\r\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxNzQ0NiIsImVtYWlsIjoibWFpbEBnbWFpbC5jb20iLCJ1bmlxdWVfbmFtZSI6IlVTVUFSSU9JTlQiLCJTZWxsZXJJZCI6IjE3NDQ2OTYiLCJwcmltYXJ5Z3JvdXBzaWQiOiI5NiIsInJvbGUiOiJVc2VySW50ZWdyYXRpb24iLCJDb21wYW5pZXMiOiJbe1wiSWRcIjo5NixcIk5hbWVcIjpcIkJBTkNPIFNBTlRBTkRFUiBSSU8gU0FcIn1dIiwibmJmIjoxNzU4MzAyOTA4LCJleHAiOjE3NTgzODkzMDgsImlhdCI6MTc1ODMwMjkwOH0.5kcig4BDagWaXY5VRMRgD4uA-LgGd_1bmMAEMKK08og'"
+							},
+							"response": []
+						},
+						{
+							"name": "/companias/:IdCompania/configuraciones",
+							"id": "49502594-e11e7232-1ee0-4ae3-b1df-70bb75a3e16f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxNzQ0NiIsImVtYWlsIjoibWFpbEBnbWFpbC5jb20iLCJ1bmlxdWVfbmFtZSI6IlVTVUFSSU9JTlQiLCJTZWxsZXJJZCI6IjE3NDQ2OTYiLCJwcmltYXJ5Z3JvdXBzaWQiOiI5NiIsInJvbGUiOiJVc2VySW50ZWdyYXRpb24iLCJDb21wYW5pZXMiOiJbe1wiSWRcIjo5NixcIk5hbWVcIjpcIkJBTkNPIFNBTlRBTkRFUiBSSU8gU0FcIn1dIiwibmJmIjoxNzU4MzAyOTA4LCJleHAiOjE3NTgzODkzMDgsImlhdCI6MTc1ODMwMjkwOH0.5kcig4BDagWaXY5VRMRgD4uA-LgGd_1bmMAEMKK08og"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/companias/:IdCompania/configuraciones",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"companias",
+										":IdCompania",
+										"configuraciones"
+									],
+									"variable": [
+										{
+											"id": "1e6cac9c-5366-4e02-ba6b-85fc048a5da7",
+											"key": "IdCompania",
+											"value": "",
+											"description": "Identificador de compañía"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/companias/87/configuraciones' \\\r\n  -H 'accept: text/plain' \\\r\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxNzQ0NiIsImVtYWlsIjoibWFpbEBnbWFpbC5jb20iLCJ1bmlxdWVfbmFtZSI6IlVTVUFSSU9JTlQiLCJTZWxsZXJJZCI6IjE3NDQ2OTYiLCJwcmltYXJ5Z3JvdXBzaWQiOiI5NiIsInJvbGUiOiJVc2VySW50ZWdyYXRpb24iLCJDb21wYW5pZXMiOiJbe1wiSWRcIjo5NixcIk5hbWVcIjpcIkJBTkNPIFNBTlRBTkRFUiBSSU8gU0FcIn1dIiwibmJmIjoxNzU4MzAyOTA4LCJleHAiOjE3NTgzODkzMDgsImlhdCI6MTc1ODMwMjkwOH0.5kcig4BDagWaXY5VRMRgD4uA-LgGd_1bmMAEMKK08og'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-b6e0265f-21b5-43d2-b2c7-672a918af74d",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								],
+								"id": "f9b5e327-fae2-4a9c-baff-6bccf433f583"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								],
+								"id": "351458b5-71df-4637-b57a-b1563e2a7d1a"
+							}
+						}
+					]
+				},
+				{
+					"name": "Contratos",
+					"item": [
+						{
+							"name": "contratos/productos/:productId",
+							"id": "49502594-2c31f2bd-d008-4855-aada-dc8f0da935fb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"cliente\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"apellido\": \"string\",\r\n    \"razonSocial\": \"string\",\r\n    \"esEmpresa\": 0,\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-19T13:17:47.222Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647\r\n  },\r\n  \"factura\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"razonSocial\": \"string\",\r\n    \"apellido\": \"string\",\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-19T13:17:47.222Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647,\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"situacionFiscal\": 2147483647,\r\n    \"esEmpresa\": 0\r\n  },\r\n  \"metodoDePago\": {\r\n    \"medioPagoId\": 2147483647,\r\n    \"numeroTarjeta\": \"string\",\r\n    \"cbu\": \"string\"\r\n  },\r\n  \"canalDeVentaId\": 0,\r\n  \"canalDeVentaExternoId\": 0,\r\n  \"categoriaId\": 0,\r\n  \"ventaId\": 0,\r\n  \"primeraCuotaPaga\": true,\r\n  \"fechaVenta\": \"2025-09-19T13:17:47.222Z\",\r\n  \"reactivada\": true,\r\n  \"montoFacturado\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/contratos/productos/:productId",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"contratos",
+										"productos",
+										":productId"
+									],
+									"variable": [
+										{
+											"id": "82cd970d-fb47-464c-abff-dcc0c737d8f8",
+											"key": "productId",
+											"value": "",
+											"description": "Identificador de producto"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST'  \n'[https://retail-qa.redsos.com.ar/contratos/productos/1'](https://retail-qa.redsos.com.ar/contratos/productos/1')  \n\\-H 'accept: text/plain'  \n\\-H 'Content-Type: application/json'  \n\\-d '{  \n\"cliente\": {  \n\"tipoDocumentoId\": 2147483647,  \n\"numeroDocumento\": 99999999999,  \n\"apellido\": \"string\",  \n\"razonSocial\": \"string\",  \n\"esEmpresa\": 0,  \n\"nombre\": \"string\",  \n\"fechaNacimiento\": \"2025-09-19T13:17:47.222Z\",  \n\"localidadId\": 2147483647,  \n\"direccion\": \"string\",  \n\"numeroDireccion\": 2147483647,  \n\"telefonoMovil\": 0,  \n\"telefonoAlternativo\": 0,  \n\"email\": \"[user@example.com](https://mailto:user@example.com)\",  \n\"departamento\": \"string\",  \n\"departamentoPiso\": 2147483647  \n},  \n\"factura\": {  \n\"tipoDocumentoId\": 2147483647,  \n\"numeroDocumento\": 99999999999,  \n\"razonSocial\": \"string\",  \n\"apellido\": \"string\",  \n\"nombre\": \"string\",  \n\"fechaNacimiento\": \"2025-09-19T13:17:47.222Z\",  \n\"localidadId\": 2147483647,  \n\"direccion\": \"string\",  \n\"email\": \"[user@example.com](https://mailto:user@example.com)\",  \n\"departamento\": \"string\",  \n\"departamentoPiso\": 2147483647,  \n\"numeroDireccion\": 2147483647,  \n\"telefonoMovil\": 0,  \n\"telefonoAlternativo\": 0,  \n\"situacionFiscal\": 2147483647,  \n\"esEmpresa\": 0  \n},  \n\"metodoDePago\": {  \n\"medioPagoId\": 2147483647,  \n\"numeroTarjeta\": \"string\",  \n\"cbu\": \"string\"  \n},  \n\"canalDeVentaId\": 0,  \n\"canalDeVentaExternoId\": 0,  \n\"categoriaId\": 0,  \n\"ventaId\": 0,  \n\"primeraCuotaPaga\": true,  \n\"fechaVenta\": \"2025-09-19T13:17:47.222Z\",  \n\"reactivada\": true,  \n\"montoFacturado\": 0  \n}'"
+							},
+							"response": [
+								{
+									"id": "49502594-1143ce5b-ca90-49cd-b709-c4dba9ff69fc",
+									"name": "Contrato Sin Cotización Consumer",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "accept",
+												"value": "text/plain"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"cliente\": {\r\n        \"tipoDocumentoId\": 96,\r\n        \"numeroDocumento\": 12345678,\r\n        \"apellido\": \"PEREZ\",\r\n        \"nombre\": \"JUAN\",\r\n        \"fechaNacimiento\": \"1999-01-18T00:00:00\",\r\n        \"localidadId\": 1488,\r\n        \"direccion\": \"achala\",\r\n        \"numeroDireccion\": 99,\r\n        \"telefonoMovil\": 1234869452,\r\n        \"telefonoAlternativo\": 0,\r\n        \"email\": \"test@gmail.com\",\r\n        \"departamento\": \"\",\r\n        \"departamentoPiso\": 0\r\n    },\r\n    \"metodoDePago\": {\r\n        \"medioPagoId\": 35,\r\n        \"numeroTarjeta\": null,\r\n        \"cbu\": null\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlRetailIntegracion}}/contratos/productos/3278",
+											"host": [
+												"{{BaseUrlRetailIntegracion}}"
+											],
+											"path": [
+												"contratos",
+												"productos",
+												"3278"
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "activos?numeroDocumento=0&idProducto=0&patente=1a",
+							"id": "49502594-67092058-7411-413c-a906-60c57a01eacd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/contratos/activos?numeroDocumento=&idProducto=&patente=",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"contratos",
+										"activos"
+									],
+									"query": [
+										{
+											"key": "numeroDocumento",
+											"value": "",
+											"description": "Numero de documento del cliente"
+										},
+										{
+											"key": "idProducto",
+											"value": "",
+											"description": "Identificador de producto"
+										},
+										{
+											"key": "patente",
+											"value": "",
+											"description": "Patente"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/contratos/activos?numeroDocumento=40801292&idProducto=32&patente=123ter' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						},
+						{
+							"name": "contratos/:idContrato",
+							"id": "49502594-160ab6f1-2fa7-435c-9683-889f93238bf6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/contratos/:idContrato",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"contratos",
+										":idContrato"
+									],
+									"variable": [
+										{
+											"id": "f4b9328e-2620-416b-bac1-27790d834ade",
+											"key": "idContrato",
+											"value": "",
+											"description": "Identificador de contrato"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/contratos/123' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						},
+						{
+							"name": "contratos/:IdContratos/clientes/:IdClientes",
+							"id": "49502594-4ad701eb-19ee-4473-be7e-5b9f8e95364c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"cliente\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"apellido\": \"string\",\r\n    \"razonSocial\": \"string\",\r\n    \"esEmpresa\": 0,\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-22T12:54:10.175Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647\r\n  },\r\n  \"factura\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"razonSocial\": \"string\",\r\n    \"apellido\": \"string\",\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-22T12:54:10.175Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647,\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"situacionFiscal\": 2147483647,\r\n    \"esEmpresa\": 0\r\n  },\r\n  \"metodoDePago\": {\r\n    \"medioPagoId\": 2147483647,\r\n    \"numeroTarjeta\": \"string\",\r\n    \"cbu\": \"string\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/contratos/:IdContratos/clientes/:IdClientes",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"contratos",
+										":IdContratos",
+										"clientes",
+										":IdClientes"
+									],
+									"variable": [
+										{
+											"id": "b914a86a-adef-498e-bf78-858ac36a1cc4",
+											"key": "IdContratos",
+											"value": "",
+											"description": "Identificador de contrato"
+										},
+										{
+											"id": "432b4e01-5598-4f7f-964b-78861c4857f6",
+											"key": "IdClientes",
+											"value": "",
+											"description": "Identificador de cliente"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'PUT' \\\r\n  'https://retail-qa.redsos.com.ar/contratos/1/clientes/1' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"cliente\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"apellido\": \"string\",\r\n    \"razonSocial\": \"string\",\r\n    \"esEmpresa\": 0,\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-22T12:54:10.175Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647\r\n  },\r\n  \"factura\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"razonSocial\": \"string\",\r\n    \"apellido\": \"string\",\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-22T12:54:10.175Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647,\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"situacionFiscal\": 2147483647,\r\n    \"esEmpresa\": 0\r\n  },\r\n  \"metodoDePago\": {\r\n    \"medioPagoId\": 2147483647,\r\n    \"numeroTarjeta\": \"string\",\r\n    \"cbu\": \"string\"\r\n  }\r\n}'"
+							},
+							"response": []
+						},
+						{
+							"name": "contratos/cotizaciones/:IdCotizacion/productos/:IdProducto",
+							"id": "49502594-08200d69-e46d-4354-a818-3a20a21d3eab",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"cliente\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"apellido\": \"string\",\r\n    \"razonSocial\": \"string\",\r\n    \"esEmpresa\": 0,\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-22T13:09:34.711Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647\r\n  },\r\n  \"factura\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"razonSocial\": \"string\",\r\n    \"apellido\": \"string\",\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-22T13:09:34.711Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647,\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"situacionFiscal\": 2147483647,\r\n    \"esEmpresa\": 0\r\n  },\r\n  \"metodoDePago\": {\r\n    \"medioPagoId\": 2147483647,\r\n    \"numeroTarjeta\": \"string\",\r\n    \"cbu\": \"string\"\r\n  },\r\n  \"canalDeVentaId\": 0,\r\n  \"canalDeVentaExternoId\": 0,\r\n  \"categoriaId\": 0,\r\n  \"ventaId\": 0,\r\n  \"primeraCuotaPaga\": true,\r\n  \"fechaVenta\": \"2025-09-22T13:09:34.711Z\",\r\n  \"reactivada\": true,\r\n  \"montoFacturado\": 0,\r\n  \"enviarMailConfirmacion\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/contratos/cotizaciones/:IdCotizacion/productos/:IdProducto",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"contratos",
+										"cotizaciones",
+										":IdCotizacion",
+										"productos",
+										":IdProducto"
+									],
+									"variable": [
+										{
+											"id": "d23b8b46-4311-4a60-bc61-b01e4a37dd37",
+											"key": "IdCotizacion",
+											"value": "",
+											"description": "Identificador cotizacion"
+										},
+										{
+											"id": "533d212e-010d-4ce1-90d3-ea682f39e575",
+											"key": "IdProducto",
+											"value": "",
+											"description": "Identificador producto"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retail-qa.redsos.com.ar/contratos/cotizaciones/1/productos/1' \\\r\n  -H 'accept: text/plain' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"cliente\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"apellido\": \"string\",\r\n    \"razonSocial\": \"string\",\r\n    \"esEmpresa\": 0,\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-22T13:09:34.711Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647\r\n  },\r\n  \"factura\": {\r\n    \"tipoDocumentoId\": 2147483647,\r\n    \"numeroDocumento\": 99999999999,\r\n    \"razonSocial\": \"string\",\r\n    \"apellido\": \"string\",\r\n    \"nombre\": \"string\",\r\n    \"fechaNacimiento\": \"2025-09-22T13:09:34.711Z\",\r\n    \"localidadId\": 2147483647,\r\n    \"direccion\": \"string\",\r\n    \"email\": \"user@example.com\",\r\n    \"departamento\": \"string\",\r\n    \"departamentoPiso\": 2147483647,\r\n    \"numeroDireccion\": 2147483647,\r\n    \"telefonoMovil\": 0,\r\n    \"telefonoAlternativo\": 0,\r\n    \"situacionFiscal\": 2147483647,\r\n    \"esEmpresa\": 0\r\n  },\r\n  \"metodoDePago\": {\r\n    \"medioPagoId\": 2147483647,\r\n    \"numeroTarjeta\": \"string\",\r\n    \"cbu\": \"string\"\r\n  },\r\n  \"canalDeVentaId\": 0,\r\n  \"canalDeVentaExternoId\": 0,\r\n  \"categoriaId\": 0,\r\n  \"ventaId\": 0,\r\n  \"primeraCuotaPaga\": true,\r\n  \"fechaVenta\": \"2025-09-22T13:09:34.711Z\",\r\n  \"reactivada\": true,\r\n  \"montoFacturado\": 0,\r\n  \"enviarMailConfirmacion\": true\r\n}'"
+							},
+							"response": [
+								{
+									"id": "49502594-4df48598-b8ea-4345-ae84-8a5ada201ebf",
+									"name": "Santander Consumer",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "accept",
+												"value": "text/plain"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"cliente\": {\r\n        \"tipoDocumentoId\": 96,\r\n        \"numeroDocumento\": 12345678,\r\n        \"apellido\": \"PEREZ\",\r\n        \"nombre\": \"JUAN\",\r\n        \"fechaNacimiento\": \"1999-01-18T00:00:00\",\r\n        \"localidadId\": 1488,\r\n        \"direccion\": \"achala\",\r\n        \"numeroDireccion\": 99,\r\n        \"telefonoMovil\": 1234869452,\r\n        \"telefonoAlternativo\": 0,\r\n        \"email\": \"test@gmail.com\",\r\n        \"departamento\": \"\",\r\n        \"departamentoPiso\": 0\r\n    },\r\n    \"metodoDePago\": {\r\n        \"medioPagoId\": 35,\r\n        \"numeroTarjeta\": null,\r\n        \"cbu\": null\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlRetailIntegracion}}/contratos/cotizaciones/:IdCotizacion/productos/:IdProducto",
+											"host": [
+												"{{BaseUrlRetailIntegracion}}"
+											],
+											"path": [
+												"contratos",
+												"cotizaciones",
+												":IdCotizacion",
+												"productos",
+												":IdProducto"
+											],
+											"variable": [
+												{
+													"key": "IdCotizacion",
+													"value": "303155",
+													"description": "Identificador cotizacion"
+												},
+												{
+													"key": "IdProducto",
+													"value": "3278",
+													"description": "Identificador producto"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "49502594-36aecddd-b5aa-4119-b7d4-c1f944c1da9d",
+					"description": "Sección contratos de la aplicación.",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								],
+								"id": "401876b5-0ac7-4761-99d8-7ac7d4f93e51"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								],
+								"id": "b42b1339-8c4a-4388-be4e-5c8548130c69"
+							}
+						}
+					]
+				},
+				{
+					"name": "Cotizaciones",
+					"item": [
+						{
+							"name": "/cotizaciones",
+							"id": "49502594-bdc74133-e774-481a-8196-dab47598b494",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"productos\": [\r\n    0\r\n  ],\r\n  \"dni\": 99999999999\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/cotizaciones",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"cotizaciones"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retail-qa.redsos.com.ar/cotizaciones' \\\r\n  -H 'accept: text/plain' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"productos\": [\r\n    0\r\n  ],\r\n  \"dni\": 99999999999\r\n}'"
+							},
+							"response": [
+								{
+									"id": "49502594-8561eefa-56c3-4682-9bd2-91e1da1557cf",
+									"name": "Santander Consumer",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "accept",
+												"value": "text/plain"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"productos\": [\r\n    3410\r\n  ],\r\n  \"dni\": 12345678\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlRetailIntegracion}}/cotizaciones",
+											"host": [
+												"{{BaseUrlRetailIntegracion}}"
+											],
+											"path": [
+												"cotizaciones"
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "49502594-85514846-fd83-42b3-9ce5-661385fa946b"
+				},
+				{
+					"name": "Emails",
+					"item": [
+						{
+							"name": "/emails/contratos/:contratoId/companias/:companiaId",
+							"id": "49502594-b75006b1-6989-407f-9650-f96e63d8bc6d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxNzQ0NiIsImVtYWlsIjoibWFpbEBnbWFpbC5jb20iLCJ1bmlxdWVfbmFtZSI6IlVTVUFSSU9JTlQiLCJTZWxsZXJJZCI6IjE3NDQ2OTYiLCJwcmltYXJ5Z3JvdXBzaWQiOiI5NiIsInJvbGUiOiJVc2VySW50ZWdyYXRpb24iLCJDb21wYW5pZXMiOiJbe1wiSWRcIjo5NixcIk5hbWVcIjpcIkJBTkNPIFNBTlRBTkRFUiBSSU8gU0FcIn1dIiwibmJmIjoxNzU4MzAyOTA4LCJleHAiOjE3NTgzODkzMDgsImlhdCI6MTc1ODMwMjkwOH0.5kcig4BDagWaXY5VRMRgD4uA-LgGd_1bmMAEMKK08og"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/emails/contratos/:contratoId/companias/:companiaId",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"emails",
+										"contratos",
+										":contratoId",
+										"companias",
+										":companiaId"
+									],
+									"variable": [
+										{
+											"id": "7c52eb14-f3e4-43c4-9f94-63eb6cbd377d",
+											"key": "contratoId",
+											"value": "",
+											"description": "Identificador de contrato"
+										},
+										{
+											"id": "b05d4be9-eb22-439e-98b1-fa88647d5647",
+											"key": "companiaId",
+											"value": "",
+											"description": "Identificador de compañía"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://retail-qa.redsos.com.ar/emails/contratos/1/companias/1' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxNzQ0NiIsImVtYWlsIjoibWFpbEBnbWFpbC5jb20iLCJ1bmlxdWVfbmFtZSI6IlVTVUFSSU9JTlQiLCJTZWxsZXJJZCI6IjE3NDQ2OTYiLCJwcmltYXJ5Z3JvdXBzaWQiOiI5NiIsInJvbGUiOiJVc2VySW50ZWdyYXRpb24iLCJDb21wYW5pZXMiOiJbe1wiSWRcIjo5NixcIk5hbWVcIjpcIkJBTkNPIFNBTlRBTkRFUiBSSU8gU0FcIn1dIiwibmJmIjoxNzU4MzAyOTA4LCJleHAiOjE3NTgzODkzMDgsImlhdCI6MTc1ODMwMjkwOH0.5kcig4BDagWaXY5VRMRgD4uA-LgGd_1bmMAEMKK08og' \\\r\n  -d ''"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-9b18e8d2-2e53-404c-98c5-dac63626b642"
+				},
+				{
+					"name": "Integraciones",
+					"item": [
+						{
+							"name": "/integraciones/productos/:productId",
+							"id": "49502594-bbc9bfb6-abca-470a-8ec8-d7b798a40c89",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/integraciones/productos/:productId",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"integraciones",
+										"productos",
+										":productId"
+									],
+									"variable": [
+										{
+											"id": "b6512502-a355-481f-ba7c-aee9fe2ba9b3",
+											"key": "productId",
+											"value": "",
+											"description": "Identificador de Producto"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/integraciones/productos/1' \\\r\n  -H 'accept: text/plain' \\\r\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxNzQ0NiIsImVtYWlsIjoibWFpbEBnbWFpbC5jb20iLCJ1bmlxdWVfbmFtZSI6IlVTVUFSSU9JTlQiLCJTZWxsZXJJZCI6IjE3NDQ2OTYiLCJwcmltYXJ5Z3JvdXBzaWQiOiI5NiIsInJvbGUiOiJVc2VySW50ZWdyYXRpb24iLCJDb21wYW5pZXMiOiJbe1wiSWRcIjo5NixcIk5hbWVcIjpcIkJBTkNPIFNBTlRBTkRFUiBSSU8gU0FcIn1dIiwibmJmIjoxNzU4MzAyOTA4LCJleHAiOjE3NTgzODkzMDgsImlhdCI6MTc1ODMwMjkwOH0.5kcig4BDagWaXY5VRMRgD4uA-LgGd_1bmMAEMKK08og'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-7a7dd65f-e577-44ad-ac93-641ac73b5257"
+				},
+				{
+					"name": "Medios de Pago",
+					"item": [
+						{
+							"name": "/medios-pago/lista",
+							"id": "49502594-df5349b8-5619-4ba4-ab7a-2b52db534a7a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/medios-pago/lista",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"medios-pago",
+										"lista"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/medios-pago/lista' \\\r\n  -H 'accept: text/plain' \\\r\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxNzQ0NiIsImVtYWlsIjoibWFpbEBnbWFpbC5jb20iLCJ1bmlxdWVfbmFtZSI6IlVTVUFSSU9JTlQiLCJTZWxsZXJJZCI6IjE3NDQ2OTYiLCJwcmltYXJ5Z3JvdXBzaWQiOiI5NiIsInJvbGUiOiJVc2VySW50ZWdyYXRpb24iLCJDb21wYW5pZXMiOiJbe1wiSWRcIjo5NixcIk5hbWVcIjpcIkJBTkNPIFNBTlRBTkRFUiBSSU8gU0FcIn1dIiwibmJmIjoxNzU4MzAyOTA4LCJleHAiOjE3NTgzODkzMDgsImlhdCI6MTc1ODMwMjkwOH0.5kcig4BDagWaXY5VRMRgD4uA-LgGd_1bmMAEMKK08og'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-f730ecef-91e9-4bb3-8c99-687447a0d765"
+				},
+				{
+					"name": "Motivos de Baja",
+					"item": [
+						{
+							"name": "/motivos-baja/lista",
+							"id": "49502594-6e4a931c-81e6-4f1b-825b-e72e2e3449d9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/motivos-baja/lista",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"motivos-baja",
+										"lista"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/motivos-baja/lista' \\\r\n  -H 'accept: text/plain' \\\r\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxNzQ0NiIsImVtYWlsIjoibWFpbEBnbWFpbC5jb20iLCJ1bmlxdWVfbmFtZSI6IlVTVUFSSU9JTlQiLCJTZWxsZXJJZCI6IjE3NDQ2OTYiLCJwcmltYXJ5Z3JvdXBzaWQiOiI5NiIsInJvbGUiOiJVc2VySW50ZWdyYXRpb24iLCJDb21wYW5pZXMiOiJbe1wiSWRcIjo5NixcIk5hbWVcIjpcIkJBTkNPIFNBTlRBTkRFUiBSSU8gU0FcIn1dIiwibmJmIjoxNzU4MzAyOTA4LCJleHAiOjE3NTgzODkzMDgsImlhdCI6MTc1ODMwMjkwOH0.5kcig4BDagWaXY5VRMRgD4uA-LgGd_1bmMAEMKK08og'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-100ecf7e-f65a-4806-ad18-f47ae1d42ece"
+				},
+				{
+					"name": "Novedades",
+					"item": [],
+					"id": "49502594-cfdb28c8-d526-414d-a6b7-fc9abbf66d43"
+				},
+				{
+					"name": "Paises",
+					"item": [
+						{
+							"name": "paises/lista",
+							"id": "49502594-990e3d68-ca7c-4b97-ac05-c58e6f1f0e4c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/paises/lista",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"paises",
+										"lista"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/paises/lista' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						},
+						{
+							"name": "paises/:idPais/provincias/lista",
+							"id": "49502594-aa7bc545-4cf7-4d9c-8978-28b0f004d959",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/paises/:idPais/provincias/lista",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"paises",
+										":idPais",
+										"provincias",
+										"lista"
+									],
+									"variable": [
+										{
+											"id": "14ff47cd-8939-4494-b3e0-645b551df438",
+											"key": "idPais",
+											"value": "",
+											"description": "Identificador de pais"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/paises/1/provincias/lista' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": [
+								{
+									"id": "49502594-d5a1325b-51fe-484e-980a-90ab89cd5403",
+									"name": "Argentina",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{BaseUrlRetailIntegracion}}/paises/:idPais/provincias/lista",
+											"host": [
+												"{{BaseUrlRetailIntegracion}}"
+											],
+											"path": [
+												"paises",
+												":idPais",
+												"provincias",
+												"lista"
+											],
+											"variable": [
+												{
+													"key": "idPais",
+													"value": "1",
+													"description": "Identificados de pais"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "paises/:IdPais/provincias/:IdProvincia/localidades/lista",
+							"id": "49502594-daa58bbc-421d-49f0-a6c2-ea5f2958ba84",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/paises/:IdPais/provincias/:IdProvincia/localidades/lista",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"paises",
+										":IdPais",
+										"provincias",
+										":IdProvincia",
+										"localidades",
+										"lista"
+									],
+									"variable": [
+										{
+											"id": "c029baf8-a6a8-4ce2-841d-ffca1481bf65",
+											"key": "IdPais",
+											"value": "",
+											"description": "Identificador Pais"
+										},
+										{
+											"id": "91b02055-0f50-434d-938c-dc42332010c8",
+											"key": "IdProvincia",
+											"value": "",
+											"description": "Identificador Provincia"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/paises/1/provincias/1/localidades/lista' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						},
+						{
+							"name": "paises/:idPais/provincias/localidades/lista",
+							"id": "49502594-116897bb-da91-4296-8c3d-516602c5b9fd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/paises/:idPais/provincias/localidades/lista",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"paises",
+										":idPais",
+										"provincias",
+										"localidades",
+										"lista"
+									],
+									"variable": [
+										{
+											"id": "3aab8397-cd30-413a-8077-a2235ee1c111",
+											"key": "idPais",
+											"value": ""
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/paises/1/provincias/localidades/lista' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": [
+								{
+									"id": "49502594-a0e93729-8f17-4ab8-8302-e1e26df4e7aa",
+									"name": "Argentina",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{BaseUrlRetailIntegracion}}/paises/:idPais/provincias/localidades/lista",
+											"host": [
+												"{{BaseUrlRetailIntegracion}}"
+											],
+											"path": [
+												"paises",
+												":idPais",
+												"provincias",
+												"localidades",
+												"lista"
+											],
+											"variable": [
+												{
+													"key": "idPais",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "49502594-4529f752-2792-4a14-a6fb-52593925be2b"
+				},
+				{
+					"name": "Productos",
+					"item": [
+						{
+							"name": "/productos/:idProducto",
+							"id": "49502594-42e03784-d479-45cf-af92-aca3d1ad905b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/productos/:idProducto",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"productos",
+										":idProducto"
+									],
+									"variable": [
+										{
+											"id": "e4c56515-62e9-44fb-98d4-67e77651dfcd",
+											"key": "idProducto",
+											"value": "",
+											"description": "Identificador de producto"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/productos/1' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						},
+						{
+							"name": "/productos/lista",
+							"id": "49502594-28b742dc-d9af-43fe-bb07-dc3eb5374013",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/productos/lista",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"productos",
+										"lista"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/productos/lista' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						},
+						{
+							"name": "/productos?",
+							"id": "49502594-1495fe65-7a23-4df2-9e00-21446561f9c6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/productos?estado=0&conPaginado=true&desdeRegistro=1&hastaRegistro=20&obtenerTotalRegistros=true",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"productos"
+									],
+									"query": [
+										{
+											"key": "companiaId",
+											"value": "1",
+											"description": "identificador de compañia",
+											"disabled": true
+										},
+										{
+											"key": "nombre",
+											"value": "hv",
+											"description": "Nombre del producto",
+											"disabled": true
+										},
+										{
+											"key": "estado",
+											"value": "0",
+											"description": "Boleano de estado (0, 1)"
+										},
+										{
+											"key": "tiposProducto",
+											"value": "1",
+											"description": "Lista de Identificador de tipo de producto",
+											"disabled": true
+										},
+										{
+											"key": "tiposProducto",
+											"value": "2",
+											"description": "Lista de Identificador de tipo de producto",
+											"disabled": true
+										},
+										{
+											"key": "tiposProducto",
+											"value": null,
+											"description": "Lista de Identificador de tipo de producto",
+											"disabled": true
+										},
+										{
+											"key": "conPaginado",
+											"value": "true",
+											"description": "Boleano de paginado (true/false)"
+										},
+										{
+											"key": "desdeRegistro",
+											"value": "1",
+											"description": "Registro de inicio"
+										},
+										{
+											"key": "hastaRegistro",
+											"value": "20",
+											"description": "Registro de fin"
+										},
+										{
+											"key": "obtenerTotalRegistros",
+											"value": "true",
+											"description": "Boleando de obtener el total de los registros"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/productos?companiaId=1&nombre=hv&estado=0&tiposProducto=1&tiposProducto=2&conPaginado=true&desdeRegistro=1&hastaRegistro=20&obtenerTotalRegistros=true' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-9237f8e7-c44d-40cb-b5c1-34cc25cca5cb"
+				},
+				{
+					"name": "Tipo Documentos",
+					"item": [
+						{
+							"name": "/tipo-documentos/lista",
+							"id": "49502594-d361f687-9b5e-40b1-af61-73a18c03a95b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlRetailIntegracion}}/tipo-documentos/lista",
+									"host": [
+										"{{BaseUrlRetailIntegracion}}"
+									],
+									"path": [
+										"tipo-documentos",
+										"lista"
+									]
+								},
+								"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://retail-qa.redsos.com.ar/tipo-documentos/lista' \\\r\n  -H 'accept: text/plain'"
+							},
+							"response": []
+						}
+					],
+					"id": "49502594-247f2b60-6287-416e-b25d-1376ab9816d6"
+				}
+			],
+			"id": "49502594-955d618b-7766-47c2-8e3e-e8c34d7c5061",
+			"description": "Api\n\nURL QA: [https://retail-qa.redsos.com.ar](https://retail-qa.redsos.com.arEndFragment)\n\nInstrucciones:\n\n- Utilizar el metódo Auth con el usuario deseado.\n    \n- Copiar el token obtenido.\n    \n- Pegarlo en el campo token, en la pestaña Authorization de esta carpeta.\n    \n- Va a poder utilizar los metodos de toda la carpeta con el usuario que se logueo.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxNzQ1MSIsImVtYWlsIjoiIiwidW5pcXVlX25hbWUiOiJJTlRDT05TVU1FUiIsIlNlbGxlcklkIjoiMTc0NTE5ODU0NiIsInByaW1hcnlncm91cHNpZCI6Ijk4NTQ2Iiwicm9sZSI6IlVzZXJJbnRlZ3JhdGlvbiIsIkNvbXBhbmllcyI6Ilt7XCJJZFwiOjk4NTQ2LFwiTmFtZVwiOlwiU0FOVEFOREVSIENPTlNVTUVSIFNBXCJ9XSIsIm5iZiI6MTc1ODU2MDE3NywiZXhwIjoxNzU4NjQ2NTc3LCJpYXQiOjE3NTg1NjAxNzd9.89ZdWiW8SGYfycgZNCw5aH3qqMtOwuXSHZBFMQTLjyA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						],
+						"id": "59359f1f-fe82-4e96-ac49-508285a77cb1"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						],
+						"id": "335e23ca-0ab3-485c-9135-9fb86f07f162"
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				],
+				"id": "a6cb1654-cdc5-421c-8e54-97e8b0e1e83c"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				],
+				"id": "496c450b-1249-41c0-8727-b6d08bc1a426"
+			}
+		}
+	]
+}
