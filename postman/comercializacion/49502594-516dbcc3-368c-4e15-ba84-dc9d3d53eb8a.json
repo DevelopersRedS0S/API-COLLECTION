@@ -22,7 +22,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{BaseUrlComercializacion}}/aseguradoras/lista?companiaId=152",
+									"raw": "{{BaseUrlComercializacion}}/aseguradoras/lista?companiaId=145",
 									"host": [
 										"{{BaseUrlComercializacion}}"
 									],
@@ -33,7 +33,7 @@
 									"query": [
 										{
 											"key": "companiaId",
-											"value": "152",
+											"value": "145",
 											"description": "Identificador unico de compañia asociada al portal."
 										}
 									]
