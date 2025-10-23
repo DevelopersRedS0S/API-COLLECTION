@@ -1,0 +1,4743 @@
+{
+	"info": {
+		"_postman_id": "875f7420-b0fc-455e-bbfe-95898f1e530b",
+		"name": "COMERCIALIZACION",
+		"description": "Sistema que cuenta con dos APIs:\n\n- API Portal: Destinada a brindar datos al portal de productores.\n    \n- API Integración: Api mas limitada, dedicada a brindar servicios a las integraciones externas del Comercializacion.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39654476"
+	},
+	"item": [
+		{
+			"name": "API Portal",
+			"item": [
+				{
+					"name": "Aseguradoras",
+					"item": [
+						{
+							"name": "/aseguradoras/lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/aseguradoras/lista?companiaId=152",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"aseguradoras",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "companiaId",
+											"value": "152",
+											"description": "Identificador unico de compañia asociada al portal."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial / Admin Productor / Productor.**\n\nObtiene una lista de aseguradoras habilitadas para asociar a asistencias."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Comisiones",
+					"item": [
+						{
+							"name": "/comisiones",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/comisiones?fechaDesde=2025/08/01&fechaHasta=2025/10/01",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"comisiones"
+									],
+									"query": [
+										{
+											"key": "vendedorId",
+											"value": null,
+											"description": "Identificador unico de ",
+											"disabled": true
+										},
+										{
+											"key": "productoId",
+											"value": null,
+											"description": "Identificador unico de producto.",
+											"disabled": true
+										},
+										{
+											"key": "fechaDesde",
+											"value": "2025/08/01",
+											"description": "Fecha desde"
+										},
+										{
+											"key": "fechaHasta",
+											"value": "2025/10/01",
+											"description": "Fecha Hasta"
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial / Admin Productor / Productor.**\n\nObtiene una lista de comisiones que le corresponden a un vendedor por la asistencia dada de alta (debera de asignar su propio identificador unico de vendedor para visualizar esos datos).\n\nSi el usuario es un admin comercial, vera todas las comisiones que se les descontara a los vendedores."
+							},
+							"response": []
+						},
+						{
+							"name": "/comisiones/excel",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/comisiones/excel?fechaDesde=2025/08/01&fechaHasta=2025/10/01",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"comisiones",
+										"excel"
+									],
+									"query": [
+										{
+											"key": "vendedorId",
+											"value": null,
+											"description": "Identificador unico de vendedor.",
+											"disabled": true
+										},
+										{
+											"key": "productoId",
+											"value": null,
+											"description": "Identificador unico de producto.",
+											"disabled": true
+										},
+										{
+											"key": "fechaDesde",
+											"value": "2025/08/01",
+											"description": "Fecha desde"
+										},
+										{
+											"key": "fechaHasta",
+											"value": "2025/10/01",
+											"description": "Fecha hasta"
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial / Admin Productor / Productor.**\n\nExporta un excel con la lista de comisiones que le corresponden a un vendedor por la asistencia dada de alta (debera de asignar su propio identificador unico de vendedor para visualizar esos datos).\n\nSi el usuario es un admin comercial, vera todas las comisiones que se les descontara a los vendedores."
+							},
+							"response": []
+						},
+						{
+							"name": "/comisiones/pagos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/comisiones/pagos?fechaDesde=2025/08/01&fechaHasta=2025/10/01",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"comisiones",
+										"pagos"
+									],
+									"query": [
+										{
+											"key": "vendedorId",
+											"value": null,
+											"description": "Identificador unico de vendedor.",
+											"disabled": true
+										},
+										{
+											"key": "productoId",
+											"value": null,
+											"description": "Identificador unico de producto.",
+											"disabled": true
+										},
+										{
+											"key": "fechaDesde",
+											"value": "2025/08/01",
+											"description": "Fecha desde"
+										},
+										{
+											"key": "fechaHasta",
+											"value": "2025/10/01",
+											"description": "Fecha hasta"
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial / Admin Productor / Productor.**\n\nSi el usuario ingresado es Admin Productor o Productor: Obtendra la posibilidad de visualizar una lista de pagos rechazados, estos pagos estan asociados a las asistencias dadas de alta por dicho vendedor (debera de asignar su propio identificador unico de vendedor para visualizar esos datos).\n\nSi el usuario ingresado es Admin Comercial: Obtendra la posibilidad de visualizar todos los pagos realizados por los vendedores que dan de alta asistencias."
+							},
+							"response": []
+						},
+						{
+							"name": "/comisiones/pagos/excel",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/comisiones/pagos/excel?fechaDesde=2025/08/01&fechaHasta=2025/10/01",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"comisiones",
+										"pagos",
+										"excel"
+									],
+									"query": [
+										{
+											"key": "vendedorId",
+											"value": null,
+											"description": "Identificador unico de vendedor.",
+											"disabled": true
+										},
+										{
+											"key": "productoId",
+											"value": null,
+											"description": "Identificador unico de producto.",
+											"disabled": true
+										},
+										{
+											"key": "fechaDesde",
+											"value": "2025/08/01",
+											"description": "Fecha desde"
+										},
+										{
+											"key": "fechaHasta",
+											"value": "2025/10/01",
+											"description": "Fecha hasta"
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial / Admin Productor / Productor.**\n\nSi el usuario ingresado es Admin Productor o Productor: Obtendra la posibilidad de exportar un excel con una lista de pagos rechazados, estos pagos estan asociados a las asistencias dadas de alta por dicho vendedor (debera de asignar su propio identificador unico de vendedor para visualizar esos datos).\n\nSi el usuario ingresado es Admin Comercial: Obtendra la posibilidad de exportar un excel con todos los pagos realizados por los vendedores que dan de alta asistencias."
+							},
+							"response": []
+						}
+					],
+					"description": "Comisiones hace referencia a lo que se le descontara al productor por cada asistencia dada de alta a su nombre. Estas comisiones seran aplicadas por los administradores."
+				},
+				{
+					"name": "Companias",
+					"item": [
+						{
+							"name": "/companias/lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/companias/lista?companiaId=90",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"companias",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "companiaId",
+											"value": "90",
+											"description": "Identificador unico de compañia."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial.**\n\nObtiene un listado de compañias asignadas a Retail.\n\nNota: Este endpoint realiza internamente una integracion con un sistema externo llamado \"Retail\"."
+							},
+							"response": []
+						},
+						{
+							"name": "/companias/:companiaId/configuraciones",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/companias/:companiaId/configuraciones",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"companias",
+										":companiaId",
+										"configuraciones"
+									],
+									"variable": [
+										{
+											"key": "companiaId",
+											"value": "90",
+											"description": "Identificador unico de compañia."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial.**\n\nObtiene la informacion de la configuracion de una compañia asociada a Retail.\n\nNota: Este endpoint realiza internamente una integracion con un sistema externo llamado \"Retail\"."
+							},
+							"response": []
+						}
+					],
+					"description": "Las compañias seran brindadas por el sistema de Retail una vez asignadas a dicho sistema. Estas entidades sirven para poder disponibilizar productos y gestionar contratos bajo su nombre."
+				},
+				{
+					"name": "Emails",
+					"item": [
+						{
+							"name": "/emails/contratos/:contratoId/ventas/:origenVenta",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/emails/contratos/:contratoId/ventas/:origenVenta",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"emails",
+										"contratos",
+										":contratoId",
+										"ventas",
+										":origenVenta"
+									],
+									"variable": [
+										{
+											"key": "contratoId",
+											"value": "14770",
+											"description": "Identificador unico de contrato asociado a un producto."
+										},
+										{
+											"key": "origenVenta",
+											"value": "1",
+											"description": "Identificador unico del origen desde donde proviene la venta. Portal de productores (1) / Galicia motos (2)."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial / Productor / Admin Productor**\n\nRealiza el reenvio de mail de \"Terminos y condiciones\" al cliente asociado a la venta."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Estadisticas",
+					"item": [
+						{
+							"name": "/estadisticas/ventas/canales",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/estadisticas/ventas/canales",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"estadisticas",
+										"ventas",
+										"canales"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial.**\n\nObtiene un total de ventas por canal de venta. Estos canales pueden ser:\n\nPortal de productores\n\nGalicia motos"
+							},
+							"response": []
+						},
+						{
+							"name": "/estadisticas/ventas/estados",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/estadisticas/ventas/estados",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"estadisticas",
+										"ventas",
+										"estados"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial.**\n\nMuestra la cantidad de ventas que se encuentran en un estado determinado. Estos estados de ventas pueden ser:\n\nPendiente\n\nCon contrato\n\nDatos de cliente completo\n\nPago rechazado\n\nVencida\n\nReactivada"
+							},
+							"response": []
+						},
+						{
+							"name": "/estadisticas/ventas/productos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/estadisticas/ventas/productos",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"estadisticas",
+										"ventas",
+										"productos"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial.**\n\nDetalla la cantidad de ventas con un determinado producto.\n\nNota: estos productos son obtenidos del sistema \"Retail\"."
+							},
+							"response": []
+						},
+						{
+							"name": "/estadisticas/ventas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/estadisticas/ventas",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"estadisticas",
+										"ventas"
+									],
+									"query": [
+										{
+											"key": "userIdList",
+											"value": "",
+											"description": "Lista de identificadores unicos de vendedores.",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial / Admin Productor.**\n\nObtiene la cantidad de ventas realizadas por un determinado productor. Total de ventas registradas, concretadas y la efectividad de dicho productor."
+							},
+							"response": []
+						},
+						{
+							"name": "/estadisticas/usuarios/ventas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/estadisticas/usuarios/ventas",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"estadisticas",
+										"usuarios",
+										"ventas"
+									],
+									"query": [
+										{
+											"key": "userIdList",
+											"value": null,
+											"description": "Lista de identificadores unicos de vendedores.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Brindan informacion util sobre las ventas que se realizan en el sistema, para los perfiles administradores comercial y administradores de productores."
+				},
+				{
+					"name": "Estructura Jerarquica",
+					"item": [
+						{
+							"name": "/estructura-jerarquica/lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/estructura-jerarquica/lista?pagina=1&tamanioPagina=10",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"estructura-jerarquica",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "pagina",
+											"value": "1",
+											"description": "numero de pagina"
+										},
+										{
+											"key": "tamanioPagina",
+											"value": "10",
+											"description": "cantidad de resultados a mostrar por pagina"
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial / Admin Productor / Productor**\n\nObtiene una lista de estructuras jerarquicas.\n\nDiferenciacion por tipo de rol logueado.\n\nAdmin Comercial: Obtiene una lista general de estructuras jerarquicas.\n\nAdmin Productor: Obtiene una lista de estructuras jerarquicas solo en las que ese usuario logueado se vea involucrado.\n\nProductor: Obtiene la estructura jerarquica donde se ve involucrado."
+							},
+							"response": []
+						},
+						{
+							"name": "/estructura-jerarquica/:estructuraJerarquicaId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/estructura-jerarquica/:estructuraJerarquicaId",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"estructura-jerarquica",
+										":estructuraJerarquicaId"
+									],
+									"variable": [
+										{
+											"key": "estructuraJerarquicaId",
+											"value": "153",
+											"description": "Identificador de estructura jerarquica.\n"
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial / Admin Productor / Productor.**\n\nObtiene los detalles asociados a una estructura jerarquica mediante un identificador unico relacionado."
+							},
+							"response": []
+						},
+						{
+							"name": "/estructura-jerarquica",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/estructura-jerarquica?idVendedorUno=2375",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"estructura-jerarquica"
+									],
+									"query": [
+										{
+											"key": "idVendedorUno",
+											"value": "2375",
+											"description": "Identificador unico de PAS, en nivel uno de la estructura jerarquica"
+										},
+										{
+											"key": "idVendedorDos",
+											"value": null,
+											"description": "Identificador unico de PAS, en el nivel dos de la estructura jerarquica.",
+											"disabled": true
+										},
+										{
+											"key": "idVendedorTres",
+											"value": null,
+											"description": "Identificador unico de PAS, en el nivel tres de la estructura jerarquica",
+											"disabled": true
+										},
+										{
+											"key": "idVendedorCuatro",
+											"value": null,
+											"description": "Identificador unico de PAS, en el nivel cuatro de la estructura jerarquica",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial / Admin Productor / Productor.**\n\nObtiene los detalles de la estructura jerarquica que involucra al menos a un identificador unico que hacen referencia a vendedores."
+							},
+							"response": []
+						},
+						{
+							"name": "/estructura-jerarquica",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idVendedorUno\": 0,\r\n  \"nombreVendedorUno\": \"\",\r\n  \"porcentajeVendedorUno\": 0,\r\n  \"idVendedorDos\": 0,\r\n  \"nombreVendedorDos\": \"\",\r\n  \"porcentajeVendedorDos\": 0,\r\n  \"idVendedorTres\": 0,\r\n  \"nombreVendedorTres\": \"\",\r\n  \"porcentajeVendedorTres\": 0,\r\n  \"idVendedorCuatro\": 0,\r\n  \"nombreVendedorCuatro\": \"\",\r\n  \"porcentajeVendedorCuatro\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/estructura-jerarquica",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"estructura-jerarquica"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial.**\n\nRealiza el alta de una estructura jerarquica involucrando a los vendedores descritos por parametro.\n\n_el parametro \"porcentaje\" hace referencia al porcentaje de comision que se le asocia a ese vendedor._\n\n**Esta firma realiza internamente una integracion con un sistema externo: Billing - Calipso, dando de alta en ese sistema una estructura, asi mantener una relacion entre ambos registros.**\n\n**VALIDACIONES CONTROLADAS:**\n\n1- La relacion entre vendedores no debe existir previamente. No pueden haber relaciones duplicadas.\n\n2- Debe existir las relaciones entre vendedores en sus distintos niveles (1 y 2) (2 y 3) (3 y 4)."
+							},
+							"response": [
+								{
+									"name": "/estructura-jerarquica",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idVendedorUno\": 2831,\r\n    \"nombreVendedorUno\": \"Productor - Productor Test Dos\",\r\n    \"porcentajeVendedorUno\": 2,\r\n    \"idVendedorDos\": 2830,\r\n    \"nombreVendedorDos\": \"Agencia - Agencia Admin Test Dos\",\r\n    \"porcentajeVendedorDos\": 3,\r\n    \"idVendedorTres\": 2829,\r\n    \"nombreVendedorTres\": \"Broker - Broker Admin Test Dos\",\r\n    \"porcentajeVendedorTres\": 4,\r\n    \"idVendedorCuatro\": 2828,\r\n    \"nombreVendedorCuatro\": \"Organización - Org AdminTest Dos\",\r\n    \"porcentajeVendedorCuatro\": 5\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/estructura-jerarquica",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"estructura-jerarquica"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": "221"
+								}
+							]
+						},
+						{
+							"name": "/estructura-jerarquica/:estructuraJerarquicaId",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idVendedorUno\": 0,\r\n    \"nombreVendedorUno\": \"\",\r\n    \"porcentajeVendedorUno\": 0,\r\n    \"idVendedorDos\": 0,\r\n    \"nombreVendedorDos\": \"\",\r\n    \"porcentajeVendedorDos\": 0,\r\n    \"idVendedorTres\": 0,\r\n    \"nombreVendedorTres\": \"\",\r\n    \"porcentajeVendedorTres\": 0,\r\n    \"idVendedorCuatro\": 0,\r\n    \"nombreVendedorCuatro\": \"\",\r\n    \"porcentajeVendedorCuatro\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/estructura-jerarquica/:estructuraJerarquicaId",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"estructura-jerarquica",
+										":estructuraJerarquicaId"
+									],
+									"variable": [
+										{
+											"key": "estructuraJerarquicaId",
+											"value": "221",
+											"description": "Identificador de estructura jerarquica.\n"
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial.**\n\nRealiza la edicion de una estructura jerarquica mediante un identificador unico.\n\n_el parametro \"porcentaje\" hace referencia al porcentaje de comision que se le asocia a ese vendedor._\n\n**Esta firma realiza internamente una integracion con un sistema externo: Billing - Calipso, haciendo una edicion en ese sistema de la estructura establecida, asi mantener una relacion entre ambos registros.**\n\n**VALIDACIONES CONTROLADAS:**\n\n1- La relacion entre vendedores no debe existir previamente. No pueden haber relaciones duplicadas.\n\n2- Debe existir las relaciones entre vendedores en sus distintos niveles (1 y 2) (2 y 3) (3 y 4)."
+							},
+							"response": [
+								{
+									"name": "/estructura-jerarquica/:estructuraJerarquicaId",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idVendedorUno\": 2831,\r\n    \"nombreVendedorUno\": \"Productor - Productor Test Dos\",\r\n    \"porcentajeVendedorUno\": 5,\r\n    \"idVendedorDos\": 2830,\r\n    \"nombreVendedorDos\": \"Agencia - Agencia Admin Test Dos\",\r\n    \"porcentajeVendedorDos\": 3,\r\n    \"idVendedorTres\": 2829,\r\n    \"nombreVendedorTres\": \"Broker - Broker Admin Test Dos\",\r\n    \"porcentajeVendedorTres\": 4,\r\n    \"idVendedorCuatro\": 2828,\r\n    \"nombreVendedorCuatro\": \"Organización - Org AdminTest Dos\",\r\n    \"porcentajeVendedorCuatro\": 5\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/estructura-jerarquica/:estructuraJerarquicaId",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"estructura-jerarquica",
+												":estructuraJerarquicaId"
+											],
+											"variable": [
+												{
+													"key": "estructuraJerarquicaId",
+													"value": "221",
+													"description": "Identificador de estructura jerarquica.\n"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": ""
+								}
+							]
+						}
+					],
+					"description": "Estructura jerárquica, es un sistema diseñado para **organizar y gestionar las jerarquías de vendedores** (o Productores Asesores de Seguros - PAS) de manera eficiente dentro de un canal de ventas.\n\nEsta estructura define **cómo se relacionan los productores** entre sí y es fundamental porque se utiliza para registrar las ventas bajo qué niveles se realizaron, lo cual es esencial para el **cálculo futuro de comisiones** y para **asegurar la integridad financiera** en la asignación de esas comisiones."
+				},
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "/auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Parsea la respuesta del endpoint /auth\r",
+											"const response = pm.response.json();\r",
+											"\r",
+											"if (response && response.token) {\r",
+											"    // Guarda el token en las variables de colección (visible también en la carpeta \"Login\")\r",
+											"    pm.collectionVariables.set(\"bearerToken\", response.token);\r",
+											"    console.log(\"✅ Token guardado correctamente en la carpeta/colección:\", response.token);\r",
+											"} else {\r",
+											"    console.warn(\"⚠️ No se encontró la propiedad 'token' en la respuesta\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"string\",\r\n  \"password\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/auth",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"auth"
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nPosibilidad de iniciar sesion en el sistema Portal de productores.\n\nDebera ingresar usuarios dados de alta con un rol en especifico habilitado. Estos roles pueden ser:\n\nAdmin Comercial\n\nAdmin Productor\n\nProductor"
+							},
+							"response": [
+								{
+									"name": "/auth - Admin comercial",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"username\": \"AdminProdu\",\r\n  \"password\": \"Admin123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/auth",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"auth"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": "{\r\n  \"token\": \"eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwidHlwIjoiSldUIiwiY3R5IjoiSldUIn0.gMoDJXNe2RFNfsnWB5LApb8tbFHUN8wxZ2ghi2Zd60R4_105_yDmPg.R5nQP2V07WICJL8t1h3VRA.OfQMZ5Veo7ne7vC1Lt7bRjq7J0Dbg72qTaFCZ2cavAy9TehcytnY-dcn7gdfkTEMJ0qcOe7EN8tsJcx9FXhGJLLUrr35Y1R1J1bW6I0Nk9rHBEX71VAYTBoXalH0es3ymzj9Ip88gWqhV9YtPjopnoni-96Rs49jrcMmSH1lxjbFXDUXnkHjvNnWrfw5MgoW3ZS8cOj-xdB-olmNS8VEFKIebFKY-B9ALopv9flOCLBcSYVCjssgpfpA1CfqUtQ2kLKJUqJwILplhe0PZprQiBhwlzWCMnjWIrRe23Tib_tfODNac8TRMj4r8Cs09DaDfyruo-qSOfYiSgWpQm4QdaIS1ZcXyVv2Q0oL08VFhfHTTpuE4Bx9RT-SVouIBGc0mXMerRP1jtOAx5pobvMM2G8BXIIZuY59KNuxX5u6kgATVJ8b8Cf5hWBxwOf72vPC9LPfP6wx4l8-CwE9gED4SfxXCSd6H6S4efQ56uwm0lrA9gioCOqjnRzGACz542AeFTLE06dNkzW9ks3NC5z22qGE6504CoPGabmcV0czRgNudoooGjYRF5V084c8p_b25BYosCK-o3uAj1mXn7YaAdsHhztJvlT6HXqQm45Zdxrr-8pSUL7QTgUiKxDzw9jK27D3OjAH3mkEX2InBj85bOw59JJ6tpzpJs_TeHx6S3yx9psROxlmnXmhlIw22f1AAqRVO99mBwz4UADF9CcZY3_l-ulUwa-LavJjAGZQwWVcOsEV-qP-sMxC6cN2-0yy.C4MLuawLRrbEpItS_ROhbA\"\r\n}"
+								},
+								{
+									"name": "/auth - Productor",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"username\": \"NCDEMO\",\r\n  \"password\": \"12345678Ji\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/auth",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"auth"
+											]
+										}
+									},
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/auth",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/auth",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"auth"
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nObtiene la informacion desencriptada del JWT (Json Web Token)."
+							},
+							"response": []
+						},
+						{
+							"name": "/auth/cambiar-contrasena",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"contrasenaAnterior\": \"string\",\r\n  \"nuevaContrasena\": \"string\",\r\n  \"confirmarContrasena\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/auth/cambiar-contrasena",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"auth",
+										"cambiar-contrasena"
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nRealiza el cambio de contraseña asociado a la cuenta de un usuario. Mayormente utilizado para usuarios donde es su primer ingreso al sistema del portal con el fin de cambiar su contraseña por defecto.\n\nPara este proceso debera de utilizar las credenciales de su usuario, obtenidas por un mail enviado por administradores."
+							},
+							"response": [
+								{
+									"name": "/auth/cambiar-contrasena",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"contrasenaAnterior\": \"uya9W3Qy\",\r\n    \"nuevaContrasena\": \"12345678Hi\",\r\n    \"confirmarContrasena\": \"12345678Hi\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/auth/cambiar-contrasena",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"auth",
+												"cambiar-contrasena"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/auth/actualizar-contrasena",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"hash\": \"string\",\r\n  \"nuevaContrasena\": \"string\",\r\n  \"confirmarContrasena\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/auth/actualizar-contrasena",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"auth",
+										"actualizar-contrasena"
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nRealiza la recuperacion de la contraseña del usuario identificado mediante el hash. Actualizara la contraseña anterior por la nueva establecida."
+							},
+							"response": [
+								{
+									"name": "/auth/actualizar-contrasena",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nuevaContrasena\": \"12345678Ji\",\r\n    \"confirmarContrasena\": \"12345678Ji\",\r\n    \"hash\": \"EF60F1E92318B21977DF36316F7B6BAA5E2DD25C7F80BC97EA8DA161AF5DDB5221CAF001FA25801EF0AFC83980B30F37F0537FC501D6B2A12FF743FBCAB8F620\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/auth/actualizar-contrasena",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"auth",
+												"actualizar-contrasena"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/auth/blanqueo-contrasena",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"usuario\": \"string\",\r\n  \"correo\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/auth/blanqueo-contrasena",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"auth",
+										"blanqueo-contrasena"
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nCrea un registro dejando asentado que un usuario ha solicitado el proceso de recuperacion de contraseña. Se le enviara un email con instrucciones a seguir."
+							},
+							"response": [
+								{
+									"name": "/auth/blanqueo-contrasena",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"usuario\": \"NCDEMO\",\r\n    \"correo\": \"xinib19848@memeazon.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/auth/blanqueo-contrasena",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"auth",
+												"blanqueo-contrasena"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/auth/blanqueo-contrasena/:hash",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/auth/blanqueo-contrasena/:hash",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"auth",
+										"blanqueo-contrasena",
+										":hash"
+									],
+									"variable": [
+										{
+											"key": "hash",
+											"value": "EF60F1E92318B21977DF36316F7B6BAA5E2DD25C7F80BC97EA8DA161AF5DDB5221CAF001FA25801EF0AFC83980B30F37F0537FC501D6B2A12FF743FBCAB8F620",
+											"description": "Codigo unico hash"
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nMediante un codigo unico hash valida si la solicitud de \"recuperacion de contraseña\" se encuentra en vigencia. Esta solicitud tiene un tiempo activo de 24 horas, luego de eso, se vencera y debera de volver a ejecutarlo."
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Medios de Pago",
+					"item": [
+						{
+							"name": "/medios-pago/companias/:companiaId/lista",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererPortalProductoresQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/medios-pago/companias/:companiaId/lista",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"medios-pago",
+										"companias",
+										":companiaId",
+										"lista"
+									],
+									"variable": [
+										{
+											"key": "companiaId",
+											"value": "90",
+											"description": "Identificador unico de compañia."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nObtiene todos los medios de pagos asignados a la compañia establecida por parametro.\n\nNota: este endpoint tiene una integracion con el sistema Retail para obtener dichos medios de pagos."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pagos",
+					"item": [
+						{
+							"name": "/payment/hook",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 0,\r\n  \"live_mode\": true,\r\n  \"type\": \"string\",\r\n  \"date_created\": \"string\",\r\n  \"application_id\": \"string\",\r\n  \"user_id\": \"string\",\r\n  \"version\": 0,\r\n  \"api_version\": \"string\",\r\n  \"action\": \"string\",\r\n  \"data\": {\r\n    \"id\": \"string\",\r\n    \"status\": \"string\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/payment/hook",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"payment",
+										"hook"
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nUtilizando el codigo de comprobante de operacion brindado por mercado pago, se impactara el pago en el contrato, se actualizaran los estados de la venta pasando a \"CON CONTRATO\" y se generara el contrato al producto comprado.\n\nEste endpoint solo tiene validez si la compañia asociada al producto que se quiere dar de alta con una asistencia, tiene tipo de facturacion mediante SAP.\n\nNota: se necesitara una cuenta configurada en mercado pago para la ejecucion correcta."
+							},
+							"response": [
+								{
+									"name": "/payment/hook",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 0,\r\n  \"live_mode\": true,\r\n  \"type\": \"string\",\r\n  \"date_created\": \"string\",\r\n  \"application_id\": \"string\",\r\n  \"user_id\": \"string\",\r\n  \"version\": 0,\r\n  \"api_version\": \"string\",\r\n  \"action\": \"string\",\r\n  \"data\": {\r\n    \"id\": \"string\",\r\n    \"status\": \"string\"\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/payment/hook",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"payment",
+												"hook"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/payment/hook-galicia",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 0,\r\n  \"live_mode\": true,\r\n  \"type\": \"string\",\r\n  \"date_created\": \"string\",\r\n  \"application_id\": \"string\",\r\n  \"user_id\": \"string\",\r\n  \"version\": 0,\r\n  \"api_version\": \"string\",\r\n  \"action\": \"string\",\r\n  \"data\": {\r\n    \"id\": \"string\",\r\n    \"status\": \"string\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/payment/hook-galicia",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"payment",
+										"hook-galicia"
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nUtilizando el codigo de comprobante de operacion brindado por mercado pago, se impactara el pago en el contrato, se actualizaran los estados de la venta pasando a \"CON CONTRATO\" y se generara el contrato al producto adquirido.\n\nEste endpoint solo tiene validez si la compañia asociada al producto que se quiere dar de alta con una asistencia, tiene tipo de facturacion mediante SAP.\n\nNota: se necesitara una cuenta configurada en mercado pago para la ejecucion correcta."
+							},
+							"response": [
+								{
+									"name": "/payment/hook-galicia",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 0,\r\n  \"live_mode\": true,\r\n  \"type\": \"string\",\r\n  \"date_created\": \"string\",\r\n  \"application_id\": \"string\",\r\n  \"user_id\": \"string\",\r\n  \"version\": 0,\r\n  \"api_version\": \"string\",\r\n  \"action\": \"string\",\r\n  \"data\": {\r\n    \"id\": \"string\",\r\n    \"status\": \"string\"\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/payment/hook-galicia",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"payment",
+												"hook-galicia"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Paises",
+					"item": [
+						{
+							"name": "/paises/lista",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererPortalProductoresQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/paises/lista",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"paises",
+										"lista"
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nObtiene un listado de paises.\n\nNota: Este endpoint tiene una integracion con el sistema Retail para obtener los registros."
+							},
+							"response": []
+						},
+						{
+							"name": "/paises/:paisId/provincias/lista",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererPortalProductoresQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/paises/:paisId/provincias/lista",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"paises",
+										":paisId",
+										"provincias",
+										"lista"
+									],
+									"variable": [
+										{
+											"key": "paisId",
+											"value": "1",
+											"description": "Identificador unico de pais. Actualmente, unico valor disponible: Argentina (1)."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nObtiene un listado de provincias asociadas al pais ingresado por parametro.\n\nNota: Este endpoint tiene una integracion con el sistema Retail para obtener los registros."
+							},
+							"response": []
+						},
+						{
+							"name": "/paises/:paisId/provincias/:provinciaId/localidades/lista",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererPortalProductoresQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/paises/:paisId/provincias/:provinciaId/localidades/lista",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"paises",
+										":paisId",
+										"provincias",
+										":provinciaId",
+										"localidades",
+										"lista"
+									],
+									"variable": [
+										{
+											"key": "paisId",
+											"value": "1",
+											"description": "Identificador unico de pais. Actualmente, unico valor disponible: Argentina (1)."
+										},
+										{
+											"key": "provinciaId",
+											"value": "1",
+											"description": "Identificador unico de provincia."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nObtiene una lista de localidades filtrada por provincia y pais.\n\nNota: Este endpoint tiene una integracion con el sistema Retail para obtener los registros."
+							},
+							"response": []
+						},
+						{
+							"name": "/paises/:paisId/provincias/localidades/lista",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererPortalProductoresQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/paises/:paisId/provincias/localidades/lista",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"paises",
+										":paisId",
+										"provincias",
+										"localidades",
+										"lista"
+									],
+									"variable": [
+										{
+											"key": "paisId",
+											"value": "1",
+											"description": "Identificador unico de pais. Actualmente, unico valor disponible: Argentina (1)."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nObtiene una lista de localidades filtradas por pais.\n\nNota: Este endpoint tiene una integracion con el sistema Retail para obtener los registros."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Productos",
+					"item": [
+						{
+							"name": "/productos/lista",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererPortalProductoresQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/productos/lista?tiposProducto=1&tiposVehiculo=1",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"productos",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "tiposProducto",
+											"value": "1",
+											"description": "Lista de identificadores unicos de tipos de productos."
+										},
+										{
+											"key": "tiposVehiculo",
+											"value": "1",
+											"description": "Lista de identificadores unicos de tipos de vehiculos."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene una lista de productos obtenidos del sistema Retail. Estos productos seran filtrados para solo adquirir aquellos habilitados para transaccionar.\n\nHabilitados para transaccionar: Posean registros en grillas y tengan un email asignado a la compañia.\n\nNota: este endpoint realiza una integracion al sistema retail para obtener los registros."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Reintegros",
+					"item": [
+						{
+							"name": "/reintegros/tipos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/reintegros/tipos",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"reintegros",
+										"tipos"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**"
+							},
+							"response": []
+						},
+						{
+							"name": "/reintegros/tipos-motivos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/reintegros/tipos-motivos",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"reintegros",
+										"tipos-motivos"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**"
+							},
+							"response": []
+						},
+						{
+							"name": "/reintegros/estados",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/reintegros/estados",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"reintegros",
+										"estados"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**"
+							},
+							"response": []
+						},
+						{
+							"name": "/reintegros/numeros-ventas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/reintegros/numeros-ventas",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"reintegros",
+										"numeros-ventas"
+									],
+									"query": [
+										{
+											"key": "texto",
+											"value": null,
+											"description": "Parametro de busqueda.",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**"
+							},
+							"response": []
+						},
+						{
+							"name": "/reintegros/:idReintegro",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/reintegros/:idReintegro",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"reintegros",
+										":idReintegro"
+									],
+									"variable": [
+										{
+											"key": "idReintegro",
+											"value": "",
+											"description": "Identificador unico de reclamo / reintegro."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**"
+							},
+							"response": []
+						},
+						{
+							"name": "/reintegros",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/reintegros?pagina=1&tamanioPagina=10",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"reintegros"
+									],
+									"query": [
+										{
+											"key": "idcompania",
+											"value": null,
+											"description": "Identificador unico de compañia.",
+											"disabled": true
+										},
+										{
+											"key": "fechaDesde",
+											"value": null,
+											"description": "Fecha desde",
+											"disabled": true
+										},
+										{
+											"key": "fechaHasta",
+											"value": null,
+											"description": "Fecha hasta",
+											"disabled": true
+										},
+										{
+											"key": "idEstado",
+											"value": null,
+											"description": "Identificador unico del estado de los reclamos / reintegros",
+											"disabled": true
+										},
+										{
+											"key": "numeroVenta",
+											"value": null,
+											"description": "Identificador unico de la venta registrada en portal de productores.",
+											"disabled": true
+										},
+										{
+											"key": "numeroGestion",
+											"value": null,
+											"description": "Identificador unico de gestion.",
+											"disabled": true
+										},
+										{
+											"key": "dominio",
+											"value": null,
+											"description": "Patente del vehiculo.",
+											"disabled": true
+										},
+										{
+											"key": "poliza",
+											"value": null,
+											"description": "Numero de poliza del seguro.",
+											"disabled": true
+										},
+										{
+											"key": "chasis",
+											"value": null,
+											"description": "Numero de chasis del vehiculo.",
+											"disabled": true
+										},
+										{
+											"key": "tipoReintegro",
+											"value": null,
+											"description": "Identificador unico del tipo de reintegro.",
+											"disabled": true
+										},
+										{
+											"key": "motivoReintegro",
+											"value": null,
+											"description": "Identificador unico del motivo del reintegro.",
+											"disabled": true
+										},
+										{
+											"key": "respuestaNoLeida",
+											"value": null,
+											"description": "Valor de verdad que identificara a los registros donde sus respuestas fueron leidas por un administrador o no.",
+											"disabled": true
+										},
+										{
+											"key": "numeroCaso",
+											"value": null,
+											"description": "Numero del caso",
+											"disabled": true
+										},
+										{
+											"key": "soloMisGestiones",
+											"value": null,
+											"description": "Valor de verdad que identificara a los registros administrados por usted mismo.",
+											"disabled": true
+										},
+										{
+											"key": "nombreCliente",
+											"value": null,
+											"description": "Nombre completo del cliente.",
+											"disabled": true
+										},
+										{
+											"key": "pagina",
+											"value": "1",
+											"description": "Numero de pagina."
+										},
+										{
+											"key": "tamanioPagina",
+											"value": "10",
+											"description": "Cantidad de registros mostrados por pagina."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**"
+							},
+							"response": []
+						},
+						{
+							"name": "/reintegros/excel",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/reintegros/excel?pagina=1&tamanioPagina=10",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"reintegros",
+										"excel"
+									],
+									"query": [
+										{
+											"key": "idcompania",
+											"value": null,
+											"description": "Identificador unico de compañia.",
+											"disabled": true
+										},
+										{
+											"key": "fechaDesde",
+											"value": null,
+											"description": "Fecha desde",
+											"disabled": true
+										},
+										{
+											"key": "fechaHasta",
+											"value": null,
+											"description": "Fecha hasta",
+											"disabled": true
+										},
+										{
+											"key": "idEstado",
+											"value": null,
+											"description": "Identificador unico del estado de los reclamos / reintegros",
+											"disabled": true
+										},
+										{
+											"key": "numeroVenta",
+											"value": null,
+											"description": "Identificador unico de la venta registrada en portal de productores.",
+											"disabled": true
+										},
+										{
+											"key": "numeroGestion",
+											"value": null,
+											"description": "Identificador unico de gestion.",
+											"disabled": true
+										},
+										{
+											"key": "dominio",
+											"value": null,
+											"description": "Patente del vehiculo.",
+											"disabled": true
+										},
+										{
+											"key": "poliza",
+											"value": null,
+											"description": "Numero de poliza del seguro.",
+											"disabled": true
+										},
+										{
+											"key": "chasis",
+											"value": null,
+											"description": "Numero de chasis del vehiculo.",
+											"disabled": true
+										},
+										{
+											"key": "tipoReintegro",
+											"value": null,
+											"description": "Identificador unico del tipo de reintegro.",
+											"disabled": true
+										},
+										{
+											"key": "motivoReintegro",
+											"value": null,
+											"description": "Identificador unico del motivo del reintegro.",
+											"disabled": true
+										},
+										{
+											"key": "respuestaNoLeida",
+											"value": null,
+											"description": "Valor de verdad que identificara a los registros donde sus respuestas fueron leidas por un administrador o no.",
+											"disabled": true
+										},
+										{
+											"key": "numeroCaso",
+											"value": null,
+											"description": "Numero del caso",
+											"disabled": true
+										},
+										{
+											"key": "soloMisGestiones",
+											"value": null,
+											"description": "Valor de verdad que identificara a los registros administrados por usted mismo.",
+											"disabled": true
+										},
+										{
+											"key": "nombreCliente",
+											"value": null,
+											"description": "Nombre completo del cliente.",
+											"disabled": true
+										},
+										{
+											"key": "pagina",
+											"value": "1",
+											"description": "Numero de pagina."
+										},
+										{
+											"key": "tamanioPagina",
+											"value": "10",
+											"description": "Cantidad de registros mostrados por pagina."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**"
+							},
+							"response": []
+						},
+						{
+							"name": "/reintegros",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"tipoDeServicio\": 2147483647,\r\n  \"tipoDeServicioNombre\": \"string\",\r\n  \"poliza\": \"string\",\r\n  \"dominio\": \"string\",\r\n  \"chasis\": \"string\",\r\n  \"nombreCompleto\": \"string\",\r\n  \"fechaDeServicio\": \"2025-10-16T15:15:33.609Z\",\r\n  \"fecha\": \"2025-10-16T15:15:33.609Z\",\r\n  \"detalle\": \"string\",\r\n  \"tipoMotivoNombre\": \"string\",\r\n  \"tipoMotivo\": 2147483647,\r\n  \"detalleExtra\": \"string\",\r\n  \"adjuntos\": [\r\n    {\r\n      \"nombre\": \"string\",\r\n      \"enlace\": \"string\"\r\n    }\r\n  ],\r\n  \"numeroServicio\": 99999999999999,\r\n  \"numeroVenta\": 2147483647\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/reintegros",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"reintegros"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**"
+							},
+							"response": [
+								{
+									"name": "/reintegros",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"tipoDeServicio\": 1,\r\n    \"poliza\": \"\",\r\n    \"dominio\": \"KZ839DE\",\r\n    \"chasis\": \"\",\r\n    \"nombreCompleto\": \"Santoz, Julios\",\r\n    \"fechaDeServicio\": \"2025-09-17T03:00:00.000Z\",\r\n    \"fecha\": \"2025-10-17T17:21:33.863Z\",\r\n    \"detalle\": \"Detallas de reclamo\",\r\n    \"tipoMotivo\": 1,\r\n    \"detalleExtra\": \"\",\r\n    \"adjuntos\": [\r\n        {\r\n            \"nombre\": \"iphone16.png\",\r\n            \"enlace\": \"https://mailer-qa.redsos.com.ar/files/202510/152/202510_152-85edd156-b035-419e-9941-9496ae3e4124.png\"\r\n        }\r\n    ],\r\n    \"numeroServicio\": 20250917303686,\r\n    \"numeroVenta\": 3030,\r\n    \"tipoDeServicioNombre\": \"AUTO SUSTITUTO\",\r\n    \"tipoMotivoNombre\": \"REINTEGRO\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/reintegros",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"reintegros"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/reintegros/:refundId/respuestas",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fecha\": \"2025-10-16T15:16:27.505Z\",\r\n  \"descripcion\": \"string\",\r\n  \"estado\": 1,\r\n  \"tipo\": 0,\r\n  \"adjuntos\": [\r\n    {\r\n      \"nombre\": \"string\",\r\n      \"enlace\": \"string\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/reintegros/:refundId/respuestas",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"reintegros",
+										":refundId",
+										"respuestas"
+									],
+									"variable": [
+										{
+											"key": "refundId",
+											"value": "",
+											"description": "Identificador unico de reintegro."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**"
+							},
+							"response": [
+								{
+									"name": "/reintegros/:refundId/respuestas",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fecha\": \"2025-10-16T15:16:27.505Z\",\r\n  \"descripcion\": \"string\",\r\n  \"estado\": 1,\r\n  \"tipo\": 0,\r\n  \"adjuntos\": [\r\n    {\r\n      \"nombre\": \"string\",\r\n      \"enlace\": \"string\"\r\n    }\r\n  ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/reintegros/:refundId/respuestas",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"reintegros",
+												":refundId",
+												"respuestas"
+											],
+											"variable": [
+												{
+													"key": "refundId",
+													"value": "1901",
+													"description": "Identificador unico de reintegro."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					],
+					"description": "Luego del alta de un contrato para un producto se le permite al productor generar el alta de un reclamo o reintegro de una venta."
+				},
+				{
+					"name": "Roles",
+					"item": [
+						{
+							"name": "/roles/lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/roles/lista",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"roles",
+										"lista"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene una lista de roles habilitados en portal de productores."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Servicios",
+					"item": [
+						{
+							"name": "/servicios",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/servicios?fechaDesde=2025/08/20&fechaHasta=2025/09/20&pagina=1&tamanioPagina=1",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"servicios"
+									],
+									"query": [
+										{
+											"key": "numeroServicio",
+											"value": null,
+											"description": "Identificador unico del servicio.",
+											"disabled": true
+										},
+										{
+											"key": "cliente",
+											"value": null,
+											"description": "nombre completo del cliente asociado al servicio.",
+											"disabled": true
+										},
+										{
+											"key": "dominio",
+											"value": null,
+											"description": "Patente del vehiculo asociado al servicio.",
+											"disabled": true
+										},
+										{
+											"key": "categoria",
+											"value": null,
+											"description": "Tipo de categoria de servicio.",
+											"disabled": true
+										},
+										{
+											"key": "fechaDesde",
+											"value": "2025/08/20",
+											"description": "Fecha desde"
+										},
+										{
+											"key": "fechaHasta",
+											"value": "2025/09/20",
+											"description": "Fecha hasta"
+										},
+										{
+											"key": "pagina",
+											"value": "1",
+											"description": "Numero de pagina."
+										},
+										{
+											"key": "tamanioPagina",
+											"value": "1",
+											"description": "Cantidad de registros mostrados por pagina."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor.**\n\nObtiene una lista de servicios dados de alta asociados a una compañia.\n\nEsta consulta esta habilitada para traer registros de un mes solamente.\n\nNota: este endpoint realiza una integracion con post venta para traer los registros."
+							},
+							"response": []
+						},
+						{
+							"name": "/servicios/categorias/tipos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/servicios/categorias/tipos",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"servicios",
+										"categorias",
+										"tipos"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor.**\n\nObtiene los tipos de categorias asociadas a los servicios de una compañia.\n\nNota: este endpoint realiza una integracion con post venta para traer los registros."
+							},
+							"response": []
+						},
+						{
+							"name": "/servicios/:idServicio/detalle",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/servicios/:idServicio/detalle",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"servicios",
+										":idServicio",
+										"detalle"
+									],
+									"variable": [
+										{
+											"key": "idServicio",
+											"value": "20250916303682",
+											"description": "Identificador unico del servicio."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor.**\n\nObtiene los detalles asociados a un servicio dado de alta.\n\nEste numero de servicio es una combinacion entre la fecha en la que se dio de alta y el identificador unico.\n\nNota: este endpoint realiza una integracion con post venta para traer los registros."
+							},
+							"response": []
+						}
+					],
+					"description": "Los servicios estan asociados a las compañias."
+				},
+				{
+					"name": "Tipos de documentos",
+					"item": [
+						{
+							"name": "/tipo-documentos/lista",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererPortalProductoresQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/tipo-documentos/lista",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"tipo-documentos",
+										"lista"
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nObtiene una lista de los tipos de documentos habilitados.\n\nNota: este endpoint realiza una integracion con el sistema Retail para obtener los registros."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Tipos de organizaciones",
+					"item": [
+						{
+							"name": "/tipos-organizaciones/lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/tipos-organizaciones/lista",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"tipos-organizaciones",
+										"lista"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene una lista de los tipos de organizacion. Estos tipos de organizacion asociados a un productor pueden ser:\n\nProductor\n\nAgencia\n\nOrganizador\n\nBroker"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Usuarios",
+					"item": [
+						{
+							"name": "/usuarios/lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/usuarios/lista",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"usuarios",
+										"lista"
+									]
+								},
+								"description": "Usuario permitido segun rol: **AdminIT.**\n\nObtiene una lista de usuarios filtrados por el numero del sistema desde donde se solicita la informacion.\n\nNota: este endpoint realiza una integracion con Retail para obtener los registros."
+							},
+							"response": []
+						},
+						{
+							"name": "/usuarios/:userId",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/usuarios/:userId?roleId",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"usuarios",
+										":userId"
+									],
+									"query": [
+										{
+											"key": "roleId",
+											"value": null,
+											"description": "Identificador unico del tipo de rol que se asigna al usuario. Solamente disponible el rol: \"Admin Comercial\""
+										}
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "65",
+											"description": "Identificador unico de usuario."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **AdminIT.**\n\nAsigna un rol en especifico a un usuario dado de alta.\n\nEl unico rol habilitado para asignar es: **Admin Comercial.**\n\nEste endpoint creara la relacion con el sistema portal de productores y le asignara los permisoso correspondientes para que este usuario interactue con las demas funcionalidades."
+							},
+							"response": [
+								{
+									"name": "/usuarios/:userId",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/usuarios/:userId?roleId=16001",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"usuarios",
+												":userId"
+											],
+											"query": [
+												{
+													"key": "roleId",
+													"value": "16001",
+													"description": "Identificador unico del tipo de rol que se asigna al usuario. Solamente disponible el rol: \"Admin Comercial\""
+												}
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "65",
+													"description": "Identificador unico de usuario."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": ""
+								}
+							]
+						}
+					],
+					"description": "Usuarios dados de alta a los cuales se les pueden asignar un rol en especifico para acceder al sistema de comercializacion."
+				},
+				{
+					"name": "Vehiculos",
+					"item": [
+						{
+							"name": "/vehiculos/marcas/lista",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererPortalProductoresQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/vehiculos/marcas/lista?tiposVehiculo=1",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"vehiculos",
+										"marcas",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "tiposVehiculo",
+											"value": "1",
+											"description": "Lista de identificadores unicos de tipos de vehiculos."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Productor / Admin Productor.**\n\nObtiene una lista de marcas."
+							},
+							"response": []
+						},
+						{
+							"name": "/vehiculos/marcas/:marcaId/modelos/lista",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererPortalProductoresQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/vehiculos/marcas/:marcaId/modelos/lista?tiposVehiculo=1",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"vehiculos",
+										"marcas",
+										":marcaId",
+										"modelos",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "tiposVehiculo",
+											"value": "1",
+											"description": "Lista de identificadores unicos de tipos de vehiculos."
+										}
+									],
+									"variable": [
+										{
+											"key": "marcaId",
+											"value": "1",
+											"description": "Identificador unico de marca de vehiculo."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Productor / Admin Productor.**\n\nObtiene un listado de modelos segun la marca seleccionada por parametro."
+							},
+							"response": []
+						},
+						{
+							"name": "/vehiculos/colores/lista",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererPortalProductoresQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/vehiculos/colores/lista",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"vehiculos",
+										"colores",
+										"lista"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Productor / Admin Productor.**\n\nObtiene un listado de colores."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Vendedores",
+					"item": [
+						{
+							"name": "/vendedores/me",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/vendedores/me",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"vendedores",
+										"me"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor.**\n\nObtiene la informacion desencriptada del Json Web Token (JWT) asociada al vendedor logueado en el sistema."
+							},
+							"response": []
+						},
+						{
+							"name": "/vendedores/{vendedorId}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/vendedores/:vendedorId",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"vendedores",
+										":vendedorId"
+									],
+									"variable": [
+										{
+											"key": "vendedorId",
+											"value": "3085"
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial / Admin Productor.**\n\nObtiene el detalle del vendedor mediante un identificador unico."
+							},
+							"response": []
+						},
+						{
+							"name": "/vendedores/{vendedorId}/lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/vendedores/:vendedorId/lista",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"vendedores",
+										":vendedorId",
+										"lista"
+									],
+									"variable": [
+										{
+											"key": "vendedorId",
+											"value": "3085",
+											"description": "Identificador unico de vendedor."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor.**\n\nObtiene una lista de vendedores de una jerarquia superior, conocida como 'Padres, asociados al identificador unico del vendedor establecido por parametro."
+							},
+							"response": []
+						},
+						{
+							"name": "/vendedores/lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/vendedores/lista",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"vendedores",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "padreId",
+											"value": "3085",
+											"description": "Identificador unico de vendedor.",
+											"disabled": true
+										},
+										{
+											"key": "incluirEstructuraJerarquica",
+											"value": "true",
+											"description": "Valor de verdad que permite incluir una estructura superior e inferior del vendedor 'Padre' establecido por parametro.",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial /** **Admin Productor / Productor.**\n\nObtiene una lista de vendedores:  \nSi se envia un vendedor **'PadreId'**: Se obtiene una lista de vendedores que representan una estructura jerarquica superior con los que tenga una relacion. En caso de que el parametro no se envie, se obtendran todos los vendedores."
+							},
+							"response": []
+						},
+						{
+							"name": "/vendedores/reportes/organigrama",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/vendedores/reportes/organigrama?padreId=116&incluirEstructuraJerarquica=true",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"vendedores",
+										"reportes",
+										"organigrama"
+									],
+									"query": [
+										{
+											"key": "padreId",
+											"value": "116",
+											"description": "Identificador unico de vendedor."
+										},
+										{
+											"key": "incluirEstructuraJerarquica",
+											"value": "true",
+											"description": "Valor de verdad que permite incluir una estructura superior e inferior del vendedor 'Padre' establecido por parametro."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor.**\n\nObtiene un organigrama y la informacion relacionada con la siguiente condicion:\n\nPara un perfil **Admin Productor**, se muestran la relaciones superiores e inferiores del usuario con el que se ingreso al sistema.\n\nPara un perfil **Productor**, se muestran solo las relaciones superiores del usuario con el que se ingreso al sistema."
+							},
+							"response": []
+						},
+						{
+							"name": "/vendedores",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/vendedores?pagina=1&tamanioPagina=10",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"vendedores"
+									],
+									"query": [
+										{
+											"key": "tipoOrganizacion",
+											"value": null,
+											"description": "Tipo de organizacion que referencia a el vendedor: Agencia (4), Broker (2), Organizacion (3) o Productor (1).",
+											"disabled": true
+										},
+										{
+											"key": "numeroMatricula",
+											"value": null,
+											"description": "Numero de matricula asociado a un vendedor.",
+											"disabled": true
+										},
+										{
+											"key": "tipoDocumento",
+											"value": null,
+											"description": "Tipo de documento aceptado para un vendedor.",
+											"disabled": true
+										},
+										{
+											"key": "numeroIdentificatorio",
+											"value": null,
+											"description": "Numero de documento segun el tipo de documento ingresado.",
+											"disabled": true
+										},
+										{
+											"key": "incluirEstructuraJerarquica",
+											"value": null,
+											"description": "Valor de verdad que permite incluir una estructura superior e inferior del vendedor 'Padre' establecido por parametro.",
+											"disabled": true
+										},
+										{
+											"key": "pagina",
+											"value": "1",
+											"description": "Numero de pagina"
+										},
+										{
+											"key": "tamanioPagina",
+											"value": "10",
+											"description": "Cantidad de resultados a mostrar por pagina"
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Admin Comercial.**\n\nObtiene una lista de vendedores paginada con la posibilidad de utilizar diversos filtros."
+							},
+							"response": []
+						},
+						{
+							"name": "/vendedores",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"string\",\r\n  \"rol\": {\r\n    \"id\": 0,\r\n    \"nombre\": \"string\"\r\n  },\r\n  \"email\": \"string\",\r\n  \"matricula\": \"string\",\r\n  \"tipoVendedor\": {\r\n    \"id\": 0,\r\n    \"nombre\": \"string\"\r\n  },\r\n  \"numeroDocumento\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/vendedores",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"vendedores"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Admin Comercial.**\n\nCapacidad de dar de alta un vendedor con datos acotados. Esto se debe a que un vendedor tiene estados:\n\n1-Datos incompletos\n\n2-Datos completos\n\nAl crear un vendedor, se inician con \"datos incompletos\", luego, cuando se inicie sesion, el vendedor mismo debera de actualizar su informacion.\n\nAl crear un vendedor, se le enviara un mail con instrucciones a seguir al mail indicado.\n\n**Esta firma realiza internamente una integracion con un sistema externo: Billing - Calipso, dando de alta en ese sistema un vendedor, asi mantener una relacion entre ambos registros.**\n\n**VALIDACIONES CONTROLADAS:**\n\n1- El nombre completo debe contener al menos un nombre y un apellido.\n\n2- Nro. Documento y/o Nro. Matricula,no se deben encontrar asignados a otro usuario. / Nro. Matricula, no debe estar asignado a otro usuario.\n\n3- La dirección de correo electrónico no debe estar asignado a otro usuario."
+							},
+							"response": [
+								{
+									"name": "/vendedores",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nombre\": \"Julian Lodi\",\r\n    \"tipoVendedor\": {\r\n        \"id\": 1,\r\n        \"nombre\": \"Productor\"\r\n    },\r\n    \"rol\": {\r\n        \"id\": 16000,\r\n        \"nombre\": \"Productor\"\r\n    },\r\n    \"numeroDocumento\": null,\r\n    \"email\": \"julianlodi@santexgroup.com\",\r\n    \"matricula\": \"143OED\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/vendedores",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"vendedores"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": "{\n    \"nombreUsuario\": \"JLODI\",\n    \"clave\": \"lAzuC4os\",\n    \"personaId\": 17994,\n    \"rolPersonaId\": 17994,\n    \"id\": 3064\n}"
+								}
+							]
+						},
+						{
+							"name": "/vendedores/relaciones",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fatherId\": 0,\r\n  \"childId\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/vendedores/relaciones",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"vendedores",
+										"relaciones"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor.**\n\nPermite crear una relacion entre un vendedor que haya sido dado de alta por un Admin Productor, con ese Admin Productor, que normalmente es el usuario con el que estas logueado en el sistema, para luego facilitar la creacion de una estructura jerarquica y el manejo de comisiones.\n\n**VALIDACIONES CONTROLADAS:**\n\n1- La relacion entre vendedores no debe existir previamente. No pueden haber relaciones duplicadas."
+							},
+							"response": [
+								{
+									"name": "/vendedores/relaciones",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"fatherId\": 2830,\r\n    \"childId\": 3052\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/vendedores/relaciones",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"vendedores",
+												"relaciones"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": "236"
+								}
+							]
+						},
+						{
+							"name": "/vendedores/{vendedorId}",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"string\",\r\n  \"rol\": {\r\n    \"id\": 0,\r\n    \"nombre\": \"string\"\r\n  },\r\n  \"email\": \"string\",\r\n  \"matricula\": \"string\",\r\n  \"tipoVendedor\": {\r\n    \"id\": 0,\r\n    \"nombre\": \"string\"\r\n  },\r\n  \"tipoDocumento\": {\r\n    \"id\": 0,\r\n    \"nombre\": \"string\"\r\n  },\r\n  \"numeroDocumento\": 0,\r\n  \"calle\": \"string\",\r\n  \"numero\": 0,\r\n  \"codigoPostal\": \"string\",\r\n  \"provincia\": {\r\n    \"id\": 0,\r\n    \"nombre\": \"string\"\r\n  },\r\n  \"ciudad\": {\r\n    \"id\": 0,\r\n    \"nombre\": \"string\"\r\n  },\r\n  \"codigoArea\": \"string\",\r\n  \"telefono\": \"string\",\r\n  \"codigoAreaComercial\": \"string\",\r\n  \"telefonoComercial\": \"string\",\r\n  \"nombreEmpresa\": \"string\",\r\n  \"piso\": \"string\",\r\n  \"departamento\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/vendedores/:vendedorId",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"vendedores",
+										":vendedorId"
+									],
+									"variable": [
+										{
+											"key": "vendedorId",
+											"value": "3064",
+											"description": "Identificador unico del vendedor"
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Admin Comercial.**\n\nPermite actualizar un vendedor que puede tener los datos incompletos o completos, este ultimo muestra el escenario en donde el vendedor completo todos los datos del perfil. Sin embargo, los datos disponibles a actualizar siempre seran:\n\n1- Rol\n\n2- Matricula\n\n**Esta firma realiza internamente una integracion con un sistema externo: Billing - Calipso, actualizando en ese sistema un vendedor, asi mantener una relacion entre ambos registros.**\n\n**VALIDACIONES CONTROLADAS:**\n\n1- No es posible editar el rol de tu usuario logueado.\n\n2- No es posible editar el usuario seleccionado si ya forma parte de una estructura de comisiones.\n\n3- (Si tu usuario ejecuta la accion siendo AdminProductor) No es posible editar vendedores si ya forman parte de una estructura jerarquica superior.\n\n4- No es posible editar el vendedor, el rol que ingreso no existe en comercializacion."
+							},
+							"response": [
+								{
+									"name": "/vendedores/{vendedorId}",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nombre\": \"Julian Lodi\",\r\n    \"matricula\": \"143OED\",\r\n    \"tipoVendedor\": {\r\n        \"id\": 1,\r\n        \"nombre\": \"Productor\"\r\n    },\r\n    \"rol\": {\r\n        \"id\": 16000,\r\n        \"nombre\": \"Productor\"\r\n    },\r\n    \"numeroDocumento\": null,\r\n    \"email\": \"julianlodi@santexgroup.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/vendedores/:vendedorId",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"vendedores",
+												":vendedorId"
+											],
+											"variable": [
+												{
+													"key": "vendedorId",
+													"value": "3064",
+													"description": "Identificador unico del vendedor"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": ""
+								},
+								{
+									"name": "/vendedores/{vendedorId}",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nombre\": \"Productor Regresión\",\r\n    \"matricula\": \"R1E2G3R4E56C7IO8N9\",\r\n    \"tipoVendedor\": {\r\n        \"id\": 1,\r\n        \"nombre\": \"Productor\"\r\n    },\r\n    \"rol\": {\r\n        \"id\": 16000,\r\n        \"nombre\": \"Productor\"\r\n    },\r\n    \"numeroDocumento\": 99999952,\r\n    \"email\": \"touzigrauyogro-2834@yopmail.com\",\r\n    \"tipoDocumento\": {\r\n        \"id\": 96,\r\n        \"nombre\": \"DNI\"\r\n    },\r\n    \"provincia\": {\r\n        \"id\": 1,\r\n        \"nombre\": \"BUENOS AIRES\"\r\n    },\r\n    \"ciudad\": {\r\n        \"id\": 992,\r\n        \"nombre\": \"ABASTO\"\r\n    },\r\n    \"codigoPostal\": \"1903\",\r\n    \"calle\": \"San Martin \",\r\n    \"numero\": 123,\r\n    \"codigoArea\": \"54\",\r\n    \"telefono\": \"938291\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/vendedores/:vendedorId",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"vendedores",
+												":vendedorId"
+											],
+											"variable": [
+												{
+													"key": "vendedorId",
+													"value": "3062",
+													"description": "Identificador unico del vendedor"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": ""
+								}
+							]
+						}
+					],
+					"description": "Hace referencia a todos los usuarios capaces de dar de alta asistencias. Estos vendedores se dividen segun su tipo de organizacion al que representan:\n\n1-Productores\n\n2-Organizadores\n\n3-Brokers\n\n4-Agencias (Siendo este, el ultimo nivel y el mas importante en la jerarquia).\n\nCon este conjunto de firmas se es capaz de gestionar, crear, editar, y establecer relaciones entre vendedores."
+				},
+				{
+					"name": "Ventas",
+					"item": [
+						{
+							"name": "/ventas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas?pagina=1&tamanioPagina=10",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas"
+									],
+									"query": [
+										{
+											"key": "idUsuario",
+											"value": null,
+											"description": "Identificador unico de persona.",
+											"disabled": true
+										},
+										{
+											"key": "numeroVenta",
+											"value": null,
+											"description": "Identificador unico de venta.",
+											"disabled": true
+										},
+										{
+											"key": "tipoDocumento",
+											"value": null,
+											"description": "Tipo de documento aceptado para un vendedor.",
+											"disabled": true
+										},
+										{
+											"key": "numeroDocumento",
+											"value": null,
+											"description": "Numero de documento segun el tipo de documento.",
+											"disabled": true
+										},
+										{
+											"key": "estadoVenta",
+											"value": null,
+											"description": "Estado de la venta: Pendiente (1), Con contrato (2), Datos de cliente completo (3), Pago rechazado (4), Confirmada (5), Vencida (6), Reactivada (7)",
+											"disabled": true
+										},
+										{
+											"key": "dominio",
+											"value": null,
+											"description": "Numero de patente. Formato automovil o motocicleta.",
+											"disabled": true
+										},
+										{
+											"key": "fechaDesde",
+											"value": null,
+											"description": "Fecha desde.",
+											"disabled": true
+										},
+										{
+											"key": "fechaHasta",
+											"value": null,
+											"description": "Fecha hasta.",
+											"disabled": true
+										},
+										{
+											"key": "compania",
+											"value": null,
+											"description": "Identificador unico de compañia.",
+											"disabled": true
+										},
+										{
+											"key": "productoId",
+											"value": null,
+											"description": "Identificador unico de producto.",
+											"disabled": true
+										},
+										{
+											"key": "incluirVentasDuplicadas",
+											"value": null,
+											"description": "Valor de verdad.",
+											"disabled": true
+										},
+										{
+											"key": "pagina",
+											"value": "1",
+											"description": "Numero de pagina."
+										},
+										{
+											"key": "tamanioPagina",
+											"value": "10",
+											"description": "Cantidad de registros a mostrar por pagina."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene un listado de ventas mediante filtros por parametros.\n\nSi el usuario logueado es:\n\n1- Admin Productor: Se obtendra un listado de ventas, solo de vendedores en una estructura jerarquica inferior al usuario logueado. Todos aquellos que posean una relacion de 'hijo'.\n\n2- Productor: Se obtendra un listado de ventas, dadas de alta por usted mismo (el usuario logueado).\n\n3- Admin Comercial: Se obtendra un listado de ventas en general.\n\nNOTA: Las ventas que se muestran en los listados seran si son originarias del portal de productores."
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/hash/:hash",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/hash/:hash",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"hash",
+										":hash"
+									],
+									"variable": [
+										{
+											"key": "hash",
+											"value": "BF3ADB22B87986D4FA21E4F00A969E1837F2DF88F375E2FEADDE61D953C6BF43F8AA7EABD7F76FBC3AC021E3367EAF8EC0F2DEED7ADCD9EE0CECE99129EC43DD",
+											"description": "Identificador encriptado para obtener una venta sin necesidad de autenticacion."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nObtiene la informacion de una venta mediante un codigo hash. No requiere autorizacion.\n\nLuego del alta de la venta, si transcurrieron mas de 2 dias (48hrs) la venta se considerada como vencida al haber cumplido ese plazo, por lo que, no se podra completar los datos de facturacion."
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/:id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/:id",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3082",
+											"description": "Identificador unico de venta."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene los detalles de una venta: Producto asociado, datos de cliente, datos de facturacion (si posee)."
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/:ventaId/estados",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/:ventaId/estados",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										":ventaId",
+										"estados"
+									],
+									"variable": [
+										{
+											"key": "ventaId",
+											"value": "3082",
+											"description": "Identificador unico de venta."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene el historico de estados de una venta."
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/mis-ventas/excel",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/mis-ventas/excel?pagina=1&tamanioPagina=10",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"mis-ventas",
+										"excel"
+									],
+									"query": [
+										{
+											"key": "idUsuario",
+											"value": null,
+											"description": "Identificador unico de persona.",
+											"disabled": true
+										},
+										{
+											"key": "numeroVenta",
+											"value": null,
+											"description": "Identificador unico de venta.",
+											"disabled": true
+										},
+										{
+											"key": "tipoDocumento",
+											"value": null,
+											"description": "Tipo de documento aceptado para un vendedor.",
+											"disabled": true
+										},
+										{
+											"key": "numeroDocumento",
+											"value": null,
+											"description": "Numero de documento segun el tipo de documento.",
+											"disabled": true
+										},
+										{
+											"key": "estadoVenta",
+											"value": null,
+											"description": "Estado de la venta: Pendiente (1), Con contrato (2), Datos de cliente completo (3), Pago rechazado (4), Confirmada (5), Vencida (6), Reactivada (7)",
+											"disabled": true
+										},
+										{
+											"key": "dominio",
+											"value": null,
+											"description": "Numero de patente. Formato automovil o motocicleta.",
+											"disabled": true
+										},
+										{
+											"key": "fechaDesde",
+											"value": null,
+											"description": "Fecha desde.",
+											"disabled": true
+										},
+										{
+											"key": "fechaHasta",
+											"value": null,
+											"description": "Fecha hasta.",
+											"disabled": true
+										},
+										{
+											"key": "compania",
+											"value": null,
+											"description": "Identificador unico de compañia.",
+											"disabled": true
+										},
+										{
+											"key": "productoId",
+											"value": null,
+											"description": "Identificador unico de producto.",
+											"disabled": true
+										},
+										{
+											"key": "incluirVentasDuplicadas",
+											"value": null,
+											"description": "Valor de verdad.",
+											"disabled": true
+										},
+										{
+											"key": "pagina",
+											"value": "1",
+											"description": "Numero de pagina."
+										},
+										{
+											"key": "tamanioPagina",
+											"value": "10",
+											"description": "Cantidad de registros por pagina."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene un Excel con la informacion correspondientes a las ventas obtenidas en la grilla.\n\nSi el usuario logueado es:\n\n1- Admin Productor: Se obtendra un listado de ventas, solo de vendedores en una estructura jerarquica inferior al usuario logueado. Todos aquellos que posean una relacion de 'hijo'.\n\n2- Productor: Se obtendra un listado de ventas, dadas de alta por usted mismo (el usuario logueado).\n\n3- Admin Comercial: Se obtendra un listado de ventas en general.\n\nNOTA: Las ventas que se muestran en los listados seran si son originarias del portal de productores."
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/estados/lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/estados/lista",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"estados",
+										"lista"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene los estados que puede transitar una venta."
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/archivos-ventas/lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/archivos-ventas/lista?pagina=1&tamanioPagina=10",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"archivos-ventas",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "idUsuario",
+											"value": null,
+											"description": "Identificador unico de persona.",
+											"disabled": true
+										},
+										{
+											"key": "fechaDesde",
+											"value": null,
+											"description": "Fecha desde.",
+											"disabled": true
+										},
+										{
+											"key": "fechaHasta",
+											"value": null,
+											"description": "Fecha hasta.",
+											"disabled": true
+										},
+										{
+											"key": "idEstadoArchivo",
+											"value": null,
+											"description": "Identificador del estado del archivo.",
+											"disabled": true
+										},
+										{
+											"key": "pagina",
+											"value": "1",
+											"description": "Numero de pagina."
+										},
+										{
+											"key": "tamanioPagina",
+											"value": "10",
+											"description": "Cantidad de registros por pagina."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene un listado de archivos de venta (Excels).\n\nSi el usuario logueado es:\n\n1- Admin Productor: Se obtendra un listado de archivos de ventas, solo de vendedores en una estructura jerarquica inferior al usuario logueado. Todos aquellos que posean una relacion de 'hijo'.\n\n2- Productor: Se obtendra un listado de archivos de ventas, dados de alta por usted mismo (el usuario logueado).\n\n3- Admin Comercial: Se obtendra un listado de archivos de ventas en general para su revision.\n\nNOTA: Las ventas que se muestran en los listados seran si son originarias del portal de productores."
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/archivos-ventas/:idArchivo",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/archivos-ventas/:idArchivo",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"archivos-ventas",
+										":idArchivo"
+									],
+									"variable": [
+										{
+											"key": "idArchivo",
+											"value": "8",
+											"description": "Identificador unico del archivo."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene los detalles de un archivo de venta."
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/archivos-ventas/:idArchivo/estados",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/archivos-ventas/:idArchivo/estados",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"archivos-ventas",
+										":idArchivo",
+										"estados"
+									],
+									"variable": [
+										{
+											"key": "idArchivo",
+											"value": "8",
+											"description": "Identificador unico de archivo."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene el historico de un archivo de venta."
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/archivos-ventas/estados/lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/estados/lista",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"estados",
+										"lista"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene los estados que puede transitar un archivo de venta."
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/archivos-ventas/:archivoId/ventas-potenciales",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/archivos-ventas/:archivoId/ventas-potenciales?conErrores=false&pagina=1&tamanioPagina=10",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"archivos-ventas",
+										":archivoId",
+										"ventas-potenciales"
+									],
+									"query": [
+										{
+											"key": "conErrores",
+											"value": "false",
+											"description": "Valor de verdad."
+										},
+										{
+											"key": "pagina",
+											"value": "1",
+											"description": "Numero de pagina."
+										},
+										{
+											"key": "tamanioPagina",
+											"value": "10",
+											"description": "Cantidad de registros por pagina."
+										}
+									],
+									"variable": [
+										{
+											"key": "archivoId",
+											"value": "8",
+											"description": "Identificador unico de archivo."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene un listado de ventas potenciales. Son resultado de un procesamiento ejecutado por el administrador en el cual revisa los campos para verificar la validez de las ventas cargadas. Si una venta tiene errores en alguno de sus campos, se agregar un listado de errores para que el productor pueda accionar sobre ellos."
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/archivos/ventas/:idArchivo/ventas-potenciales/:idVentaPotencial",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/archivos-ventas/:idArchivo/ventas-potenciales/:idVentaPotencial",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"archivos-ventas",
+										":idArchivo",
+										"ventas-potenciales",
+										":idVentaPotencial"
+									],
+									"variable": [
+										{
+											"key": "idArchivo",
+											"value": "8",
+											"description": "Identificador unico de archivo."
+										},
+										{
+											"key": "idVentaPotencial",
+											"value": "1",
+											"description": "Identificador unico de venta potencial."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene el detalle de una venta potenciales: Producto asociado, datos del cliente, datos de facturacion a corregir. Aquellos campos que tengan algun error, ademas de aparecer en la lista de errores, apareceran con valor \"null\" para una facil identificacion."
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/archivos-ventas/ventas-potenciales/excel",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/archivos-ventas/ventas-potenciales/excel",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"archivos-ventas",
+										"ventas-potenciales",
+										"excel"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene un Excel con informacion util para poder cargar un archivo de venta. Es considerado un \"Template\" que le permite al usuario guiarse en los campos a completar de una venta."
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas/hash/:hash",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"string\",\r\n  \"apellido\": \"string\",\r\n  \"razonSocial\": \"string\",\r\n  \"esEmpresa\": 0,\r\n  \"companiaId\": 0,\r\n  \"tipoDocumento\": 0,\r\n  \"numeroDocumento\": 0,\r\n  \"localidad\": 0,\r\n  \"direccion\": \"string\",\r\n  \"numero\": \"string\",\r\n  \"departamento\": \"string\",\r\n  \"piso\": 0,\r\n  \"email\": \"string\",\r\n  \"condicionIva\": 0,\r\n  \"medioPago\": 0,\r\n  \"tipoMedioPago\": 0,\r\n  \"numeroMedioPago\": \"string\",\r\n  \"codigoArea\": 0,\r\n  \"telefono\": 0,\r\n  \"codigoPostal\": 0,\r\n  \"cuentaBilling\": \"string\",\r\n  \"clienteBilling\": \"string\",\r\n  \"mobbexLinkPago\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/hash/:hash",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"hash",
+										":hash"
+									],
+									"variable": [
+										{
+											"key": "hash",
+											"value": "",
+											"description": "Identificador encriptado para obtener una venta sin necesidad de autenticacion."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nPosibilidad de editar los datos de una venta, editar los datos de facturacion. Estos datos son disponibilizados al cliente gracias al codigo unico conocido como \"hash\".\n\nSe le permite editar los datos de facturacion a un cliente, completando con los mismos datos del cliente o la posibilidad de agregar otros completamente diferentes. Al momento de completar la actualizacion de los datos de la venta, se cambia su estado a \"Datos de facturacion completos\".\n\nTranscurrido un breve tiempo, se actualizara la venta con un link de pago, que se le presentara al usuario para poder realizar el pago de la venta. Si la el producto asociado a la venta posee un tipo de facturacion mediante Billing recibira el link de pago de Mobbex, mientras que, si el tipo de facturacion es mediante SAP recibira el link de pago de Mercado Pago."
+							},
+							"response": [
+								{
+									"name": "/ventas/hash/:hash",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nombre\": \"Julios\",\r\n    \"apellido\": \"Santoz\",\r\n    \"razonSocial\": null,\r\n    \"esEmpresa\": 0,\r\n    \"condicionIva\": 5,\r\n    \"tipoDocumento\": 96,\r\n    \"numeroDocumento\": 85965852,\r\n    \"localidad\": 4732,\r\n    \"direccion\": \"Illia\",\r\n    \"numero\": \"3211\",\r\n    \"departamento\": null,\r\n    \"piso\": null,\r\n    \"email\": \"nicolas.comba@santexgroup.com\",\r\n    \"tipoMedioPago\": 1,\r\n    \"medioPago\": 91,\r\n    \"numeroMedioPago\": \"111111111111111\",\r\n    \"telefono\": 654512,\r\n    \"codigoArea\": 3564,\r\n    \"codigoPostal\": 2840,\r\n    \"companiaId\": 90\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/ventas/hash/:hash",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"ventas",
+												"hash",
+												":hash"
+											],
+											"variable": [
+												{
+													"key": "hash",
+													"value": "5C864EDBFFEEC049295220E546AE529436AB1D31E7457BA36F229CD527A3118E11484FB81F63DDDE02C084A911298073FF0633CD7B1CD925839F11E2FD6B3DD5",
+													"description": "Identificador encriptado para obtener una venta sin necesidad de autenticacion."
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": "{\r\n    \"link\": \"\"\r\n}"
+								}
+							]
+						},
+						{
+							"name": "ventas/:idVenta/reactivacion",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/:idVenta/reactivacion?idPago",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										":idVenta",
+										"reactivacion"
+									],
+									"query": [
+										{
+											"key": "idPago",
+											"value": null,
+											"description": "Identificador unico de pago realizado brindado por mercado pago al completar el pago."
+										}
+									],
+									"variable": [
+										{
+											"key": "idVenta",
+											"value": "3083",
+											"description": "Identificador unico de venta en estado vencido."
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fechaDeVenta\": \"2025-10-14T17:23:55.346Z\",\r\n  \"productor\": 0,\r\n  \"producto\": 0,\r\n  \"canalDeVenta\": 0,\r\n  \"nivelVenta1\": 0,\r\n  \"nivelVenta2\": 0,\r\n  \"nivelVenta3\": 0,\r\n  \"nivelVenta4\": 0,\r\n  \"dominio\": \"string\",\r\n  \"marca\": 0,\r\n  \"modelo\": 0,\r\n  \"anioDeFabricacion\": 0,\r\n  \"color\": 0,\r\n  \"kilometraje\": 0,\r\n  \"nombreCliente\": \"string\",\r\n  \"apellidoCliente\": \"string\",\r\n  \"tipoDocumento\": 0,\r\n  \"numeroDocumento\": 0,\r\n  \"fechaNacimiento\": \"2025-10-14T17:23:55.346Z\",\r\n  \"localidad\": 0,\r\n  \"altura\": \"string\",\r\n  \"piso\": 0,\r\n  \"departamento\": \"string\",\r\n  \"domicilio\": \"string\",\r\n  \"codigoArea\": 0,\r\n  \"telefono\": 0,\r\n  \"telAlternativo\": 0,\r\n  \"email\": \"string\",\r\n  \"metodoEnvio\": 0,\r\n  \"codigoPostal\": 0,\r\n  \"seguroActual\": 0,\r\n  \"origenVenta\": 0,\r\n  \"razonSocial\": \"string\",\r\n  \"esEmpresa\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor.**\n\nPosibilidad de generar nuevas ventas individuales. Al momento de dar de alta una venta se generara en estado \"PENDIENTE\" y utilizando el correo cargado se le enviara un email al cliente para que termine de completar los datos de facturacion.\n\nRecordar que luego de la emision del link hacia al cliente tiene un tiempo de expiracion de 48 horas. Transucrrido ese tiempo, la venta cambiara de estado a \"VENCIDA\" y no se podra accionar mas con ella."
+							},
+							"response": [
+								{
+									"name": "/ventas",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"producto\": 3622,\r\n    \"nivelVenta1\": 2628,\r\n    \"nivelVenta2\": null,\r\n    \"nivelVenta3\": null,\r\n    \"nivelVenta4\": null,\r\n    \"nombreCliente\": \"Julios\",\r\n    \"apellidoCliente\": \"Santoz\",\r\n    \"fechaNacimiento\": \"2001-05-12T03:00:00.000Z\",\r\n    \"razonSocial\": null,\r\n    \"tipoDocumento\": 96,\r\n    \"numeroDocumento\": 85965852,\r\n    \"esEmpresa\": 0,\r\n    \"localidad\": 4732,\r\n    \"codigoPostal\": 2840,\r\n    \"domicilio\": \"Illia\",\r\n    \"altura\": \"3211\",\r\n    \"piso\": null,\r\n    \"departamento\": \"\",\r\n    \"dominio\": \"KM382DD\",\r\n    \"marca\": 77,\r\n    \"modelo\": 3113,\r\n    \"color\": 2,\r\n    \"anioDeFabricacion\": 2001,\r\n    \"kilometraje\": null,\r\n    \"email\": \"nicolas.comba@santexgroup.com\",\r\n    \"codigoArea\": 3564,\r\n    \"telefono\": 654512,\r\n    \"seguroActual\": 7,\r\n    \"metodoEnvio\": 0,\r\n    \"fechaDeVenta\": \"2025-10-14T17:25:41.758Z\",\r\n    \"productor\": 2628\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/ventas",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"ventas"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": "{\n    \"id\": \"3079\",\n    \"link\": \"\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/ventas/archivos-ventas",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "files",
+											"description": "Ventas cargadas por un productor / admin productor que seran procesadas por un administrador comercial para verificar validez.",
+											"type": "file",
+											"src": "postman-cloud:///1f0a9289-1105-4cc0-81ef-58d5b0c8bfa2"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/archivos-ventas?nivelVenta1=2375",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"archivos-ventas"
+									],
+									"query": [
+										{
+											"key": "nivelVenta1",
+											"value": "2375",
+											"description": "Identificador unico de vendedor del nivel uno de la jerarquia de comisiones."
+										},
+										{
+											"key": "nivelVenta2",
+											"value": null,
+											"description": "Identificador unico de vendedor del nivel dos de la jerarquia de comisiones.",
+											"disabled": true
+										},
+										{
+											"key": "nivelVenta3",
+											"value": null,
+											"description": "Identificador unico de vendedor del nivel tres de la jerarquia de comisiones.",
+											"disabled": true
+										},
+										{
+											"key": "nivelVenta4",
+											"value": null,
+											"description": "Identificador unico de vendedor del nivel cuatro de la jerarquia de comisiones.",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor.**\n\nPosibilidad de crear ventas de manera masiva mediante un excel. Se debera de respetar un formato preestablecido al momento de adjuntar un excel de ventas, para que esta funcionalidad sea ejecutada correctamente.\n\nAl cargar el excel de ventas el estado inicial que tendra ese excel sera \"PENDIENTE\" que esperara una revision de parte de un administrador comercial para verificar la validez de las ventas cargadas."
+							},
+							"response": [
+								{
+									"name": "/ventas/archivos-ventas",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "files",
+													"description": "Ventas cargadas por un productor / admin productor que seran procesadas por un administrador comercial para verificar validez.",
+													"type": "file",
+													"src": "postman-cloud:///1f0a9289-1105-4cc0-81ef-58d5b0c8bfa2"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/ventas/archivos-ventas?nivelVenta1=2628&nivelVenta2&nivelVenta3&nivelVenta4",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"ventas",
+												"archivos-ventas"
+											],
+											"query": [
+												{
+													"key": "nivelVenta1",
+													"value": "2628",
+													"description": "Identificador unico de vendedor del nivel uno de la jerarquia de comisiones."
+												},
+												{
+													"key": "nivelVenta2",
+													"value": null,
+													"description": "Identificador unico de vendedor del nivel dos de la jerarquia de comisiones."
+												},
+												{
+													"key": "nivelVenta3",
+													"value": null,
+													"description": "Identificador unico de vendedor del nivel tres de la jerarquia de comisiones."
+												},
+												{
+													"key": "nivelVenta4",
+													"value": null,
+													"description": "Identificador unico de vendedor del nivel cuatro de la jerarquia de comisiones."
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": "363"
+								}
+							]
+						},
+						{
+							"name": "/ventas/archivos-ventas/:archivoId/ventas-potenciales",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "files",
+											"description": "Ventas modificadas por el administrador luego de la revision del excel cargado por el productor.",
+											"type": "file",
+											"src": "postman-cloud:///1f0a9289-1105-4cc0-81ef-58d5b0c8bfa2",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/archivos-ventas/:archivoId/ventas-potenciales",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"archivos-ventas",
+										":archivoId",
+										"ventas-potenciales"
+									],
+									"query": [
+										{
+											"key": "descripcion",
+											"value": null,
+											"description": "Descripcion de cambio de estado que sufre el archivo de venta.",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "archivoId",
+											"value": "8",
+											"description": "Identificador unico de archivo de venta."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial.**\n\nAnaliza el excel cargado por el productor recorriendo venta por venta verificando la validez de cada una. Si las ventas estan correctas el archivo de venta cambiara de estado \"PENDIENTE\" a \"EN PROCESO\" y se estableceran como \"Ventas Potenciales\".\n\nEl usuario Admin Comercial podra sobreescribir el excel de ventas cargado por el productor, utilizando un formato de excel distinto. Debera de cargar el nuevo excel con las modificaciones que requiera necesarias."
+							},
+							"response": [
+								{
+									"name": "/ventas/archivos-ventas/:archivoId/ventas-potenciales",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/ventas/archivos-ventas/:archivoId/ventas-potenciales?descripcion=Previsualizacion de ventas del excel.",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"ventas",
+												"archivos-ventas",
+												":archivoId",
+												"ventas-potenciales"
+											],
+											"query": [
+												{
+													"key": "descripcion",
+													"value": "Previsualizacion de ventas del excel.",
+													"description": "Descripcion de cambio de estado que sufre el archivo de venta."
+												}
+											],
+											"variable": [
+												{
+													"key": "archivoId",
+													"value": "362",
+													"description": "Identificador unico de archivo de venta."
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": "{\n    \"archivoVentaId\": 362,\n    \"ventasPotencialesId\": [\n        {\n            \"id\": 2435\n        }\n    ]\n}"
+								},
+								{
+									"name": "/ventas/archivos-ventas/:archivoId/ventas-potenciales",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "files",
+													"description": "Ventas modificadas por el administrador luego de la revision del excel cargado por el productor.",
+													"type": "file",
+													"src": "postman-cloud:///1f0a9bc9-41ba-41b0-81d7-8666eec919ad"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/ventas/archivos-ventas/:archivoId/ventas-potenciales?descripcion=Previsualizacion de ventas interviniendo administradores comerciales",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"ventas",
+												"archivos-ventas",
+												":archivoId",
+												"ventas-potenciales"
+											],
+											"query": [
+												{
+													"key": "descripcion",
+													"value": "Previsualizacion de ventas interviniendo administradores comerciales",
+													"description": "Descripcion de cambio de estado que sufre el archivo de venta."
+												}
+											],
+											"variable": [
+												{
+													"key": "archivoId",
+													"value": "363",
+													"description": "Identificador unico de archivo de venta."
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": "{\r\n    \"archivoVentaId\": 363,\r\n    \"ventasPotencialesId\": [\r\n        {\r\n            \"id\": 2436\r\n        }\r\n    ]\r\n}"
+								}
+							]
+						},
+						{
+							"name": "/ventas/archivos-ventas/:idArchivo/ventas-potenciales/:idVentaPotencial",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fechaDeVenta\": \"2025-10-15T11:56:30.597Z\",\r\n  \"productor\": 0,\r\n  \"producto\": 0,\r\n  \"canalDeVenta\": 0,\r\n  \"nivelVenta1\": 0,\r\n  \"nivelVenta2\": 0,\r\n  \"nivelVenta3\": 0,\r\n  \"nivelVenta4\": 0,\r\n  \"dominio\": \"string\",\r\n  \"marca\": 0,\r\n  \"modelo\": 0,\r\n  \"anioDeFabricacion\": 0,\r\n  \"color\": 0,\r\n  \"kilometraje\": 0,\r\n  \"nombreCliente\": \"string\",\r\n  \"apellidoCliente\": \"string\",\r\n  \"tipoDocumento\": 0,\r\n  \"numeroDocumento\": 0,\r\n  \"fechaNacimiento\": \"2025-10-15T11:56:30.597Z\",\r\n  \"localidad\": 0,\r\n  \"altura\": \"string\",\r\n  \"piso\": 0,\r\n  \"departamento\": \"string\",\r\n  \"domicilio\": \"string\",\r\n  \"codigoArea\": 0,\r\n  \"telefono\": 0,\r\n  \"telAlternativo\": 0,\r\n  \"email\": \"string\",\r\n  \"metodoEnvio\": 0,\r\n  \"codigoPostal\": 0,\r\n  \"seguroActual\": 0,\r\n  \"origenVenta\": 0,\r\n  \"razonSocial\": \"string\",\r\n  \"esEmpresa\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/archivos-ventas/:idArchivo/ventas-potenciales/:idVentaPotencial",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"archivos-ventas",
+										":idArchivo",
+										"ventas-potenciales",
+										":idVentaPotencial"
+									],
+									"variable": [
+										{
+											"key": "idArchivo",
+											"value": "8",
+											"description": "Identificador unico de archivo de venta."
+										},
+										{
+											"key": "idVentaPotencial",
+											"value": "1",
+											"description": "Identificador unico de posible venta a dar de alta."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor.**\n\nLas ventas que se hayan procesado por parte del administrador comercial, y estas tengan un error en sus datos, van a ser enviadas de nuevo al admin productor o productor para su revision, y modificacion de los campos erroneos.\n\nEl archivo de venta pasara de estado \"PENDIENTE\" a \"PROCESADO PARCIAL\" donde se requiere intervencion del Admin Productor o Productor para que editen venta por venta individualmente.\n\nEl procesamiento de las ventas finalizara del lado del admin productor o productor al establecer datos correctos en dicha venta."
+							},
+							"response": [
+								{
+									"name": "/ventas/archivos-ventas/:idArchivo/ventas-potenciales/:idVentaPotencial",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"producto\": 3655,\r\n    \"nivelVenta1\": 2628,\r\n    \"nivelVenta2\": null,\r\n    \"nivelVenta3\": null,\r\n    \"nivelVenta4\": null,\r\n    \"nombreCliente\": \"Razon Sociales\",\r\n    \"apellidoCliente\": \"Asocial\",\r\n    \"tipoDocumento\": 96,\r\n    \"numeroDocumento\": 42356956,\r\n    \"fechaNacimiento\": \"1981-10-15T03:00:00.000Z\",\r\n    \"razonSocial\": \"\",\r\n    \"esEmpresa\": 0,\r\n    \"localidad\": 13252,\r\n    \"codigoPostal\": 6106,\r\n    \"domicilio\": \"Illia\",\r\n    \"altura\": \"432\",\r\n    \"piso\": null,\r\n    \"dominio\": \"BH676KK\",\r\n    \"marca\": 98,\r\n    \"modelo\": 3875,\r\n    \"color\": 8,\r\n    \"anioDeFabricacion\": 2001,\r\n    \"kilometraje\": 34322,\r\n    \"email\": \"nicolas.comba@santexgroup.com\",\r\n    \"codigoArea\": 3564,\r\n    \"telefono\": 646569,\r\n    \"seguroActual\": 9,\r\n    \"metodoEnvio\": 0,\r\n    \"fechaDeVenta\": \"2025-10-15T11:57:45.142Z\",\r\n    \"productor\": 2628\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/ventas/archivos-ventas/:idArchivo/ventas-potenciales/:idVentaPotencial",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"ventas",
+												"archivos-ventas",
+												":idArchivo",
+												"ventas-potenciales",
+												":idVentaPotencial"
+											],
+											"variable": [
+												{
+													"key": "idArchivo",
+													"value": "349",
+													"description": "Identificador unico de archivo de venta."
+												},
+												{
+													"key": "idVentaPotencial",
+													"value": "2382",
+													"description": "Identificador unico de posible venta a dar de alta."
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": "3082"
+								}
+							]
+						},
+						{
+							"name": "/ventas/archivos/ventas/:archivoId/procesamiento",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacion}}/ventas/archivos-ventas/:archivoId/procesamiento",
+									"host": [
+										"{{BaseUrlComercializacion}}"
+									],
+									"path": [
+										"ventas",
+										"archivos-ventas",
+										":archivoId",
+										"procesamiento"
+									],
+									"query": [
+										{
+											"key": "descripcion",
+											"value": null,
+											"description": "Descripcion de cambio de estado",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "archivoId",
+											"value": "8",
+											"description": "Identificador unico de archivo de venta"
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial.**\n\nAl momento de analizar las ventas establecidas en el excel cargado por el Admin Productor o Productor, si todas las ventas se encuentran validas en todos sus campos, entonces, el administrador comercial podra darle a \"Procesar\" pasando el archivo de venta de estado \"EN PROCESO\" a \"PROCESADO\" emitiendo un email notificando todas las ventas procesadas correctamente al productor, y dando de alta ventas masivas, notificando a todos los clientes asociados a esas ventas la url necesaria para que completen los datos de facturacion.\n\nSi un administrador comercial decide rechazar el excel de ventas, pasara de estado \"EN PROCESO\" a \"RECHAZADO\", notificando a el productor que se han rechazado todas las ventas del excel.\n\nNota: al momento de rechazar un excel de ventas debera de establecer de manera obligatoria una descripcion justificando el rechazo."
+							},
+							"response": [
+								{
+									"name": "/ventas/archivos/ventas/:archivoId/procesamiento",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrlComercializacion}}/ventas/archivos/ventas/:archivoId/procesamiento?descripcion=Procesamiento de unica venta",
+											"host": [
+												"{{BaseUrlComercializacion}}"
+											],
+											"path": [
+												"ventas",
+												"archivos",
+												"ventas",
+												":archivoId",
+												"procesamiento"
+											],
+											"query": [
+												{
+													"key": "descripcion",
+													"value": "Procesamiento de unica venta",
+													"description": "Descripcion de cambio de estado"
+												}
+											],
+											"variable": [
+												{
+													"key": "archivoId",
+													"value": "363",
+													"description": "Identificador unico de archivo de venta"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": "[\r\n    3083\r\n]"
+								}
+							]
+						}
+					],
+					"description": "Seccion central y estrategica dentro del portal de productores diseñado para la gestion y el registro de la comercializacion de asistencias."
+				}
+			],
+			"description": "Api Portal:\n\nURL QA: [https://comercializacion-api-qa.redsos.com.ar/](https://comercializacion-api-qa.redsos.com.ar/swagger/index.html)\n\nURL PRE: [https://comercializacion-api-pre.redsos.com.ar/](https://comercializacion-api-qa.redsos.com.ar/swagger/index.html)\n\nExisten distintos roles para utilizar en el sistema.\n\n1- Admin Comercial\n\n2- Admin Productor\n\n3- Productor\n\nTendra que tener en cuenta el rol del usuario con el que interactua con las firmas debido a que segun el usuario y su rol las respuestas podran variar en cuanto a la informacion dispuesta.\n\nInstrucciones:\n\n- Utilizar el metódo Auth con el usuario deseado.\n    \n- Copiar el token obtenido.\n    \n- Pegarlo en el campo token, en la pestaña Authorization de esta carpeta.\n    \n- Va a poder utilizar los metodos de toda la carpeta con el usuario que se logueo.\n    \n\nRecordar completar las variables de entorno referente a las URL del sistema:\n\n1- Retail\n\n2- Billing\n\n3- Gestor de pagos\n\n4- PostVenta\n\n5- Auditorias (ApiCore)\n\nPara poder trabajar con algunos endpoints de comercializacion que internamente realizan una integracion con los sistemas enumerados.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{bearerToken}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API Integracion",
+			"item": [
+				{
+					"name": "Aseguradoras",
+					"item": [
+						{
+							"name": "/aseguradoras/lista",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacionIntegracion}}/aseguradoras/lista",
+									"host": [
+										"{{BaseUrlComercializacionIntegracion}}"
+									],
+									"path": [
+										"aseguradoras",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "companiaId",
+											"value": "152",
+											"description": "Identificador unico de compañia asociada al portal.",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Comercial / Admin Productor / Productor.**\n\nObtiene una lista de aseguradoras habilitadas para asociar a asistencias."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Medios de Pago",
+					"item": [
+						{
+							"name": "/medios-pago/companias/:companiaId/lista",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererGaliciaMotosQA}}",
+										"description": "Url desde donde se realiza la peticion. Url del portal de galicia.",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacionIntegracion}}/medios-pago/companias/:companiaId/lista",
+									"host": [
+										"{{BaseUrlComercializacionIntegracion}}"
+									],
+									"path": [
+										"medios-pago",
+										"companias",
+										":companiaId",
+										"lista"
+									],
+									"variable": [
+										{
+											"key": "companiaId",
+											"value": "90",
+											"description": "Identificador unico de compañia."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nObtiene todos los medios de pagos asignados a la compañia establecida por parametro.\n\nNota: este endpoint tiene una integracion con el sistema Retail para obtener dichos medios de pagos."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Paises",
+					"item": [
+						{
+							"name": "/paises/lista",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererGaliciaMotosQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacionIntegracion}}/paises/lista",
+									"host": [
+										"{{BaseUrlComercializacionIntegracion}}"
+									],
+									"path": [
+										"paises",
+										"lista"
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nObtiene un listado de paises.\n\nNota: Este endpoint tiene una integracion con el sistema Retail para obtener los registros."
+							},
+							"response": []
+						},
+						{
+							"name": "/paises/:paisId/provincias/lista",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererGaliciaMotosQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacionIntegracion}}/paises/:paisId/provincias/lista",
+									"host": [
+										"{{BaseUrlComercializacionIntegracion}}"
+									],
+									"path": [
+										"paises",
+										":paisId",
+										"provincias",
+										"lista"
+									],
+									"variable": [
+										{
+											"key": "paisId",
+											"value": "1",
+											"description": "Identificador unico de pais. Actualmente, unico valor disponible: Argentina (1)."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nObtiene un listado de provincias asociadas al pais ingresado por parametro.\n\nNota: Este endpoint tiene una integracion con el sistema Retail para obtener los registros."
+							},
+							"response": []
+						},
+						{
+							"name": "/paises/:paisId/provincias/:provinciaId/localidades/lista",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererGaliciaMotosQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacionIntegracion}}/paises/:paisId/provincias/:provinciaId/localidades/lista",
+									"host": [
+										"{{BaseUrlComercializacionIntegracion}}"
+									],
+									"path": [
+										"paises",
+										":paisId",
+										"provincias",
+										":provinciaId",
+										"localidades",
+										"lista"
+									],
+									"variable": [
+										{
+											"key": "paisId",
+											"value": "1",
+											"description": "Identificador unico de pais. Actualmente, unico valor disponible: Argentina (1)."
+										},
+										{
+											"key": "provinciaId",
+											"value": "1",
+											"description": "Identificador unico de provincia."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: ---\n\nObtiene una lista de localidades filtrada por provincia y pais.\n\nNota: Este endpoint tiene una integracion con el sistema Retail para obtener los registros."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Productos",
+					"item": [
+						{
+							"name": "/productos/lista",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererGaliciaMotosQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacionIntegracion}}/productos/lista?tiposProducto=1&tiposVehiculo=7",
+									"host": [
+										"{{BaseUrlComercializacionIntegracion}}"
+									],
+									"path": [
+										"productos",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "tiposProducto",
+											"value": "1",
+											"description": "Lista de identificadores unicos de tipos de productos."
+										},
+										{
+											"key": "tiposVehiculo",
+											"value": "7",
+											"description": "Lista de identificadores unicos de tipos de vehiculos."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Admin Productor / Productor / Admin Comercial.**\n\nObtiene una lista de productos obtenidos del sistema Retail. Estos productos seran filtrados para solo adquirir aquellos habilitados para transaccionar.\n\nHabilitados para transaccionar: Posean registros en grillas y tengan un email asignado a la compañia.\n\nNota: este endpoint realiza una integracion al sistema retail para obtener los registros."
+							},
+							"response": []
+						},
+						{
+							"name": "/productos/:productId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Referer",
+										"value": "{{urlRefererGaliciaMotosQA}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrlComercializacionIntegracion}}/productos/:productId",
+									"host": [
+										"{{BaseUrlComercializacionIntegracion}}"
+									],
+									"path": [
+										"productos",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "3488",
+											"description": "Identificador unico del producto."
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Vehiculos",
+					"item": [
+						{
+							"name": "/vehiculos/marcas/lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacionIntegracion}}/vehiculos/marcas/lista?tiposVehiculo=1",
+									"host": [
+										"{{BaseUrlComercializacionIntegracion}}"
+									],
+									"path": [
+										"vehiculos",
+										"marcas",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "tiposVehiculo",
+											"value": "1",
+											"description": "Lista de identificadores unicos de tipos de vehiculos."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Productor / Admin Productor.**\n\nObtiene una lista de marcas."
+							},
+							"response": []
+						},
+						{
+							"name": "/vehiculos/marcas/:marcaId/modelos/lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacionIntegracion}}/vehiculos/marcas/:marcaId/modelos/lista?tiposVehiculo=1",
+									"host": [
+										"{{BaseUrlComercializacionIntegracion}}"
+									],
+									"path": [
+										"vehiculos",
+										"marcas",
+										":marcaId",
+										"modelos",
+										"lista"
+									],
+									"query": [
+										{
+											"key": "tiposVehiculo",
+											"value": "1",
+											"description": "Lista de identificadores unicos de tipos de vehiculos."
+										}
+									],
+									"variable": [
+										{
+											"key": "marcaId",
+											"value": "1",
+											"description": "Identificador unico de marca de vehiculo."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol: **Productor / Admin Productor.**\n\nObtiene un listado de modelos segun la marca seleccionada por parametro."
+							},
+							"response": []
+						},
+						{
+							"name": "/vehiculos/colores/lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacionIntegracion}}/vehiculos/colores/lista",
+									"host": [
+										"{{BaseUrlComercializacionIntegracion}}"
+									],
+									"path": [
+										"vehiculos",
+										"colores",
+										"lista"
+									]
+								},
+								"description": "Usuario permitido segun rol: **Productor / Admin Productor.**\n\nObtiene un listado de colores."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ventas",
+					"item": [
+						{
+							"name": "/ventas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrlComercializacionIntegracion}}/ventas?pagina=1&tamanioPagina=10",
+									"host": [
+										"{{BaseUrlComercializacionIntegracion}}"
+									],
+									"path": [
+										"ventas"
+									],
+									"query": [
+										{
+											"key": "idUsuario",
+											"value": null,
+											"description": "Identificador unico de persona.",
+											"disabled": true
+										},
+										{
+											"key": "numeroVenta",
+											"value": null,
+											"description": "Identificador unico de venta.",
+											"disabled": true
+										},
+										{
+											"key": "tipoDocumento",
+											"value": null,
+											"description": "Tipo de documento aceptado para un vendedor.",
+											"disabled": true
+										},
+										{
+											"key": "numeroDocumento",
+											"value": null,
+											"description": "Numero de documento segun el tipo de documento.",
+											"disabled": true
+										},
+										{
+											"key": "estadoVenta",
+											"value": null,
+											"description": "Estado de la venta: Pendiente (1), Con contrato (2), Datos de cliente completo (3), Pago rechazado (4), Confirmada (5), Vencida (6), Reactivada (7)",
+											"disabled": true
+										},
+										{
+											"key": "dominio",
+											"value": null,
+											"description": "Numero de patente. Formato automovil o motocicleta.",
+											"disabled": true
+										},
+										{
+											"key": "fechaDesde",
+											"value": null,
+											"description": "Fecha desde.",
+											"disabled": true
+										},
+										{
+											"key": "fechaHasta",
+											"value": null,
+											"description": "Fecha hasta.",
+											"disabled": true
+										},
+										{
+											"key": "compania",
+											"value": null,
+											"description": "Identificador unico de compañia.",
+											"disabled": true
+										},
+										{
+											"key": "productoId",
+											"value": null,
+											"description": "Identificador unico de producto.",
+											"disabled": true
+										},
+										{
+											"key": "incluirVentasDuplicadas",
+											"value": null,
+											"description": "Valor de verdad.",
+											"disabled": true
+										},
+										{
+											"key": "pagina",
+											"value": "1",
+											"description": "Numero de pagina."
+										},
+										{
+											"key": "tamanioPagina",
+											"value": "10",
+											"description": "Cantidad de registros a mostrar por pagina."
+										}
+									]
+								},
+								"description": "Usuario permitido segun rol:---\n\nObtiene un listado de ventas mediante filtros por parametros.\n\nSi el usuario logueado es:\n\n1- Admin Productor: Se obtendra un listado de ventas, solo de vendedores en una estructura jerarquica inferior al usuario logueado. Todos aquellos que posean una relacion de 'hijo'.\n\n2- Productor: Se obtendra un listado de ventas, dadas de alta por usted mismo (el usuario logueado).\n\n3- Admin Comercial: Se obtendra un listado de ventas en general.\n\nNOTA: Las ventas que se muestran en los listados seran si son originarias del portal de productores."
+							},
+							"response": []
+						},
+						{
+							"name": "/ventas",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fechaDeVenta\": \"2025-10-14T17:23:55.346Z\",\r\n  \"productor\": 0,\r\n  \"producto\": 0,\r\n  \"canalDeVenta\": 0,\r\n  \"nivelVenta1\": 0,\r\n  \"nivelVenta2\": 0,\r\n  \"nivelVenta3\": 0,\r\n  \"nivelVenta4\": 0,\r\n  \"dominio\": \"string\",\r\n  \"marca\": 0,\r\n  \"modelo\": 0,\r\n  \"anioDeFabricacion\": 0,\r\n  \"color\": 0,\r\n  \"kilometraje\": 0,\r\n  \"nombreCliente\": \"string\",\r\n  \"apellidoCliente\": \"string\",\r\n  \"tipoDocumento\": 0,\r\n  \"numeroDocumento\": 0,\r\n  \"fechaNacimiento\": \"2025-10-14T17:23:55.346Z\",\r\n  \"localidad\": 0,\r\n  \"altura\": \"string\",\r\n  \"piso\": 0,\r\n  \"departamento\": \"string\",\r\n  \"domicilio\": \"string\",\r\n  \"codigoArea\": 0,\r\n  \"telefono\": 0,\r\n  \"telAlternativo\": 0,\r\n  \"email\": \"string\",\r\n  \"metodoEnvio\": 0,\r\n  \"codigoPostal\": 0,\r\n  \"seguroActual\": 0,\r\n  \"origenVenta\": 0,\r\n  \"razonSocial\": \"string\",\r\n  \"esEmpresa\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrlComercializacionIntegracion}}/ventas",
+									"host": [
+										"{{BaseUrlComercializacionIntegracion}}"
+									],
+									"path": [
+										"ventas"
+									]
+								},
+								"description": "Usuario permitido segun rol: --\n\nPosibilidad de generar nuevas ventas individuales. Al momento de dar de alta una venta se generara en estado \"PENDIENTE\" y utilizando el correo cargado se le enviara un email al cliente para que termine de completar los datos de facturacion.\n\nRecordar que luego de la emision del link hacia al cliente tiene un tiempo de expiracion de 48 horas. Transucrrido ese tiempo, la venta cambiara de estado a \"VENCIDA\" y no se podra accionar mas con ella."
+							},
+							"response": [
+								{
+									"name": "/ventas",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"fechaDeVenta\": \"2025-10-17T03:00:00.000Z\",\r\n    \"producto\": 3489,\r\n    \"dominio\": \"324DDT\",\r\n    \"marca\": 50,\r\n    \"modelo\": 2151,\r\n    \"anioDeFabricacion\": 2001,\r\n    \"color\": 6,\r\n    \"nombreCliente\": \"Prueba\",\r\n    \"apellidoCliente\": \"Galicia\",\r\n    \"tipoDocumento\": 96,\r\n    \"numeroDocumento\": \"45658965\",\r\n    \"fechaNacimiento\": \"2001-12-16T03:00:00.000Z\",\r\n    \"localidad\": 16923,\r\n    \"altura\": \"5246\",\r\n    \"piso\": 0,\r\n    \"departamento\": \"\",\r\n    \"domicilio\": \"659\",\r\n    \"codigoArea\": \"3564\",\r\n    \"telefono\": \"654512\",\r\n    \"email\": \"nicolas.comba@santexgroup.com\",\r\n    \"codigoPostal\": \"2400\",\r\n    \"numeroTarjeta\": \"5986545859658965\",\r\n    \"medioPago\": 1,\r\n    \"seguroActual\": 12,\r\n    \"nombreFacturacion\": \"Prueba\",\r\n    \"apellidoFacturacion\": \"Galicia\",\r\n    \"tipoDocumentoFacturacion\": 96,\r\n    \"numeroDocumentoFacturacion\": \"45658965\",\r\n    \"localidadFacturacion\": 16923,\r\n    \"direccionFacturacion\": \"659\",\r\n    \"numeroFacturacion\": \"5246\",\r\n    \"departamentoFacturacion\": \"\",\r\n    \"pisoFacturacion\": null,\r\n    \"emailFacturacion\": \"nicolas.comba@santexgroup.com\",\r\n    \"postalCodeFacturacion\": \"2400\",\r\n    \"medioPagoFacturacion\": 1,\r\n    \"condicionIvaFacturacion\": 5,\r\n    \"tipoMedioPagoFacturacion\": 1,\r\n    \"fechaNacimientoFacturacion\": \"2001-12-16T03:00:00.000Z\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseUrlComercializacionIntegracion}}/ventas",
+											"host": [
+												"{{BaseUrlComercializacionIntegracion}}"
+											],
+											"path": [
+												"ventas"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": "{\n    \"id\": \"499350814-bd5259c5-0dc9-48fe-b0ec-b67319a14a2a\",\n    \"link\": \"https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=499350814-bd5259c5-0dc9-48fe-b0ec-b67319a14a2a\"\n}"
+								}
+							]
+						}
+					],
+					"description": "Seccion central y estrategica dentro del portal de productores diseñado para la gestion y el registro de la comercializacion de asistencias."
+				}
+			],
+			"description": "Api Integracion:\n\nURL QA: [https://comercializacionb2c-api-qa.redsos.com.ar/](https://comercializacionb2c-api-qa.redsos.com.ar/)\n\nURL PRE: [https://comercializacionb2c-api-pre.redsos.com.ar/](https://comercializacionb2c-api-qa.redsos.com.ar/)\n\nNo se requiere autenticacion para trabajar con esta API.",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "bearerToken",
+			"value": ""
+		},
+		{
+			"key": "urlRefererGaliciaMotosQA",
+			"value": ""
+		},
+		{
+			"key": "urlRefererPortalProductoresQA",
+			"value": ""
+		}
+	]
+}
