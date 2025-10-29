@@ -5203,8 +5203,34 @@
 				"disableBodyPruning": true
 			},
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "ip",
+							"value": "190.114.197.5",
+							"type": "text",
+							"uuid": "c03cce5c-6e5d-47d2-9d8c-b07f2c48686a"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://asistencia.frsfco.utn.edu.ar:4443/verificar_ip.php",
+					"protocol": "https",
+					"host": [
+						"asistencia",
+						"frsfco",
+						"utn",
+						"edu",
+						"ar"
+					],
+					"port": "4443",
+					"path": [
+						"verificar_ip.php"
+					]
+				}
 			},
 			"response": []
 		},
