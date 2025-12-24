@@ -3796,7 +3796,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/azure-devops/agenciap/teams",
+					"raw": "http://localhost:8080/azure-devops/:proyecto/teams",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -3804,8 +3804,14 @@
 					"port": "8080",
 					"path": [
 						"azure-devops",
-						"agenciap",
+						":proyecto",
 						"teams"
+					],
+					"variable": [
+						{
+							"key": "proyecto",
+							"value": "KineGestorDoc"
+						}
 					]
 				}
 			},
