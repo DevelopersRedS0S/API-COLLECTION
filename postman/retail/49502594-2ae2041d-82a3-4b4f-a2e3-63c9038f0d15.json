@@ -3875,7 +3875,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/azure-devops/agenciap/teams",
+					"raw": "http://localhost:8080/azure-devops/:proyecto/:team/tableros/:board/columnas",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -3883,8 +3883,76 @@
 					"port": "8080",
 					"path": [
 						"azure-devops",
-						"agenciap",
-						"teams"
+						":proyecto",
+						":team",
+						"tableros",
+						":board",
+						"columnas"
+					],
+					"variable": [
+						{
+							"key": "proyecto",
+							"value": ""
+						},
+						{
+							"key": "team",
+							"value": ""
+						},
+						{
+							"key": "board",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/azure-devops/agenciap/teams Copy 2",
+			"id": "49502594-d50a33c6-6c8c-4f55-9bd8-b06d83c2b169",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/azure-devops/:proyecto/:team/tableros/:board/columnas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"azure-devops",
+						":proyecto",
+						":team",
+						"tableros",
+						":board",
+						"columnas"
+					],
+					"variable": [
+						{
+							"id": "58ef308c-868d-419a-bcb7-99cfbe38cdfc",
+							"key": "proyecto",
+							"value": ""
+						},
+						{
+							"id": "37691b66-bd32-4128-8f4a-c1a522784425",
+							"key": "team",
+							"value": ""
+						},
+						{
+							"id": "a13e2304-cae0-4969-8f4b-9481a76a123c",
+							"key": "board",
+							"value": ""
+						}
 					]
 				}
 			},
