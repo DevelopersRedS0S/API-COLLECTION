@@ -3833,7 +3833,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/azure-devops/agenciap/teams",
+					"raw": "http://localhost:8080/azure-devops/:proyecto/:team/tableros",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -3841,8 +3841,19 @@
 					"port": "8080",
 					"path": [
 						"azure-devops",
-						"agenciap",
-						"teams"
+						":proyecto",
+						":team",
+						"tableros"
+					],
+					"variable": [
+						{
+							"key": "proyecto",
+							"value": ""
+						},
+						{
+							"key": "team",
+							"value": ""
+						}
 					]
 				}
 			},
