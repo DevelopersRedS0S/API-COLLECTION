@@ -3750,10 +3750,16 @@
 						"key": "Authorization",
 						"value": "",
 						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "",
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/azure-devops/agenciap/teams",
+					"raw": "http://localhost:8080/azure-devops/KineGestorDoc/teams",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -3761,7 +3767,7 @@
 					"port": "8080",
 					"path": [
 						"azure-devops",
-						"agenciap",
+						"KineGestorDoc",
 						"teams"
 					]
 				}
@@ -3776,7 +3782,20 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/auth/microsoft/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"microsoft",
+						"login"
+					]
+				}
 			},
 			"response": []
 		},
