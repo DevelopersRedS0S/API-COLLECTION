@@ -3738,43 +3738,6 @@
 			]
 		},
 		{
-			"name": "http://localhost:8080/azure-devops/agenciap/teams",
-			"id": "49502594-ca83378e-f6dc-4018-aa04-a2e233290a79",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "",
-						"type": "text"
-					},
-					{
-						"key": "Cookie",
-						"value": "",
-						"type": "text",
-						"disabled": true
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8080/azure-devops/KineGestorDoc/teams",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"azure-devops",
-						"KineGestorDoc",
-						"teams"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "New Request",
 			"id": "49502594-910f1f0e-a9ac-4248-917f-775fe9659ee7",
 			"protocolProfileBehavior": {
