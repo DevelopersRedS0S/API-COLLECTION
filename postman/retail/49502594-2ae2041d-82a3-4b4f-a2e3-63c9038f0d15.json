@@ -3779,6 +3779,99 @@
 				"header": []
 			},
 			"response": []
+		},
+		{
+			"name": "http://localhost:8080/azure-devops/agenciap/teams Copy",
+			"id": "49502594-5b5f82f7-c978-44bf-9ca4-0dafc337c5e9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/azure-devops/agenciap/teams",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"azure-devops",
+						"agenciap",
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/azure-devops/agenciap/teams Copy",
+			"id": "49502594-ec4e7001-cf87-4ac8-ab13-f78164058271",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/azure-devops/agenciap/teams",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"azure-devops",
+						"agenciap",
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/azure-devops/agenciap/teams Copy",
+			"id": "49502594-cec54e74-eae9-4987-9035-6b6fde8ca03f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/azure-devops/agenciap/teams",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"azure-devops",
+						"agenciap",
+						"teams"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
