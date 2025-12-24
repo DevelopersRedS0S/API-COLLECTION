@@ -3923,7 +3923,55 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/azure-devops/:proyecto/:team/tableros/:board/columnas",
+					"raw": "http://localhost:8080/azure-devops/:proyecto/:team/sprints/:sprint/tareas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"azure-devops",
+						":proyecto",
+						":team",
+						"sprints",
+						":sprint",
+						"tareas"
+					],
+					"variable": [
+						{
+							"key": "proyecto",
+							"value": ""
+						},
+						{
+							"key": "team",
+							"value": ""
+						},
+						{
+							"key": "sprint",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/azure-devops/agenciap/teams Copy 3",
+			"id": "49502594-09c94594-fb70-4b13-aa78-db1c53a5cdce",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/azure-devops/:proyecto/:team/tableros/sprints",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -3934,23 +3982,17 @@
 						":proyecto",
 						":team",
 						"tableros",
-						":board",
-						"columnas"
+						"sprints"
 					],
 					"variable": [
 						{
-							"id": "58ef308c-868d-419a-bcb7-99cfbe38cdfc",
+							"id": "7cab0af6-bcfb-4e80-ae08-de86c1e1f674",
 							"key": "proyecto",
 							"value": ""
 						},
 						{
-							"id": "37691b66-bd32-4128-8f4a-c1a522784425",
+							"id": "6ae76e40-9992-4a53-8da3-6bcb27a7dd69",
 							"key": "team",
-							"value": ""
-						},
-						{
-							"id": "a13e2304-cae0-4969-8f4b-9481a76a123c",
-							"key": "board",
 							"value": ""
 						}
 					]
