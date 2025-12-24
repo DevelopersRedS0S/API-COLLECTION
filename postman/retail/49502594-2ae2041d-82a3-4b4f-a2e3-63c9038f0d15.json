@@ -3736,6 +3736,37 @@
 					}
 				}
 			]
+		},
+		{
+			"name": "http://localhost:8080/azure-devops/agenciap/teams",
+			"id": "49502594-ca83378e-f6dc-4018-aa04-a2e233290a79",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/azure-devops/agenciap/teams",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"azure-devops",
+						"agenciap",
+						"teams"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
